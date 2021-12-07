@@ -50,22 +50,27 @@
       </nav>
       <main>
          <div style="word-wrap: break-word;">
-            <div style="float: left; width: 50%;">
+            <div style="float: left; width: 50%; height: 400px">
                <p>
-                  Description de la boutique : kqsnfkjhqdlkfnsmkldfnmjqsdlfjbqsjfqsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbds
+                  Description de la boutique : Crée en 2021, Maison MANOLO est un site en ligne dédiée à la vente de chaussures. Vous trouvez des articles réguliers, hauts de gammes et rares. 
                </p>
             </div>
-            <div style="float: right; width: 50%;">
-               <p>
-                 Image : jsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbds
-               </p>
+            <div style="float: right;padding-left: 50px;width: 50%; height: 400px;">
+               <p>Image :</p>
+               <p><img src="shoe/Best_seller1.jpg" width="80px" height="80px"></p>
+               <p><img src="shoe/BJ.jpg" width="100px" height="70px"></p>
+               <p><img src="shoe/sail.jpg" width="100px" height="70px"></p>
+               <p><img src="shoe/Best_seller4.jpg" width="100px" height="70px"></p>
+
             </div>
          </div>
          <div style="text-align:center">
             <p>
                IMAGE BEST SELLER :<br>
-               IMG<br>
-               IMG
+               <img src="shoe/Best_seller1.jpg" width="80px" height="80px">
+               <img src="shoe/BJ.jpg" width="100px" height="70px">
+               <img src="shoe/sail.jpg" width="100px" height="70px">
+               <img src="shoe/Best_seller4.jpg" width="100px" height="70px">
             </p>
          </div>
       </main>
