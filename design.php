@@ -1,30 +1,20 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>Maison Manolo</title>
-  </head>
-  <body>
-    <header>
-        <h1 style="text-align: center;"><img src="logo_maison_manolo.png" width="200px" height="120px"></h1>
-    </header>
-    
-    <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Maison Manolo</title>
+   </head>
+   <body>
+      <header>
+         <h1 style="text-align: center;"><img src="logo_maison_manolo.png" width="200px" height="120px"></h1>
+      </header>
+      <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand col-sm-2" style="width:200px" href="#">Maison Manolo</a>
-        
-         <!-- Toggler/collapsibe Button -->
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
-
-         <!-- Navbar links -->
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav col-sm-2" style="width:200px">
                <li class="nav-item">
@@ -52,18 +42,10 @@
                </li>
             </ul>
          </div>
-     </div>
+      </div>
       </nav>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<p>.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>.</p>    
- <!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2021 Maison Manolo, Tous droits réservés
-  </div>
-</footer>
     </body>
 </html>
