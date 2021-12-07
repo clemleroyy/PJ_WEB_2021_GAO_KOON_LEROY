@@ -12,10 +12,10 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    <header>
          <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
-      </header>
-      <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand col-sm-2" style="margin-left: 20px; width:180px" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
+   </header>
+   <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+      <div class="container-fluid">
+         <a class="navbar-brand col-sm-2" style="margin-left: 20px; width:180px" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
@@ -48,10 +48,27 @@
          </div>
       </div>
       </nav>
-   <br><br><br><br><br><br><br><br><br><br><br><br>
-   <br><br><br><br><br><br><br><br><br><br><br><br>
-   <br><br><br><br><br><br><br><br><br><br><br><br>
-   <br><br><br><br><br><br><br><br><br><br><br><br>
+      <main>
+         <div style="word-wrap: break-word;">
+            <div style="float: left; width: 50%;">
+               <p>
+                  Description de la boutique : kqsnfkjhqdlkfnsmkldfnmjqsdlfjbqsjfqsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbds
+               </p>
+            </div>
+            <div style="float: right; width: 50%;">
+               <p>
+                 Image : jsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbdsjsqbflkjshdlkfjbslkdfjhqsljdfbds
+               </p>
+            </div>
+         </div>
+         <div style="text-align:center">
+            <p>
+               IMAGE BEST SELLER :<br>
+               IMG<br>
+               IMG
+            </p>
+         </div>
+      </main>
    <?php include ('footer.php') ?>
 </body>
 </html>
