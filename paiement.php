@@ -2,9 +2,36 @@
 <html>
 <head>
 	<title>Paiement</title>
+
+<style type="text/css">
+
+      #header {
+
+         background-color: #aaaaaa;
+         color: white;
+         text-align: center;
+         padding: 5px;
+      }
+
+       #fond {
+
+         background-color: #eeeeee;
+         color: black;
+         text-align: right;
+         padding: 0px;
+      }
+     
+
+      }
+   </style>
+
 	<meta charset="utf-8">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
 <body>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -47,9 +74,18 @@
          </div>
       </div>
       </nav>
-	<h2>Paiement</h2>
-	<form action="paiement.php" method="post">
+
+
+
+
+      <div id="header">
+         <h2>Paiement</h2>
+      </div>
+      
+	
+	<form action="paiement1.php" method="post">
 		<table>
+
 
 		<tr>
 			<td>Montant à payer:</td>
@@ -57,13 +93,11 @@
 			</tr>
 		<tr>
 				<td>
-					<h3>
-					<li>Coordonnées de livraison : </li>
-					</h3>
+               <h3><li>Coordonnées de livraison : </li></h3>
 				</td>
 			</tr>
 	
-		<tr>
+		   <tr>
             <td>Nom et prénom:</td>
             <td><input type ="text" name="name"></td>
          </tr>
@@ -88,16 +122,21 @@
             <td><input type ="text" name="country"></td>
          </tr>
          <tr>
-            <td>Numero de telephone:</td>
+            <td>Numero de telephone:</td><br>
             <td><input type ="number" name="phone"></td>
          </tr>
+
+         </div>
 		<tr>
 				<td>
+               <div id="image">
 					<h3>
 					<li>Paiement : </li>
 					</h3>
+                  </div>
 				</td>
 		</tr>
+
 		<tr>
 				<td>Payer par:</td>
 				<td>
@@ -131,8 +170,8 @@
 					<input type="submit" name="button1" value="Soumettre">
 				</td>
 			</tr>
-			
 		</table>
+   </div>
 		
 	</form>
 	<footer>
