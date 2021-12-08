@@ -50,27 +50,50 @@
       </nav>
       <main>
          <div style="word-wrap: break-word;">
-            <div style="float: left; width: 50%; height: 400px">
+            <div style="float: left; width: 50%; height: 500px; text-align: center; padding-top: 100px;">
                <p>
-                  Description de la boutique : Crée en 2021, Maison MANOLO est un site en ligne dédiée à la vente de chaussures. Vous trouvez des articles réguliers, hauts de gammes et rares. 
+                  Maison MANOLO est un site de revente de chaussures rares & imitées<br>pour Homme et Femme :<br>Nos chaussures sont certifiées  neuves & authentiques. <br>
+                  Paiement en 1, 2, 3 ou 4 fois <br>
+                  Livraison & retour offerts en France <br>
+                  Noté 4,7/5 avec plus de 2000 avis Le site voit son nombre de ventes exploser depuis sa mise en ligne en décembre 2021. <br>
+                  XOXO Baby Girl
                </p>
             </div>
-            <div style="float: right;padding-left: 50px;width: 50%; height: 400px;">
-               <p>Image :</p>
-               <p><img src="shoe/Best_seller1.jpg" width="80px" height="80px"></p>
-               <p><img src="shoe/BJ.jpg" width="100px" height="70px"></p>
-               <p><img src="shoe/sail.jpg" width="100px" height="70px"></p>
-               <p><img src="shoe/Best_seller4.jpg" width="100px" height="70px"></p>
-
+            <div style="float: right;padding-left: 50px;width: 50%; height: 500px;">
+               <h4 style="text-align:center;">SELECTION DU JOUR</h4>
+               <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="200px" height="400px">
+                     </div>
+                     <div class="carousel-item">
+                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="200px" height="400px">
+                     </div>
+                     <div class="carousel-item">
+                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="200px" height="'400px">
+                     </div>
+                     <div class="carousel-item">
+                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Third slide" width="200px" height="400px">
+                     </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                  </a>
+               </div>
             </div>
          </div>
          <div style="text-align:center">
             <p>
-               IMAGE BEST SELLER :<br>
+               <h4>NOS BEST SELLER DU MOIS :<br></h4>
                <img src="shoe/Best_seller1.jpg" width="80px" height="80px">
                <img src="shoe/BJ.jpg" width="100px" height="70px">
                <img src="shoe/sail.jpg" width="100px" height="70px">
-               <img src="shoe/Best_seller4.jpg" width="100px" height="70px">
+               <img src="shoe/yeezyblack.jpg" width="100px" height="70px">
             </p>
          </div>
       </main>
