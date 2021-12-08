@@ -50,58 +50,98 @@
       </nav>
       <main>
          <div style="word-wrap: break-word;">
-            <div style="float: left; width: 50%; height: 400px">
+            <div style="float: left; width: 50%; height: 500px; text-align: center; padding-top: 100px;">
                <p>
-                  Description de la boutique : Crée en 2021, Maison MANOLO est un site en ligne dédiée à la vente de chaussures. Vous trouvez des articles réguliers, hauts de gammes et rares. 
+                  Maison MANOLO est un site de revente de chaussures rares & imitées pour Homme et Femme : Nos chaussures sont certifiées  neuves & authentiques. <br>
+                  Paiement en 1, 2, 3 ou 4 fois <br>
+                  Livraison & retour offerts en France <br>
+                  Noté 4,7/5 avec plus de 2000 avis Le site voit son nombre de ventes exploser depuis sa mise en ligne en décembre 2021. <br>
+                  XOXO
                </p>
             </div>
-            <div style="float: right;padding-left: 50px;width: 50%; height: 400px;">
+            <div style="float: right;padding-left: 50px;width: 50%; height: 500px;">
                <h4 style="text-align:center;">SELECTION DU JOUR</h4>
-               <div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
+               <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
                   <div class="carousel-inner">
                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="200px" height="325px">
-                        <div class="carousel-caption d-none d-md-block">
-                           <h5>Nom de la paire</h5>
-                           <p>Potentiel texte pour la paire</p>
-                        </div>
+                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="200px" height="400px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/Best_seller2.jpg" alt="Second slide" width="200px" height="325px">
-                        <div class="carousel-caption d-none d-md-block">
-                           <h5>Nom de la paire</h5>
-                           <p>Potentiel texte pour la paire</p>
-                        </div>
+                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="200px" height="400px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/Best_seller3.jpg" alt="Third slide" width="200px" height="325px">
-                        <div class="carousel-caption d-none d-md-block">
-                           <h5>Nom de la paire</h5>
-                           <p>Potentiel texte pour la paire</p>
-                        </div>
+                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="200px" height="'400px">
+                     </div>
+                     <div class="carousel-item">
+                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Third slide" width="200px" height="400px">
                      </div>
                   </div>
-                  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                      <span class="visually-hidden">Previous</span>
                   </a>
-                  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                  <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                   </a>
                </div>
             </div>
          </div>
-         <div style="text-align:center">
+         <div style="text-align:center; align-items: center;">
             <p>
                IMAGE BEST SELLER :<br>
-               <img src="shoe/Best_seller1.jpg" width="80px" height="80px">
-               <img src="shoe/BJ.jpg" width="100px" height="70px">
-               <img src="shoe/sail.jpg" width="100px" height="70px">
-               <img src="shoe/Best_seller4.jpg" width="100px" height="70px">
             </p>
+            <div id="carousel2" class="carousel carousel-dark slide" data-ride="carousel" style="width: 200px; text-align:center; align-items: center;">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="50px" height="100px">
+                  </div>
+                  <div class="carousel-item">
+                     <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="50px" height="100px">
+                  </div>
+                  <div class="carousel-item">
+                     <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="50px" height="100px">
+                  </div>
+                  <div class="carousel-item">
+                     <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Fourth slide" width="50px" height="100px">
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+               </a>
+            </div>
          </div>
       </main>
-   <?php include ('footer.php') ?>
+      <footer>
+         <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Contact</h5>
+        <p>TEXTE</p>
+        <p>A</p>
+        <p>REMPLIR</p>
+        <p>PLUS TARD</p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Plan</h5>
+
+        
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3518639498834!2d2.2850437156741417!3d48.85150037928685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6700497ee3ec5%3A0xdd60f514adcdb346!2s37%20Quai%20de%20Grenelle%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1638912673895!5m2!1sfr!2sfr" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <?php include ('footer.php') ?>
+      </footer>
+   
 </body>
 </html>

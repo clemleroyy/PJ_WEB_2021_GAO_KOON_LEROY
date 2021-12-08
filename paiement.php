@@ -1,68 +1,142 @@
-<?php 
-	$name = isset($_POST["name"])? $_POST["name"] : "";
-	$adress1 = isset($_POST["adress1"])? $_POST["adress1"] : "";
-	$adress2 = isset($_POST["adress2"])? $_POST["adress2"] : "";
-	$city = isset($_POST["city"])? $_POST["city"] : "";
-	$zipcode = isset($_POST["zipcode"])? $_POST["zipcode"] : "";
-	$country = isset($_POST["country"])? $_POST["country"] : "";
-	$phone = isset($_POST["phone"])? $_POST["phone"] : "";
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paiement</title>
+	<meta charset="utf-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <header>
+         <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
+   </header>
+   <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+      <div class="container-fluid">
+         <a class="navbar-brand col-sm-2" style="margin-left: 25px; width:180px" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav col-sm-2" style="width:200px">
+               <li class="nav-item">
+                  <a class="nav-link active" href="index.php">Accueil</a>
+               </li>
+            </ul>
+            <ul class="navbar-nav col-sm-2" style="width:200px; ">
+               <li class="nav-item">
+                  <a class="nav-link" href="parcourir.php">Tout parcourir</a>
+               </li>
+           </ul>
+           <ul class="navbar-nav col-sm-2" style="width:200px">
+               <li class="nav-item">
+                  <a class="nav-link" href="notification.php">Notification</a>
+               </li>
+            </ul>
+            <ul class="navbar-nav col-sm-2" style="width:200px">
+               <li class="nav-item">
+                  <a class="nav-link" href="panier.php">Panier</a>
+               </li>
+            </ul>
+            <ul class="navbar-nav col-sm-2" style="width:200px">
+               <li class="nav-item">
+                  <a class="nav-link" href="compte.php">Mon compte</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      </nav>
+	<h2>Paiement</h2>
+	<form action="paiement.php" method="post">
+		<table>
 
-	$erreur = "";
-
-	if ($name == "") {
-		$erreur .= "Le champ Nom est vide. <br>";
-	}
-	if ($adress1 == "") {
-		$erreur .= "Le champ Adresse Ligne 1 est vide. <br>";
-	}
-	if ($adress2 == "") {
-		$erreur .= "Le champ Adresse Ligne 2 est vide. <br>";
-	}
-	if ($city == "") {
-		$erreur .= "Le champ Ville est vide. <br>";
-	}
-	if ($zipcode == "") {
-		$erreur .= "Le champ Code Postal est vide. <br>";
-	}
-	if ($country == "") {
-		$erreur .= "Le champ Pays est vide. <br>";
-	}
-	if ($phone == "") {
-		$erreur .= "Le champ Numero de telephone est vide. <br><br>";
-	}
-	if ($erreur == "") {
-		echo "Bravo le formulaire est valide.";
-	}else {
-		echo "Il y a une erreur dans les coordonnées de livraison : <br><br>" .$erreur;
-	}
-
-	$cardnumber = isset($_POST["cardnumber"])? $_POST["cardnumber"] : "";
-	$namecard = isset($_POST["namecard"])? $_POST["namecard"] : "";
-	$dateE = isset($_POST["dateE"])? $_POST["dateE"] : "";
-	$security = isset($_POST["security"])? $_POST["security"] : "";
+		<tr>
+			<td>Montant à payer:</td>
+			<td><input type="number" step="0.01" name="amount"></td>
+			</tr>
+		<tr>
+				<td>
+					<h3>
+					<li>Coordonnées de livraison : </li>
+					</h3>
+				</td>
+			</tr>
 	
+		<tr>
+            <td>Nom et prénom:</td>
+            <td><input type ="text" name="name"></td>
+         </tr>
+         <tr>
+            <td>Adresse Ligne 1:</td>
+            <td><input type ="text" name="adress1"></td>
+         </tr>
+         <tr>
+            <td>Adresse Ligne 2:</td>
+            <td><input type ="text" name="adress2"></td>
+         </tr>
+         <tr>
+            <td>Ville:</td>
+            <td><input type ="text" name="city"></td>
+         </tr>
+         <tr>
+            <td>Code postal:</td>
+            <td><input type ="number" name="zipcode"></td>
+         </tr>
+         <tr>
+            <td>Pays:</td>
+            <td><input type ="text" name="country"></td>
+         </tr>
+         <tr>
+            <td>Numero de telephone:</td>
+            <td><input type ="number" name="phone"></td>
+         </tr>
+		<tr>
+				<td>
+					<h3>
+					<li>Paiement : </li>
+					</h3>
+				</td>
+		</tr>
+		<tr>
+				<td>Payer par:</td>
+				<td>
+					<input type="radio" name="creditCard" value="MasterCard">MasterCard<br>
+					<input type="radio" name="creditCard" value="Visa">Visa<br>
+					<input type="radio" name="creditCard" value="Amex">American Express<br>
+					<input type="radio" name="creditCard" value="Paypal">Paypal<br>
+				</td>
+			</tr>
+         <tr>
+            <td>Numero de carte:</td>
+            <td><input type ="number" name="cardnumber"></td>
+         </tr>
+         <tr>
+            <td>Nom affiché sur la carte:</td>
+            <td><input type ="text" name="namecard"></td>
+         </tr>
+         
+         <tr>
+            <td>Date d'expiration:</td>
+            <td><input type ="date" name="dateE"></td>
+         </tr>
 
-	$erreur2 = "";
+         <tr>
+            <td>Code de sécurité:</td>
+            <td><input type ="number" name="security"></td>
+         </tr>
 
-	if ($cardnumber == "") {
-		$erreur2 .= "Le champ Numéro de carte est vide. <br>";
-	}
-	if ($namecard == "") {
-		$erreur2 .= "Le champ Nom affiché sur la carte est vide. <br>";
-	}
-	if ($dateE == "") {
-		$erreur2 .= "Le champ Date d'expiration est vide. <br>";
-	}
-	if ($security == "") {
-		$erreur2 .= "Le champ Code de sécurité est vide. <br>";
-	}
-	
-	if (($erreur == "")&($erreur2 == "")) {
-		echo "";
-	}else {
-		echo "Il y a une erreur dans le paiement, vérifiez les informations saisies <br><br>" .$erreur2;
-	}
-
-
-
- ?>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="button1" value="Soumettre">
+				</td>
+			</tr>
+			
+		</table>
+		
+	</form>
+	<footer>
+		<?php include ('footer.php') ?>
+	</footer>
+</body>
+</html>
