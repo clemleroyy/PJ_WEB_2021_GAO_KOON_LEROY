@@ -17,54 +17,53 @@
    <header>
          <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
    </header>
-   <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+   <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
       <div class="container-fluid">
-         <a class="navbar-brand col-sm-2" style="margin-left: 25px; width:180px" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
+         <a class="navbar-brand col-sm-2" style="margin-left: 25px;" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link active" href="index.php">Accueil</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px; ">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="parcourir.php">Tout parcourir</a>
                </li>
            </ul>
-           <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+           <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="notification.php">Notification</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="panier.php">Panier</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="compte.php">Mon compte</a>
                </li>
             </ul>
          </div>
       </div>
-   </nav>
+      </nav>
    <main>
-
+      <div class="row">
 <br>
-<h1><strong>Ajout d'un objet</strong></h1>
+<div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
+<h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
 <br>
-<form>
-
-                   
+<form>                
          
    <fieldset class="form-group">
     <div class="row" style="padding-left: 10px">
       <legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
-      <div class="col-sm-10">
+      <div class="col-sm-10" style="padding-left: 75px;">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="Categorie" id="gridRadios1" value="Regulier">
           <label class="form-check-label" for="gridRadios1">
@@ -89,8 +88,8 @@
   <br>
   
   <div class="form-group row" style="padding-left: 10px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Nom de l'objet</label>
-    <div class="col-2">
+    <label for="inputEmail3" class="col-3 col-form-label">Nom de l'objet</label>
+    <div class="col-4">
       <input type="text" class="form-control" id="inputEmail3" placeholder="Nom de l'objet" required>
     </div>
   </div>
@@ -100,7 +99,7 @@
   <fieldset class="form-group">
     <div class="row" style="padding-left: 10px">
       <legend class="col-form-label col-sm-2 pt-0">Mode de vente</legend>
-      <div class="col-sm-10">
+      <div class="col-sm-10" style="padding-left: 75px;">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios1" value="Immediat">
           <label class="form-check-label" for="gridRadios1">
@@ -125,16 +124,16 @@
   <br>
   
   <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Date fin d'enchère</label>
-    <div class="col-2">
+    <label for="inputPassword3" class="col-3 col-form-label">Date fin d'enchère</label>
+    <div class="col-4">
       <input type="date" class="form-control" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
 
   <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (1ère photo)</label>
-    <div class="col-2">
+    <label for="inputPassword3" class="col-3 col-form-label">Lien (1ère photo)</label>
+    <div class="col-4">
       <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
@@ -142,8 +141,8 @@
 
       </table>
   <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (2ème photo)</label>
-    <div class="col-2">
+    <label for="inputPassword3" class="col-3 col-form-label">Lien (2ème photo)</label>
+    <div class="col-4">
       <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
@@ -152,23 +151,25 @@
       
    </form>
   <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (vidéo)</label>
-    <div class="col-2">
+    <label for="inputPassword3" class="col-3 col-form-label">Lien (vidéo)</label>
+    <div class="col-4">
       <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
 
   <div class="form-group row" style="padding-left: 10px">
-    <div class="col-sm-10" style="padding-left: 15%">
+    <div class="col-sm-10" style="padding-left: 20%">
       <button type="submit" class="btn btn-primary">Ajouter</button>
     </div>
   </div>
 </form>
+</div>
 <br>
 <br>
 
-<h1><strong>Suppression d'un objet</strong></h1>
+<div class="col-sm-6 pt-2 " style="padding-left:100px">
+<h1 style="padding-left:7%"><strong>Suppression d'un objet</strong></h1>
 <br>
 <form>
    
@@ -176,24 +177,27 @@
   
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">ID de l'objet</label>
-    <div class="col-2">
+    <div class="col-4">
       <input type="number" class="form-control" id="inputEmail3" placeholder="ID de l'objet" required>
     </div>
   </div>
   <br>
   <div class="form-group row" style="padding-left: 10px">
-    <div class="col-sm-10" style="padding-left: 15%">
+    <div class="col-sm-10" style="padding-left: 20%">
       <button type="submit" class="btn btn-primary">Supprimer</button>
     </div>
   </div>
   
 </form>
+</div>
 <br>
 <br>
-
+   </div>
    </main>
-   <footer>
-      <?php include ('footer.php') ?>
+   <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
+         © 2021 Maison Manolo, Tous droits réservés
+      </div>
    </footer>
 </body>
 </html>
