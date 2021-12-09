@@ -90,11 +90,30 @@
          <div style="text-align:center; padding-top: 400px;">
             <p>
                <h4>NOS BEST SELLER DU MOIS :<br></h4>
-               <img src="shoe/Best_seller1.jpg" width="80px" height="80px">
-               <img src="shoe/BJ.jpg" width="100px" height="70px">
-               <img src="shoe/sail.jpg" width="100px" height="70px">
-               <img src="shoe/yeezyblack.jpg" width="100px" height="70px">
             </p>
+            <div class="card-group">
+               <div class="card">
+                  <img class="card-img-top" src="shoe/sail.jpg" alt="Card image cap">
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+               </div>
+               <div class="card">
+                  <img class="card-img-top" src="shoe/sail.jpg" alt="Card image cap">
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                  </div>
+               </div>
+               <div class="card">
+                  <img class="card-img-top" src="shoe/sail.jpg" alt="Card image cap">
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                  </div>
+               </div>
+            </div>
          </div>
       </main>
       <footer>
