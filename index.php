@@ -64,16 +64,16 @@
                <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
                   <div class="carousel-inner">
                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="200px" height="400px">
+                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="200px" height="400px">
+                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="200px" height="'400px">
+                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Third slide" width="200px" height="400px">
+                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Fourth slide">
                      </div>
                   </div>
                   <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
