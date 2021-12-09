@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
    <meta charset="utf-8">
@@ -7,6 +8,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Gérer les objets</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <link rel="stylesheet" href="FormulairesObjet.css"/>
 </head>
 <body>
 
@@ -51,153 +53,136 @@
             </ul>
          </div>
       </div>
-      </nav>
-   <main>
+    </nav>
+    <main>
       <div class="row">
-<br>
-<div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
-<h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
-<br>
-<form>                
-         
-   <fieldset class="form-group">
-    <div class="row" style="padding-left: 10px">
-      <legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
-      <div class="col-sm-10" style="padding-left: 75px;">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="Categorie" id="gridRadios1" value="Regulier">
-          <label class="form-check-label" for="gridRadios1">
-            Régulier
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="Categorie" id="gridRadios2" value="Rare">
-          <label class="form-check-label" for="gridRadios2">
-            Rare
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="HautDeGamme">
-          <label class="form-check-label" for="gridRadios3">
-            Haut de gamme
-          </label>
-        </div>
+        <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
+          <h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
+          <br>
+          <form>                
+            <fieldset class="form-group">
+              <div class="row" style="padding-left: 10px">
+                <legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
+                  <div class="col-sm-10" style="padding-left: 75px;">
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Categorie" id="gridRadios1" value="Regulier">
+                    <label class="form-check-label" for="gridRadios1">
+                      Régulier
+                    </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Categorie" id="gridRadios2" value="Rare">
+                      <label class="form-check-label" for="gridRadios2">
+                        Rare
+                      </label>
+                    </div>
+                    <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="HautDeGamme">
+                    <label class="form-check-label" for="gridRadios3">
+                      Haut de gamme
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <br>
+  
+            <div class="form-group row" style="padding-left: 10px">
+              <label for="inputEmail3" class="col-3 col-form-label">Nom de l'objet</label>
+              <div class="col-4">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Nom de l'objet" required>
+              </div>
+            </div>
+            <br>
+            <fieldset class="form-group">
+              <div class="row" style="padding-left: 10px">
+                <legend class="col-form-label col-sm-2 pt-0">Mode de vente</legend>
+                <div class="col-sm-10" style="padding-left: 75px;">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios1" value="Immediat">
+                    <label class="form-check-label" for="gridRadios1">
+                      Immédiat
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios2" value="MeilleureOffre">
+                    <label class="form-check-label" for="gridRadios2">
+                      Par meilleure offre
+                    </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios3" value="Negociation">
+                    <label class="form-check-label" for="gridRadios3">
+                      Par négociation
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <br>
+            <div class="form-group row" style="padding-left: 10px">
+              <label for="inputPassword3" class="col-3 col-form-label">Date fin d'enchère</label>
+              <div class="col-4">
+                <input type="date" class="form-control" id="inputPassword3" placeholder="Lien" required>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row" style="padding-left: 10px">
+              <label for="inputPassword3" class="col-3 col-form-label">Lien (1ère photo)</label>
+              <div class="col-4">
+                <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row" style="padding-left: 10px">
+              <label for="inputPassword3" class="col-3 col-form-label">Lien (2ème photo)</label>
+              <div class="col-4">
+                <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+              </div>
+            </div>
+            <br>
+          </form>
+          <div class="form-group row" style="padding-left: 10px">
+            <label for="inputPassword3" class="col-3 col-form-label">Lien (vidéo)</label>
+            <div class="col-4">
+              <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+            </div>
+          </div>
+          <br>
+          <div class="form-group row" style="padding-left: 10px">
+            <div class="col-sm-10" style="padding-left: 20%">
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-  </fieldset>
-  <br>
-  
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputEmail3" class="col-3 col-form-label">Nom de l'objet</label>
-    <div class="col-4">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Nom de l'objet" required>
-    </div>
-  </div>
-  <br>
-
-  
-  <fieldset class="form-group">
-    <div class="row" style="padding-left: 10px">
-      <legend class="col-form-label col-sm-2 pt-0">Mode de vente</legend>
-      <div class="col-sm-10" style="padding-left: 75px;">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios1" value="Immediat">
-          <label class="form-check-label" for="gridRadios1">
-            Immédiat
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios2" value="MeilleureOffre">
-          <label class="form-check-label" for="gridRadios2">
-            Par meilleure offre
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios3" value="Negociation">
-          <label class="form-check-label" for="gridRadios3">
-            Par négociation
-          </label>
-        </div>
+      <br>
+      <br>
+      <div class="col-sm-6 pt-2 " style="padding-left:100px">
+        <h1 style="padding-left:7%"><strong>Suppression d'un objet</strong></h1>
+        <br>
+        <form>
+          <br>
+          <div class="form-group row" style="padding-left: 10px">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">ID de l'objet</label>
+            <div class="col-4">
+              <input type="number" class="form-control" id="inputEmail3" placeholder="ID de l'objet" required>
+            </div>
+          </div>
+          <br>
+          <div class="form-group row" style="padding-left: 10px">
+            <div class="col-sm-10" style="padding-left: 20%">
+              <button type="submit" class="btn btn-primary">Supprimer</button>
+            </div>
+          </div>
+        </form>
       </div>
+      <br>
+      <br>
     </div>
-  </fieldset>
-  <br>
-  
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-3 col-form-label">Date fin d'enchère</label>
-    <div class="col-4">
-      <input type="date" class="form-control" id="inputPassword3" placeholder="Lien" required>
-    </div>
-  </div>
-  <br>
-
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-3 col-form-label">Lien (1ère photo)</label>
-    <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
-    </div>
-  </div>
-  <br>
-
-      </table>
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-3 col-form-label">Lien (2ème photo)</label>
-    <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
-    </div>
-  </div>
-  <br>
-
-      
-   </form>
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-3 col-form-label">Lien (vidéo)</label>
-    <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
-    </div>
-  </div>
-  <br>
-
-  <div class="form-group row" style="padding-left: 10px">
-    <div class="col-sm-10" style="padding-left: 20%">
-      <button type="submit" class="btn btn-primary">Ajouter</button>
-    </div>
-  </div>
-</form>
-</div>
-<br>
-<br>
-
-<div class="col-sm-6 pt-2 " style="padding-left:100px">
-<h1 style="padding-left:7%"><strong>Suppression d'un objet</strong></h1>
-<br>
-<form>
-   
-  <br>
-  
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">ID de l'objet</label>
-    <div class="col-4">
-      <input type="number" class="form-control" id="inputEmail3" placeholder="ID de l'objet" required>
-    </div>
-  </div>
-  <br>
-  <div class="form-group row" style="padding-left: 10px">
-    <div class="col-sm-10" style="padding-left: 20%">
-      <button type="submit" class="btn btn-primary">Supprimer</button>
-    </div>
-  </div>
-  
-</form>
-</div>
-<br>
-<br>
-   </div>
-   </main>
-   <footer class="bg-light text-center text-lg-start">
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
-         © 2021 Maison Manolo, Tous droits réservés
-      </div>
-   </footer>
+  </main>
+  <footer>
+    <?php include ('footer.php') ?>
+  </footer>
 </body>
 </html>
