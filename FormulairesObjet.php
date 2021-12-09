@@ -1,12 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
    <meta charset="utf-8">
+   <title>Formulaire</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=JtPqHA_wsxdjbfhgTaHABQ8pPh2_z3FAyoFcgQnTRqt-k1ImmA_iYGUBt0k7VQY8_NNmFonbEsDaViW-msOxBznHzGFBKBZ6ODAVvNENfb0vPxIqC9reoiFvmq3p1cHgBRTIUbE_qvjbySgut1nNwg" charset="UTF-8"></script></head>
+
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Gérer les objets</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
+         
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -54,7 +58,9 @@
 <h1><strong>Ajout d'un objet</strong></h1>
 <br>
 <form>
-   
+
+                   
+         
    <fieldset class="form-group">
     <div class="row" style="padding-left: 10px">
       <legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
@@ -134,6 +140,7 @@
   </div>
   <br>
 
+      </table>
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (2ème photo)</label>
     <div class="col-2">
@@ -142,14 +149,8 @@
   </div>
   <br>
 
-  <div class="form-group row" style="padding-left: 10px">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (3ème photo)</label>
-    <div class="col-2">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
-    </div>
-  </div>
-  <br>
-
+      
+   </form>
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Lien (vidéo)</label>
     <div class="col-2">
@@ -195,3 +196,4 @@
       <?php include ('footer.php') ?>
    </footer>
 </body>
+</html>
