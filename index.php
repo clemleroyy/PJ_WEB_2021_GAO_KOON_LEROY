@@ -21,27 +21,27 @@
          </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-               <li class="nav-item">
+               <li class="nav-item px-5">
                   <a class="nav-link active" href="index.php">Accueil</a>
                </li>
             </ul>
             <ul class="navbar-nav">
-               <li class="nav-item">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="parcourir.php">Tout parcourir</a>
                </li>
            </ul>
            <ul class="navbar-nav">
-               <li class="nav-item">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="notification.php">Notification</a>
                </li>
             </ul>
             <ul class="navbar-nav">
-               <li class="nav-item">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="panier.php">Panier</a>
                </li>
             </ul>
             <ul class="navbar-nav">
-               <li class="nav-item">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="compte.php">Mon compte</a>
                </li>
             </ul>
@@ -50,7 +50,7 @@
       </nav>
       <main>
          <div style="word-wrap: break-word;">
-            <div style="float: left; width: 50%; height: 500px; text-align: center; padding-top: 100px;">
+            <div style="float: left; width: 50%; text-align: center; padding-top: 100px;">
                <p>
                   Maison MANOLO est un site de revente de chaussures rares & imitées<br>pour Homme et Femme :<br>Nos chaussures sont certifiées  neuves & authentiques. <br>
                   Paiement en 1, 2, 3 ou 4 fois <br>
@@ -59,7 +59,7 @@
                   XOXO Baby Girl
                </p>
             </div>
-            <div style="float: right;padding-left: 50px;width: 50%; height: 500px;">
+            <div style="float: right;padding-left: 50px;width: 50%;">
                <h4 style="text-align:center;">SELECTION DU JOUR</h4>
                <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
                   <div class="carousel-inner">
