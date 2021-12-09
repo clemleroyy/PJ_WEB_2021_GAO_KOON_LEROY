@@ -13,7 +13,7 @@
    <header>
          <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
    </header>
-   <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+   <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
       <div class="container-fluid row">
          <a class="navbar-brand col-sm-2" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -97,6 +97,8 @@
             </p>
          </div>
       </main>
-   <?php include ('footer.php') ?>
+      <footer>
+         <?php include ('footer.php') ?>
+      </footer>
 </body>
 </html>
