@@ -15,32 +15,32 @@
    </header>
    <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
       <div class="container-fluid">
-         <a class="navbar-brand" style="margin-left: 10px;" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
+         <a class="navbar-brand col-sm-2" style="margin-left: 25px;" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
                   <a class="nav-link active" href="index.php">Accueil</a>
                </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
                   <a class="nav-link" href="parcourir.php">Tout parcourir</a>
                </li>
            </ul>
-           <ul class="navbar-nav">
+           <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
                   <a class="nav-link" href="notification.php">Notification</a>
                </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
                   <a class="nav-link" href="panier.php">Panier</a>
                </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
                   <a class="nav-link" href="compte.php">Mon compte</a>
                </li>
@@ -59,21 +59,21 @@
                   XOXO Baby Girl
                </p>
             </div>
-            <div style="float: right;padding-left: 50px;width: 50%;">
+            <div style="float: right;padding-right: 200px; height: 400px; padding-top: 40px;">
                <h4 style="text-align:center;">SELECTION DU JOUR</h4>
                <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
                   <div class="carousel-inner">
                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide">
+                        <a href="compte.php"><img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="100px"height="250px"></a>
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="100px" height="250px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="100px" height="250px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Fourth slide">
+                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Fourth slide" width="100px" height="250px">
                      </div>
                   </div>
                   <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
@@ -87,7 +87,7 @@
                </div>
             </div>
          </div>
-         <div style="text-align:center">
+         <div style="text-align:center; padding-top: 400px;">
             <p>
                <h4>NOS BEST SELLER DU MOIS :<br></h4>
                <img src="shoe/Best_seller1.jpg" width="80px" height="80px">
