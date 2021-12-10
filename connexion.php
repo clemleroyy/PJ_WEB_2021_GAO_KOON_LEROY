@@ -1,13 +1,16 @@
+<?php
+   session_start()
+?>
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>A MODIFIER</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Connexion</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    <header>
@@ -48,10 +51,35 @@
          </div>
       </div>
       </nav>
-   <main>
-      <!-- Ecrivez dans ce bloc -->
-   </main>
-   <footer class="bg-light text-center text-lg-start">
-      <?php include ('footer.php') ?>
-   </footer>
+      <main>
+      	<div class="row">
+      		<div class="col-sm-6 pt-2" style="text-align: center">
+      			<h2>Connectez-vous</h2>
+      			<form>
+      				<select class="form-select" aria-label="select" id="choix">
+  							<option selected>Choisissez votre statut</option>
+  							<option value="1">Administrateur</option>
+  							<option value="2">Vendeur</option>
+  							<option value="3">Client</option>
+  						</select>
+  						<?php
+  						$choix = "choix";
+  							if ($choix==1) {
+  								echo 'test';
+  							}
+?>
+      			</form>
+      		</div>
+      		<div class="col-sm-6 pt-2" style="text-align: center">
+      			<h2>Inscrivez-vous</h2>
+      			<form>
+      				
+      			</form>
+      		</div>
+      	</div>
+      </main>
+      <footer class="bg-light text-center text-lg-start">
+      	<?php include ('footer.php') ?>	
+      </footer>
 </body>
+</html>
