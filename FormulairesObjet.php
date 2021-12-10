@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Gérer les objets</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <link rel="stylesheet" href="FormulairesObjet.css" />
 </head>
 <body>
 
@@ -58,7 +59,7 @@
 <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
 <h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
 <br>
-<form>                
+<form method="post" action="FormTraitObjet.php">                
          
    <fieldset class="form-group">
     <div class="row" style="padding-left: 10px">
@@ -90,7 +91,7 @@
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputEmail3" class="col-3 col-form-label">Nom de l'objet</label>
     <div class="col-4">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Nom de l'objet" required>
+      <input type="text" class="form-control" name="NomObjet" id="inputEmail3" placeholder="Nom de l'objet" required>
     </div>
   </div>
   <br>
@@ -126,7 +127,7 @@
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-3 col-form-label">Date fin d'enchère</label>
     <div class="col-4">
-      <input type="date" class="form-control" id="inputPassword3" placeholder="Lien" required>
+      <input type="date" class="form-control" name="DateFin" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
@@ -134,7 +135,7 @@
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-3 col-form-label">Lien (1ère photo)</label>
     <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+      <input type="url" class="form-control" name="LienP1" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
@@ -143,17 +144,23 @@
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-3 col-form-label">Lien (2ème photo)</label>
     <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+      <input type="url" class="form-control" name="LienP2" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
 
+  <div class="form-group row" style="padding-left: 10px">
+    <label for="inputPassword3" class="col-3 col-form-label">Lien (3ème photo)</label>
+    <div class="col-4">
+      <input type="url" class="form-control" name="LienP3" id="inputPassword3" placeholder="Lien" required>
+    </div>
+  </div>
       
-   </form>
+   <br>
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputPassword3" class="col-3 col-form-label">Lien (vidéo)</label>
     <div class="col-4">
-      <input type="url" class="form-control" id="inputPassword3" placeholder="Lien" required>
+      <input type="url" class="form-control" name="LienVideo" id="inputPassword3" placeholder="Lien" required>
     </div>
   </div>
   <br>
@@ -171,14 +178,14 @@
 <div class="col-sm-6 pt-2 " style="padding-left:100px">
 <h1 style="padding-left:7%"><strong>Suppression d'un objet</strong></h1>
 <br>
-<form>
+<form method="post" action="FormTraitObjet.php">
    
   <br>
   
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">ID de l'objet</label>
     <div class="col-4">
-      <input type="number" class="form-control" id="inputEmail3" placeholder="ID de l'objet" required>
+      <input type="number" class="form-control" name="ID_Objet" id="inputEmail3" placeholder="ID de l'objet" required>
     </div>
   </div>
   <br>
