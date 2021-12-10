@@ -56,18 +56,29 @@
       		<div class="col-sm-6 pt-2" style="text-align: center">
       			<h2>Connectez-vous</h2>
       			<form>
-      				<select class="form-select" aria-label="select" id="choix">
+      				<div class="form-group row" style="padding-left: 10px; margin: 10px;">
+              			<label for="mailco" class="col-3 col-form-label">Email</label>
+              			<div class="col-6">
+                			<input type="text" class="form-control" id="mailco" placeholder="Veuillez saisir votre mail" required>
+              			</div>
+            		</div>
+            		<div class="form-group row" style="padding-left: 10px; margin: 10px">
+              			<label for="mdp" class="col-3 col-form-label">Mot de passe</label>
+              			<div class="col-6">
+                			<input type="password" class="form-control" id="mdp" placeholder="Veuillez saisir votre mot de passe" required>
+              			</div>
+            		</div>
+      				<select class="form-select" aria-label="select" id="choix" style="margin: 10px">
   							<option selected>Choisissez votre statut</option>
   							<option value="1">Administrateur</option>
   							<option value="2">Vendeur</option>
   							<option value="3">Client</option>
   						</select>
-  						<?php
-  						$choix = "choix";
-  							if ($choix==1) {
-  								echo 'test';
-  							}
-?>
+  						<div class="form-group row" style="padding-left: 10px; margin: 10px">
+            			<div class="col-sm-10" style="padding-left: 20%">
+              				<button type="submit" class="btn btn-primary">Connexion</button>
+            			</div>
+          			</div>
       			</form>
       		</div>
       		<div class="col-sm-6 pt-2" style="text-align: center">
