@@ -1,23 +1,18 @@
 <?php
-$mail="";
-$mdp="";
-$erreurMail="";
-$erreurMdp="";
-$erreur=false;
+    $database = "projet_piscine";
+    $db_handle = mysqli_connect('localhost', 'root', '');
+    $db_found = mysqli_select_db($db_handle, $database);
+    if ($db_found) {
+        $sql = "INSERT INTO client (ID_client, ID_panier, Nom, Prenom, Mail, Mdp) VALUES('5', '1', 'nom', 'prenom', 'mail@mail', 'mdp')";
+        $result = mysqli_query($db_handle, $sql);
+        echo $sql;
 
-if(!empty($_POST["mailco"])){
-    $mail =$_POST["mailco"];
- }else{
-        $erreur=true;
-        $erreurMail="nom oublié";
-}
-if(!empty($_POST["mdp"])){
-    $mdp =$_POST["mdp"];
- }else{
-        $erreur=true;
-        $erreurMdp="prenom oublié";
-}
-
-if($erreur == true){
-    $erreur = "formulaire faux";
-}
+            /*if(mysqli_query($db_handle, $sql)){
+               echo "ok";
+            }
+            else{
+                echo "failed<br>";
+                echo $sql;
+            }*/
+    }
+?>

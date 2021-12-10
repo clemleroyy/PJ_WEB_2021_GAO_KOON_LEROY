@@ -12,7 +12,7 @@
 <body>
 	<?php
    // Set session variables (variables globales)
-   $_SESSION['co'] = 1;
+   $_SESSION['co'] = 0;
 
    ?>
 	<p>TEST</p>

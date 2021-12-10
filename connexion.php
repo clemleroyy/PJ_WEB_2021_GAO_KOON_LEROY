@@ -1,11 +1,36 @@
 <?php
    session_start();
+   if($_SESSION['connexion']==0){
+      $affForm = true;
+      $affAd = false;
+      $affVe = false;
+      $affCl = false;
+   }
+   elseif($_SESSION['connexion']==1){
+      $affForm = false;
+      $affAd = true;
+      $affVe = false;
+      $affCl = false;
+   }
+   elseif($_SESSION['connexion']==2){
+      $affForm = false;
+      $affAd = false;
+      $affVe = true;
+      $affCl = false;
+   }
+   elseif($_SESSION['connexion']==3){
+      $affForm = false;
+      $affAd = false;
+      $affVe = false;
+      $affCl = true;
+   }
 
    $database = "projet_piscine";
    $db_handle = mysqli_connect('localhost', 'root', '');
    $db_found = mysqli_select_db($db_handle, $database);
 
    $erreurMail = "";
+   $erreurMail2 = "";
    $erreurMdp = "";
    $success = "";
    $test = "";
@@ -14,8 +39,8 @@
    $prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
    $mail = isset($_POST["mailco"])? $_POST["mailco"] : "";
    $mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
-   $mail2 = isset($_POST["mailco"])? $_POST["mail2"] : "";
-   $mdp2 = isset($_POST["mdp"])? $_POST["mdp2"] : "";
+   $mail2 = isset($_POST["mail2"])? $_POST["mail2"] : "";
+   $mdp2 = isset($_POST["mdp2"])? $_POST["mdp2"] : "";
    $statut = isset($_POST["statut"])? $_POST["statut"] : "";
 
    if(isset($_POST["b1"])){
@@ -32,6 +57,13 @@
                $result = mysqli_query($db_handle, $sql);
                if(($user = mysqli_fetch_assoc($result))==0){
                   $erreurMdp = "Mot de passe incorrect";
+               }
+               else{
+                  $affForm = false;
+                  $affAd = true;
+                  $affVe = false;
+                  $affCl = false;
+                  $_SESSION['connexion']=1;
                }
             }
          }
@@ -50,6 +82,13 @@
                if(($user = mysqli_fetch_assoc($result))==0){
                   $erreurMdp = "Mot de passe incorrect";
                }
+               else{
+                  $affForm = false;
+                  $affAd = false;
+                  $affVe = true;
+                  $affCl = false;
+                  $_SESSION['connexion']=2; 
+               }
             }
          }
       }
@@ -67,6 +106,13 @@
                if(($user = mysqli_fetch_assoc($result))==0){
                   $erreurMdp = "Mot de passe incorrect";
                }
+               else{
+                  $affForm = false;
+                  $affAd = false;
+                  $affVe = false;
+                  $affCl = true;
+                  $_SESSION['connexion']=3;
+               }
             }
          }
       }
@@ -75,21 +121,28 @@
    if(isset($_POST["b2"])){
       $statut = "client";
       if ($db_found) {
-         $sql = "SELECT * FROM $statut WHERE Mail='$mail2'";
+         $sql = "SELECT * FROM client WHERE Mail = '$mail2'";
          $result = mysqli_query($db_handle, $sql);
          if(($user = mysqli_fetch_assoc($result))==0){
-            //$sql = "INSERT INTO client(Nom, Prénom, Mail, test) VALUES($nom, $prenom, $mail2, $mdp2)";
-            //$success = "Merci de vous être inscris" . $prenom;
-            $test = "oui";
+            $sql = "INSERT INTO client (Nom, Prenom, Mail, Mdp) VALUES('$nom', '$prenom', '$mail2', '$mdp2')";
+            $result = mysqli_query($db_handle, $sql);
+            echo " " . $sql;
+            $success = "Merci de vous être inscrit " . $prenom;
          }
          else{
-            $test = "non";
+            $erreurMail2 = "Ce mail est déjà lié à une adresse email";
          }
       }
    }
+
+   if(isset($_POST["b3"])){
+      $_SESSION['connexion']=0;
+      $affForm = true;
+      $affAd = false;
+      $affVe = false;
+      $affCl = false;
+   }
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -116,7 +169,7 @@
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
-                  <a class="nav-link active" href="index.php">Accueil</a>
+                  <a class="nav-link" href="index.php">Accueil</a>
                </li>
             </ul>
             <ul class="navbar-nav  col-sm-2">
@@ -136,13 +189,16 @@
             </ul>
             <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
-                  <a class="nav-link" href="compte.php">Mon compte</a>
+                  <a class="nav-link active" href="compte.php">Mon compte</a>
                </li>
             </ul>
          </div>
       </div>
       </nav>
       <main>
+      <?php
+         if($affForm){
+      ?>
       	<div class="row">
       		<div class="col-sm-6 pt-2" style="text-align: center">
       			<h2>Connectez-vous</h2>
@@ -176,8 +232,8 @@
       		</div>
       		<div class="col-sm-6 pt-2" style="text-align: center">
       			<h2>Inscrivez-vous</h2>
-               <span><?= $mail2 ?></span>
-      			<form method="POST" >
+               <span><?= $test ?></span>
+      			<form method="POST">
                   <div class="form-group row" style="padding-left: 10px; margin: 10px;  padding-top: 10px;">
                      <label for="mailco" class="col-3 col-form-label">Nom</label>
                      <div class="col-6">
@@ -194,7 +250,7 @@
               			<label for="mailco" class="col-3 col-form-label">Email</label>
               			<div class="col-6">
                 			<input type="email" class="form-control" name="mail2" placeholder="Veuillez saisir votre mail" required>
-                        <span style="color: red"><?= $erreurMail ?></span>
+                        <span style="color: red"><?= $erreurMail2 ?></span>
               			</div>
             		</div>
             		<div class="form-group row" style="padding-left: 10px; margin: 10px">
@@ -205,13 +261,25 @@
             		</div>
   						<div class="form-group row" style="padding-left: 10px; margin: 10px">
             			<div class="col-sm-10" style="padding-left: 20%">
-              				<button type="submit" class="btn btn-primary" name="b2">Inscription</button>
+              				<button type="submit" class="btn btn-primary" name="b2">Inscription</button><br>
                         <span style="color: red"><?= $success ?></span>
             			</div>
           			</div>
       			</form>
       		</div>
       	</div>
+         <?php
+         }
+         if($affCo){
+         ?>
+         <div>
+            <form method="POST">
+            <p><button type="submit" class="btn btn-primary" name="b3">Déconnexion</button></p>
+            </form>
+         </div>
+         <?php
+         }
+         ?>
       </main>
       <footer class="bg-light text-center text-lg-start">
       	<?php include ('footer.php') ?>	

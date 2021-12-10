@@ -9,9 +9,6 @@
    <title>Maison Manolo</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<?php
-  $_SESSION['connexion']=""; 
-?>
 <body>
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -48,14 +45,7 @@
             </ul>
             <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
-                  <?php
-                     if($_SESSION['co']==0){
-                        echo '<a class="nav-link" href="connexion.php">Mon compte</a>' . $_SESSION['co'];
-                     }
-                     elseif ($_SESSION['co']==1) {
-                        echo '<a class="nav-link" href="compteadmin.php">Mon compte</a>';
-                     }
-                  ?>
+                  <a class="nav-link" href="connexion.php">Mon compte</a>
                   <!--<a class="nav-link" href="compte.php">Mon compte</a>-->
                </li>
             </ul>
