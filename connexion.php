@@ -80,10 +80,10 @@
          if(($user = mysqli_fetch_assoc($result))==0){
             //$sql = "INSERT INTO client(Nom, Prénom, Mail, test) VALUES($nom, $prenom, $mail2, $mdp2)";
             //$success = "Merci de vous être inscris" . $prenom;
-            $test = $mail2;
+            $test = "oui";
          }
          else{
-            $erreurMail = "Il y a déjà un compte à cette adresse";
+            $test = "non";
          }
       }
    }
