@@ -28,11 +28,13 @@ $supp = mysqli_real_escape_string($db_handle,htmlspecialchars($_POST['ID_Objette
 }
 
 if(isset($_POST["Ajout"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
-$sql="INSERT INTO objet (ID_vendeur, ID_admin, Nom, Description, Prix, Rareté, Mode_achat, Vidéo, Photo_objet1, Photo_objet2, Photo_objet3, Fin_enchere) VALUES ('1', '1', '$NomObjet', '$Description', '$Prix', '$Categorie', '$ModeDeVente', '$LienVideo', '$LienP1', '$LienP2', '$LienP3', '$DateFin')";
+
+$sql="INSERT INTO objet (ID_vendeur, ID_admin, Nom, Description, Prix, Rarete, Mode_achat, Video, Photo_objet1, Photo_objet2, Photo_objet3, Fin_enchere) 
+  VALUES ('1', '1', '$NomObjet', '$Description', '$Prix', '$Categorie', '$ModeDeVente', '$LienVideo', '$LienP1', '$LienP2', '$LienP3', '$DateFin')";
 $result = mysqli_query($db_handle, $sql);
 
-echo $sql;
-
+//echo $sql;
+//$sql="SELECT ID_photo, Description FROM objet WHERE ModeDeVente = 'Indisponible";
 }
 }
 
