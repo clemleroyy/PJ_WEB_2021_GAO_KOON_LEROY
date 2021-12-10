@@ -1,3 +1,6 @@
+<?php
+   session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +45,7 @@
             </ul>
             <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
-                  <a class="nav-link" href="compte.php">Mon compte</a>
+                  <a class="nav-link" href="connexion.php">Mon compte</a>
                </li>
             </ul>
          </div>
@@ -64,16 +67,16 @@
                <div id="carousel1" class="carousel carousel-dark slide" data-ride="carousel">
                   <div class="carousel-inner">
                      <div class="carousel-item active">
-                        <a href="compte.php"><img class="d-block w-100" src="shoe/Best_seller1.jpg" alt="First slide" width="100px"height="250px"></a>
+                        <a href="compte.php"><img class="d-block w-100" src="poisson.jpg" alt="First slide" width="100px"height="250px"></a>
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/BJ.jpg" alt="Second slide" width="100px" height="250px">
+                        <img class="d-block w-100" src="BJ.jpg" alt="Second slide" width="100px" height="250px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/sail.jpg" alt="Third slide" width="100px" height="250px">
+                        <img class="d-block w-100" src="sail.jpg" alt="Third slide" width="100px" height="250px">
                      </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="shoe/yeezyblack.jpg" alt="Fourth slide" width="100px" height="250px">
+                        <img class="d-block w-100" src="yeezyblack.jpg" alt="Fourth slide" width="100px" height="250px">
                      </div>
                   </div>
                   <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
@@ -94,7 +97,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                <div class="col">
                   <div class="card mb-3">
-                     <img src="shoe/BJ.jpg" class="card-img-top" alt="BJ">
+                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -103,7 +106,7 @@
                </div>
                <div class="col">
                   <div class="card mb-3">
-                     <img src="shoe/BJ.jpg" class="card-img-top" alt="BJ">
+                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -112,7 +115,7 @@
                </div>
                <div class="col">
                   <div class="card mb-3">
-                     <img src="shoe/BJ.jpg" class="card-img-top" alt="BJ">
+                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
@@ -122,7 +125,23 @@
             </div>
          </div>
       </main>
-      <footer>
+      <footer  class="bg-light text-center text-lg-start">
+         <div class="container p-4">
+            <div class="row">
+               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Contact</h5>
+                  <br>
+                  <p>37 quai de Grenelle</p>
+                  <p>75015 Paris</p>
+                  <p>(+33) 01 23 45 67 89</p>
+                  <p><a class="btn btn-primary btn-sm" href="mailto:maison.manolo@gmail.com">Envoyez-nous un mail</a></p>
+               </div>
+               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Plan</h5>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3518639498834!2d2.2850437156741417!3d48.85150037928685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6700497ee3ec5%3A0xdd60f514adcdb346!2s37%20Quai%20de%20Grenelle%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1638912673895!5m2!1sfr!2sfr" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>
+            </div>
+         </div>
          <?php include ('footer.php') ?>
       </footer>
 </body>

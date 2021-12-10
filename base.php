@@ -13,45 +13,45 @@
    <header>
          <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
    </header>
-   <nav class="navbar navbar-expand-sm sticky-top bg-light navbar-light">
+   <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
       <div class="container-fluid">
-         <a class="navbar-brand col-sm-2" style="margin-left: 25px; width:180px" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
+         <a class="navbar-brand col-sm-2" style="margin-left: 25px;" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link active" href="index.php">Accueil</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px; ">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="parcourir.php">Tout parcourir</a>
                </li>
            </ul>
-           <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+           <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="notification.php">Notification</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="panier.php">Panier</a>
                </li>
             </ul>
-            <ul class="navbar-nav col-sm-2" style="width:200px">
-               <li class="nav-item">
+            <ul class="navbar-nav  col-sm-2">
+               <li class="nav-item px-5">
                   <a class="nav-link" href="compte.php">Mon compte</a>
                </li>
             </ul>
          </div>
       </div>
-   </nav>
+      </nav>
    <main>
       <!-- Ecrivez dans ce bloc -->
    </main>
-   <footer>
+   <footer class="bg-light text-center text-lg-start">
       <?php include ('footer.php') ?>
    </footer>
 </body>
