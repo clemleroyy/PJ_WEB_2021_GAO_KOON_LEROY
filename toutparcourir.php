@@ -35,12 +35,12 @@
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav col-sm-2" style="width:200px">
                <li class="nav-item">
-                  <a class="nav-link active" href="index.php">Accueil</a>
+                  <a class="nav-link" href="index.php">Accueil</a>
                </li>
             </ul>
             <ul class="navbar-nav col-sm-2" style="width:200px; ">
                <li class="nav-item">
-                  <a class="nav-link" href="parcourir.php">Tout parcourir</a>
+                  <a class="nav-link active" href="parcourir.php">Tout parcourir</a>
                </li>
            </ul>
            <ul class="navbar-nav col-sm-2" style="width:200px">
