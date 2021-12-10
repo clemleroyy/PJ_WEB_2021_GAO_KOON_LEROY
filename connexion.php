@@ -6,32 +6,85 @@
    $db_found = mysqli_select_db($db_handle, $database);
 
    $erreurMail = "";
+   $erreurMdp = "";
+   $success = "";
+   $test = "";
 
+   $nom = isset($_POST["nom"])? $_POST["nom"] : "";
+   $prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
    $mail = isset($_POST["mailco"])? $_POST["mailco"] : "";
    $mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
+   $mail2 = isset($_POST["mailco"])? $_POST["mail2"] : "";
+   $mdp2 = isset($_POST["mdp"])? $_POST["mdp2"] : "";
    $statut = isset($_POST["statut"])? $_POST["statut"] : "";
 
    if(isset($_POST["b1"])){
       if($statut == 1){
-         $statut = "administrateur";;
+         $statut = "administrateur";
+         if ($db_found) {
+            $sql = "SELECT * FROM $statut WHERE Mail='$mail'";
+            $result = mysqli_query($db_handle, $sql);
+            if(($user = mysqli_fetch_assoc($result))==0){
+               $erreurMail = "Il n'y pas de mail associé a ce compte";
+            }
+            else{
+               $sql .= "AND Mdp = '$mdp'";
+               $result = mysqli_query($db_handle, $sql);
+               if(($user = mysqli_fetch_assoc($result))==0){
+                  $erreurMdp = "Mot de passe incorrect";
+               }
+            }
+         }
       }
       elseif ($statut == 2) {
          $statut = "vendeur";
+         if ($db_found) {
+            $sql = "SELECT * FROM $statut WHERE Mail='$mail'";
+            $result = mysqli_query($db_handle, $sql);
+            if(($user = mysqli_fetch_assoc($result))==0){
+               $erreurMail = "Il n'y pas de mail associé a ce compte";
+            }
+            else{
+               $sql .= "AND Mdp = '$mdp'";
+               $result = mysqli_query($db_handle, $sql);
+               if(($user = mysqli_fetch_assoc($result))==0){
+                  $erreurMdp = "Mot de passe incorrect";
+               }
+            }
+         }
       }
       elseif ($statut == 3) {
          $statut = "client";
+         if ($db_found) {
+            $sql = "SELECT * FROM $statut WHERE Mail='$mail'";
+            $result = mysqli_query($db_handle, $sql);
+            if(($user = mysqli_fetch_assoc($result))==0){
+               $erreurMail = "Il n'y pas de mail associé a ce compte";
+            }
+            else{
+               $sql .= "AND Mdp = '$mdp'";
+               $result = mysqli_query($db_handle, $sql);
+               if(($user = mysqli_fetch_assoc($result))==0){
+                  $erreurMdp = "Mot de passe incorrect";
+               }
+            }
+         }
       }
+   }
+
+   if(isset($_POST["b2"])){
+      $statut = "client";
       if ($db_found) {
-         $sql = "SELECT * FROM $statut WHERE Mail='$mail'";
+         $sql = "SELECT * FROM $statut WHERE Mail='$mail2'";
          $result = mysqli_query($db_handle, $sql);
          if(($user = mysqli_fetch_assoc($result))==0){
-            $erreurMail = "Ce mail n'existe pas";
+            //$sql = "INSERT INTO client(Nom, Prénom, Mail, test) VALUES($nom, $prenom, $mail2, $mdp2)";
+            //$success = "Merci de vous être inscris" . $prenom;
+            $test = $mail2;
          }
          else{
-            $erreurMail = "";
+            $erreurMail = "Il y a déjà un compte à cette adresse";
          }
-         $user = mysqli_fetch_assoc($result);
-         $ID = $user['ID_admin'];
       }
    }
 ?>
@@ -105,6 +158,7 @@
               			<label for="mdp" class="col-3 col-form-label">Mot de passe</label>
               			<div class="col-6">
                 			<input type="password" class="form-control" name="mdp" placeholder="Veuillez saisir votre mot de passe" required>
+                        <span style="color: red;"><?=$erreurMdp?></span>
               			</div>
             		</div>
       				<select class="form-select" required aria-label="select" name="statut" style="margin: 10px">
@@ -122,22 +176,37 @@
       		</div>
       		<div class="col-sm-6 pt-2" style="text-align: center">
       			<h2>Inscrivez-vous</h2>
-      			<form action="testco.php" method="POST" >
-      				<div class="form-group row" style="padding-left: 10px; margin: 10px;  padding-top: 10px;">
+               <span><?= $mail2 ?></span>
+      			<form method="POST" >
+                  <div class="form-group row" style="padding-left: 10px; margin: 10px;  padding-top: 10px;">
+                     <label for="mailco" class="col-3 col-form-label">Nom</label>
+                     <div class="col-6">
+                        <input type="text" class="form-control" name="nom" placeholder="Veuillez saisir votre nom" required>
+                     </div>
+                  </div>
+                  <div class="form-group row" style="padding-left: 10px; margin: 10px">
+                     <label for="mdp" class="col-3 col-form-label">Prénom</label>
+                     <div class="col-6">
+                        <input type="text" class="form-control" name="prenom" placeholder="Veuillez saisir votre prénom" required>
+                     </div>
+                  </div>
+      				<div class="form-group row" style="padding-left: 10px; margin: 10px;">
               			<label for="mailco" class="col-3 col-form-label">Email</label>
               			<div class="col-6">
-                			<input type="email" class="form-control" id="mailco" placeholder="Veuillez saisir votre mail" required>
+                			<input type="email" class="form-control" name="mail2" placeholder="Veuillez saisir votre mail" required>
+                        <span style="color: red"><?= $erreurMail ?></span>
               			</div>
             		</div>
             		<div class="form-group row" style="padding-left: 10px; margin: 10px">
               			<label for="mdp" class="col-3 col-form-label">Mot de passe</label>
               			<div class="col-6">
-                			<input type="password" class="form-control" id="mdp" placeholder="Veuillez saisir votre mot de passe" required>
+                			<input type="password" class="form-control" name="mdp2" placeholder="Veuillez saisir votre mot de passe" required>
               			</div>
             		</div>
   						<div class="form-group row" style="padding-left: 10px; margin: 10px">
             			<div class="col-sm-10" style="padding-left: 20%">
-              				<button type="submit" class="btn btn-primary">Inscription</button>
+              				<button type="submit" class="btn btn-primary" name="b2">Inscription</button>
+                        <span style="color: red"><?= $success ?></span>
             			</div>
           			</div>
       			</form>

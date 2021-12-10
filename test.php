@@ -9,13 +9,12 @@
    $mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
    $statut = isset($_POST["statut"])? $_POST["statut"] : "";
    $mail = "test@test.fr";
+   $id = 1;
 
    if ($db_found) {
-      $sql = "SELECT * FROM administrateur WHERE Mail='$mail'";
-      $result = mysqli_query($db_handle, $sql);
-      $user = mysqli_fetch_assoc($result);
-      $idAdmin = $user['ID_admin'];
-      $mailAdmin = $user['Mail'];
+      $supp = mysqli_real_escape_string($db_handle,htmlspecialchars($_POST['supp'])); 
+
+      $supprimer = "DELETE FROM objet WHERE ID_objet = '$id'";
+      $supression = mysqli_query($db_handle, $supprimer);
    }
-   echo $idAdmin;
 ?>
