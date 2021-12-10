@@ -1,3 +1,31 @@
+<?php
+
+   $database = "projet_piscine";
+   $db_handle = mysqli_connect('localhost', 'root', '');
+   $db_found = mysqli_select_db($db_handle, $database);
+   $sql="";
+
+$Categorie = isset($_POST["Categorie"])? $_POST["Categorie"] : "";
+$NomObjet = isset($_POST["NomObjet"])? $_POST["NomObjet"] : "";
+$ModeDeVente = isset($_POST["ModeDeVente"])? $_POST["ModeDeVente"] : "";
+$DateFin = isset($_POST["DateFin"])? $_POST["DateFin"] : "";
+$LienP1 = isset($_POST["LienP1"])? $_POST["LienP1"] : "";
+$LienP2 = isset($_POST["LienP2"])? $_POST["LienP2"] : "";
+$LienP3 = isset($_POST["LienP3"])? $_POST["LienP3"] : "";
+$LienVideo = isset($_POST["LienVideo"])? $_POST["LienVideo"] : "";
+$ID_Objet = isset($_POST["ID_Objette"])? $_POST["ID_Objette"] : "";
+$erreur = "";
+
+if ($db_found) {
+$sql = "DELETE FROM objet WHERE ID_objet='$ID_Objet'";
+
+}
+
+mysqli_close($db_handle);
+
+?>
+
+
 <html>
 <head>
    <meta charset="utf-8">
@@ -59,7 +87,7 @@
 <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
 <h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
 <br>
-<form method="post" action="FormTraitObjet.php">                
+<form method="post">                
          
    <fieldset class="form-group">
     <div class="row" style="padding-left: 10px">
@@ -178,14 +206,14 @@
 <div class="col-sm-6 pt-2 " style="padding-left:100px">
 <h1 style="padding-left:7%"><strong>Suppression d'un objet</strong></h1>
 <br>
-<form method="post" action="FormTraitObjet.php">
+<form method="post">
    
   <br>
   
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">ID de l'objet</label>
     <div class="col-4">
-      <input type="number" class="form-control" name="ID_Objet" id="inputEmail3" placeholder="ID de l'objet" required>
+      <input type="number" class="form-control" name="ID_Objette" id="inputEmail3" placeholder="ID de l'objet" required>
     </div>
   </div>
   <br>
