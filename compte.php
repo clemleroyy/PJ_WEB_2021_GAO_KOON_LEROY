@@ -324,7 +324,7 @@
             if($affForm){
          ?>
          <div class="row">
-         	<div class="col-sm-6 pt-2" style="text-align: center">
+         	<div class="col-sm-6 pt-5 pb-5" style="text-align: center">
          		<h2>Connectez-vous</h2>
          		<form method="POST">
          			<div class="form-group row" style="padding-left: 10px; margin: 10px; padding-top: 10px;">
@@ -354,7 +354,7 @@
              			</div>
          			</form>
          		</div>
-         		<div class="col-sm-6 pt-2" style="text-align: center">
+         		<div class="col-sm-6 pt-5 pb-5" style="text-align: center">
          			<h2>Inscrivez-vous</h2>
                   <span><?= $test ?></span>
          			<form method="POST">
