@@ -1,3 +1,6 @@
+    <?php
+    
+    ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -50,7 +53,7 @@
                    </ul>
                    <ul class="navbar-nav  col-sm-2">
                       <li class="nav-item px-5">
-                         <a class="nav-link" href="panier.php">Panier</a>
+                         <a class="nav-link" href="panier.php">Panier<img src="panier.png" style="width:15px; height:15px"></a>
                       </li>
                    </ul>
                    <ul class="navbar-nav  col-sm-2">

@@ -4,3 +4,4 @@ https://mdbootstrap.com/docs/standard/navigation/footer/
 https://getbootstrap.com/docs/5.1/utilities/spacing/
 https://getbootstrap.com/docs/4.1/components/card/#card-columns
 https://getbootstrap.com/docs/4.0/components/carousel/
+https://freefrontend.com/bootstrap-profiles/
