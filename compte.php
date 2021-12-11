@@ -293,6 +293,7 @@
                $affB7 = false;
                $affAddPaiement = true;
             }
+            
          ?>
 
 
@@ -1157,6 +1158,13 @@
                                  <input type="tel" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" maxlength="10" required>
                               </div>
                            </div>
+                           <br>
+                           <div class="form-group row">
+                            <div class="col-sm-10" style="padding-left: 20%">
+                              <button type="submit" name="AjoutAdresse" class="btn btn-primary">Ajouter</button><br>
+                              <span style="color: green;"><?= $successSuppV ?></span>
+                            </div>
+                          </div>
 
                         </form>
                      <br>
@@ -1224,6 +1232,12 @@
                               </div>
                            </div>
                            <br>
+                           <div class="form-group row">
+                            <div class="col-sm-10" style="padding-left: 30%">
+                              <button type="submit" name="AjoutPaiement" class="btn btn-primary">Ajouter</button><br>
+                              <span style="color: green;"><?= $successSuppV ?></span>
+                            </div>
+                          </div>
                         </form>
                      </div>
                   <?php
