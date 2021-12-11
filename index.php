@@ -46,7 +46,7 @@
             </ul>
             <ul class="navbar-nav  col-sm-2">
                <li class="nav-item px-5">
-                  <a class="nav-link" href="connexion.php">Mon compte</a>
+                  <a class="nav-link" href="compte.php">Mon compte</a>
                </li>
             </ul>
          </div>
