@@ -21,10 +21,9 @@ $erreur = "";
 if ($db_found) {
   
   if(isset($_POST["Supp"])){ //Si click sur Supprimer
-$supp = mysqli_real_escape_string($db_handle,htmlspecialchars($_POST['ID_Objette'])); 
 
-    $supprimer = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
-    $supression = mysqli_query($db_handle, $supprimer);
+    $sql = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
+    $result = mysqli_query($db_handle, $sql);
 }
 
 if(isset($_POST["Ajout"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
