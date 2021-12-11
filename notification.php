@@ -41,9 +41,9 @@ echo "<th>" . "Mode_Achat" . "</th>";
 echo "<th>" . "Video" . "</th>";
 echo "<th>" . "Photo_objet1" . "</th>";
 echo "<th>" . "Photo_objet2" . "</th>";
-echo "<th>" . "Photo_objet3" . "</th>";
-echo "<th>" . "Debut_enchere" . "</th>";
-echo "<th>" . "Fin_enchere" . "</th>";
+//echo "<th>" . "Photo_objet3" . "</th>";
+//echo "<th>" . "Debut_enchere" . "</th>";
+//echo "<th>" . "Fin_enchere" . "</th>";
 
 //afficher le resultat
 while ($data = mysqli_fetch_assoc($result)) {
@@ -59,7 +59,7 @@ $image2 = $data['Photo_objet2'];
 
 
 echo "<td>" . "<img src='$image1' height='120' width='100'>" . "</td>";
-echo "<td>" . "<img src='$image2' height='120' width='100'>" . "</td>";
+//echo "<td>" . "<img src='$image2' height='120' width='100'>" . "</td>";
 echo "</tr>";
 }
 echo "</table>";
@@ -129,23 +129,23 @@ mysqli_close($db_handle);
 
 <main>
       <div class="row">
-        <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;"><br>
-          <h1 style="padding-left:7%"><strong>Recherche</strong></h1>
+        <div class="col-sm-6 pt-2 mb-4" style="padding-left: 70px;"><br>
+          <h1 style="padding-left:80%"><strong>Recherche</strong></h1>
           <br>
           <form method="POST">             
      
-            <div class="form-group row" style="padding-left: 10px">
-              <label for="NomPaire" class="col-4 col-form-label">Nom de la paire</label>
-              <div class="col-6">
+            <div class="form-group row" style="padding-left: 300px">
+              <label for="NomPaire" class="col-7 col-form-label">Nom de la paire</label>
+              <div class="col-30">
                 <input name="NomPaire" type="text" class="form-control" id="inputEmail3" placeholder="Nom de la paire" required>
 
               </div>
             </div>
             <br>
 
-            <div class="form-group row" style="padding-left: 10px">
-              <label for="PrixMax" class="col-4 col-form-label">Prix maximun</label>
-              <div class="col-6">
+            <div class="form-group row" style="padding-left: 300px">
+              <label for="PrixMax" class="col-7 col-form-label">Prix maximun</label>
+              <div class="col-30">
                 <input name="PrixMax" type="number" class="form-control" id="inputEmail3" placeholder="Prix maximun" required>
               </div>
             </div>
@@ -153,11 +153,9 @@ mysqli_close($db_handle);
 
 
 <fieldset class="form-group">
-              <div class="row" style="padding-left: 10px">
+              <div class="row" style="padding-left: 70px">
                
                 <div class="col-sm-10" style="padding-left: 75px;">
-
-
 
                  
                 </div>
@@ -166,8 +164,8 @@ mysqli_close($db_handle);
 
    <div class="form-group row" style="padding-left: 10px"></div>
 
-          <div class="form-group row" style="padding-left: 7px">
-            <div class="col-sm-10" style="padding-left: 20%">
+          <div class="form-group row" style="padding-left: 70px">
+            <div class="col-sm-10" style="padding-left: 80%">
               <button name="submit" type="submit" class="btn btn-primary">Rechercher</button>
             </div>
           </div>
@@ -175,8 +173,8 @@ mysqli_close($db_handle);
       </div>
       <br>
       <br>
-      <div class="col-sm-6 pt-2 " style="padding-left:100px"><br>
-        <h1 style="padding-left:7%"><strong>Résultat de votre recherche</strong></h1>
+
+        <h1 style="padding-left:30%"><strong>Résultat de votre recherche</strong></h1>
         <br>
         <form>
           <br>
