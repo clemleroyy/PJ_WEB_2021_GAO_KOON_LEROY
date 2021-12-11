@@ -111,11 +111,8 @@ mysqli_close($db_handle);
 <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
 <h3 style="padding-left:7%"><strong>Ajout d'un vendeur</strong></h3>
 <br>
-<form method="post">                
-         
-   
-  <br>
-  
+<form method="post">  
+<br>              
   <div class="form-group row" style="padding-left: 10px">
     <label for="inputEmail3" class="col-3 col-form-label">Nom</label>
     <div class="col-4">
@@ -182,9 +179,8 @@ mysqli_close($db_handle);
 <br>
 <br>
 
-<div class="row">
 <br>
-<div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
+<div class="col-sm-6 pt-2" style="padding-left: 100px;">
 <h3 style="padding-left:7%"><strong>Suppression d'un vendeur</strong></h3>
 <br>
 <form method="post">                
@@ -222,6 +218,7 @@ mysqli_close($db_handle);
     </div>
   </div>
 </form>
+</div>
 </div>
 <br>
 <br>
