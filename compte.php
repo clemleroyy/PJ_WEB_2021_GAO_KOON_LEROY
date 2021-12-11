@@ -45,6 +45,8 @@
       $successSuppO = "";
       $successAjoutO = "";
 
+      $Image="luffy.png";
+
       $affB4 = true;
       $affB5 = true;
       $affAddSuppO = false;
@@ -701,8 +703,17 @@
             </div>
             <?php
             }
-            if($affVe){
-               if($affB4){
+            if($affVe){?>
+               <?php 
+               $sql = "SELECT Image_fond FROM vendeur WHERE ID_vendeur='1'";
+               $result = mysqli_query($db_handle, $sql);
+               $user=mysqli_fetch_assoc($result);
+               $image_fond=$user['Image_fond'];
+               ?>
+
+               <div style="background-image: url('<?=$image_fond?>')";>
+               
+               <?php if($affB4){
                ?>
                <div style="text-align: center; padding-top: 20px;">
                   <form method="POST">
@@ -866,9 +877,47 @@
                   <p><button type="submit" class="btn btn-primary" name="b3">Déconnexion</button></p>
                </form>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </div>
             <?php
             }
             ?>
+
    </main>
          <footer class="bg-light text-center text-lg-start">
          	<?php include ('footer.php') ?>	
