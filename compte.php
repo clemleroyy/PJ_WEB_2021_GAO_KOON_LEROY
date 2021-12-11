@@ -39,6 +39,11 @@
       $erreurPseudoV = "";
       $erreurNomV = "";
       $successSuppV = "";
+      $successAjoutV = "";
+      $erreurMailV2="";
+      $erreurPseudo2 = "";
+      $successSuppO = "";
+      $successAjoutO = "";
 
       $affB4 = true;
       $affB5 = true;
@@ -187,6 +192,7 @@
          if ($db_found) {
             $sql = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
             $result = mysqli_query($db_handle, $sql);
+            $successSuppO="Objet supprimé avec succès!";
          }
       }
       if(isset($_POST["Ajout"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
@@ -195,6 +201,7 @@
          if ($db_found) {
             $sql="INSERT INTO objet (ID_vendeur, ID_admin, Nom, Description, Prix, Rarete, Mode_achat, Video, Photo_objet1, Photo_objet2, Photo_objet3, Fin_enchere) VALUES ('1', '1', '$NomObjet', '$Description', '$Prix', '$Categorie', '$ModeDeVente', '$LienVideo', '$LienP1', '$LienP2', '$LienP3', '$DateFin')";
             $result = mysqli_query($db_handle, $sql);
+            $successAjoutO="Objet ajouté avec succès!";
          }
       }
       if(isset($_POST["Supprimer"])){ //Si click sur Supprimer
@@ -233,12 +240,21 @@
 
       if(isset($_POST["Ajouter"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
          $affB5 = false;
-         $affAddSuppV = true;
+         $affAddSuppV = true; 
          if($db_found){
+            $sql = "SELECT * FROM vendeur WHERE Mail='$MailVendeur'";
+            $result = mysqli_query($db_handle, $sql);
+         if(($user = mysqli_fetch_assoc($result))==0){//mail non existant
+            $sql = "SELECT * FROM vendeur WHERE Pseudo='$Pseudo'";
+            $result = mysqli_query($db_handle, $sql);
+         if(($user = mysqli_fetch_assoc($result))==0){//pseudo non existant
             $sql="INSERT INTO vendeur (ID_admin, Nom, Prenom, Mail, Mdp, Pseudo, Image_fond, Image_vendeur) VALUES ('1', '$NomVendeur', '$Prenom', '$MailVendeur', '$MdpVendeur','$Pseudo','$Image_Fond', '$PhotoVendeur')";
             $result = mysqli_query($db_handle, $sql);
-         }
+            $successAjoutV="Vendeur ajouté avec succès!";
+         }else{$erreurPseudo2="Pseudo déja existant";}
+         }else{$erreurMailV2="Mail déja existant";}
       }
+   }
    ?>
 
 
@@ -308,7 +324,7 @@
             if($affForm){
          ?>
          <div class="row">
-         	<div class="col-sm-6 pt-2" style="text-align: center">
+         	<div class="col-sm-6 pt-5 pb-5" style="text-align: center">
          		<h2>Connectez-vous</h2>
          		<form method="POST">
          			<div class="form-group row" style="padding-left: 10px; margin: 10px; padding-top: 10px;">
@@ -338,7 +354,7 @@
              			</div>
          			</form>
          		</div>
-         		<div class="col-sm-6 pt-2" style="text-align: center">
+         		<div class="col-sm-6 pt-5 pb-5" style="text-align: center">
          			<h2>Inscrivez-vous</h2>
                   <span><?= $test ?></span>
          			<form method="POST">
@@ -515,6 +531,8 @@
                      <div class="form-group row" style="padding-left: 10px">
                         <div class="col-sm-10" style="padding-left: 20%">
                            <button type="submit" name="Ajout" class="btn btn-primary">Ajouter</button>
+                           <br>
+                           <span style="color: green;"><?=$successAjoutO?></span>
                         </div>
                      </div>
                   </form>
@@ -536,6 +554,8 @@
                      <div class="form-group row" style="padding-left: 10px">
                         <div class="col-sm-10" style="padding-left: 20%">
                            <button type="submit" name="Supp" class="btn btn-primary">Supprimer</button>
+                           <br>
+                           <span style="color: green;"><?=$successSuppO?></span>
                         </div>
                      </div>
                   </form>
@@ -574,6 +594,7 @@
                    <label for="inputEmail3" class="col-3 col-form-label">Email</label>
                    <div class="col-4">
                      <input type="email" class="form-control" name="MailVendeur" id="inputEmail3" placeholder="Email" required>
+                     <span style="color:red"><?=$erreurMailV2 ?></span>
                    </div>
                  </div>
                  <br>
@@ -590,6 +611,7 @@
                    <label for="inputEmail3" class="col-3 col-form-label">Pseudo</label>
                    <div class="col-4">
                      <input type="text" class="form-control" name="Pseudo" id="inputEmail3" placeholder="Pseudo" required>
+                     <span style="color:red"><?=$erreurPseudo2 ?></span>
                    </div>
                  </div>
                  <br>
@@ -613,6 +635,8 @@
                  <div class="form-group row" style="padding-left: 10px">
                    <div class="col-sm-10" style="padding-left: 20%">
                      <button type="submit" name="Ajouter" class="btn btn-primary">Ajouter</button>
+                     <br>
+                     <span style="color:green"><?=$successAjoutV ?></span>
                    </div>
                  </div>
                </form>
@@ -659,7 +683,7 @@
                  <div class="form-group row" style="padding-left: 10px">
                    <div class="col-sm-10" style="padding-left: 20%">
                      <button type="submit" name="Supprimer" class="btn btn-primary">Supprimer</button><br>
-                     <span style="color: green;">L'utilisateur a été supprimé de la base de données</span>
+                     <span style="color: green;"><?= $successSuppV ?></span>
                    </div>
                  </div>
                </form>
