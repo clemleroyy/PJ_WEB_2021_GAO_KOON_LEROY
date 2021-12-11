@@ -125,9 +125,18 @@ if (isset($_POST["submit"])){
 
          if ($NomPaire != "") {
             //on recherche le'objet par son Nom
-            $sql .= " WHERE Prix = '$PrixMax'";
+            $sql .= " WHERE Nom LIKE '%$NomPaire%'";            
             //on cherche la paire par son prix aussi
                               }
+
+         if ($PrixMax != "") {
+            //on recherche le'objet par son Nom
+            $sql .= " AND Prix <= '$PrixMax'";            
+            //on cherche la paire par son prix aussi
+                              }
+
+
+         
 $result = mysqli_query($db_handle, $sql);
 //regarder s'il y a des resultats
 if (mysqli_num_rows($result) == 0) {
@@ -139,14 +148,19 @@ echo "<p>Shoes not found.</p>";
    //genere le tableau
 echo "<table border='1'>";
 echo "<tr>";
-echo "<th>" . "Nom" . "</th>";
+echo "<th>" . "Nom " . "</th>";
+echo "<td>";
 echo "<th>" . "Description" . "</th>";
+echo "<td>";
 echo "<th>" . "Prix" . "</th>";
+echo "<td>";
 echo "<th>" . "Rarete" . "</th>";
-echo "<th>" . "Mode_Achat" . "</th>";
+echo "<td>";
+echo "<th>" . "Mode d'Achat" . "</th>";
+echo "<td>";
 echo "<th>" . "Video" . "</th>";
-echo "<th>" . "Photo_objet1" . "</th>";
-echo "<th>" . "Photo_objet2" . "</th>";
+echo "<th>" . "Images" . "</th>";
+//echo "<th>" . "Photo_objet2" . "</th>";
 //echo "<th>" . "Photo_objet3" . "</th>";
 //echo "<th>" . "Debut_enchere" . "</th>";
 //echo "<th>" . "Fin_enchere" . "</th>";
@@ -156,10 +170,15 @@ while ($data = mysqli_fetch_assoc($result)) {
    //recup une ligne de mon result
 echo "<tr>";
 echo "<td>" . $data['Nom'] . "</td>"; 
+echo "<td>";
 echo "<td>" . $data['Description'] . "</td>";
+echo "<td>";
 echo "<td>" . $data['Prix'] . "</td>";
+echo "<td>";
 echo "<td>" . $data['Rarete'] . "</td>";
+echo "<td>";
 echo "<td>" . $data['Mode_achat'] . "</td>";
+echo "<td>";
 $image1 = $data['Photo_objet1'];
 $image2 = $data['Photo_objet2'];
 
@@ -170,7 +189,9 @@ echo "</tr>";
 }
 echo "</table>";
 }
-} else {
+} 
+
+else {
 echo "<p>Database not found.</p>";
 }
 } //end Rechercher
