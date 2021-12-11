@@ -158,7 +158,7 @@ echo "<th>" . "Rarete" . "</th>";
 echo "<td>";
 echo "<th>" . "Mode d'Achat" . "</th>";
 echo "<td>";
-echo "<th>" . "Video" . "</th>";
+//echo "<th>" . "Video" . "</th>";
 echo "<th>" . "Images" . "</th>";
 //echo "<th>" . "Photo_objet2" . "</th>";
 //echo "<th>" . "Photo_objet3" . "</th>";
