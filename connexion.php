@@ -343,12 +343,10 @@
          <?php
          }
          ?>
-         <div class="row">
          <?php
          if($affAddSuppO){
          ?>
-
-         
+         <div class="row">
          <br>
          <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
             <h3 style="padding-left:7%"><strong>Ajout d'un objet</strong></h3>
@@ -469,7 +467,7 @@
          </div>
          <br>
          <br>
-         <div class="col-sm-6 pt-2 " style="padding-left:100px">
+         <div class="col-sm-6 pt-2" style="padding-left:100px">
             <h3 style="padding-left:7%"><strong>Suppression d'un objet</strong></h3>
             <br>
             <form method="post">
@@ -491,6 +489,112 @@
          <br>
          <br>
       </div>
+      <?php
+      }
+      if($affAddSuppV){
+      ?>
+      <div class="row">
+         <br>
+         <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
+            <h3 style="padding-left:7%"><strong>Ajout d'un vendeur</strong></h3>
+            <br>
+            <form method="post">  
+               <br>              
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Nom</label>
+                  <div class="col-4">
+                     <input type="text" class="form-control" name="NomVendeur" id="inputEmail3" placeholder="Nom" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Prénom</label>
+                  <div class="col-4">
+                     <input type="text" class="form-control" name="Prenom" id="inputEmail3" placeholder="Prénom" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">e-mail</label>
+                  <div class="col-4">
+                     <input type="email" class="form-control" name="MailVendeur" id="inputEmail3" placeholder="e-mail" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Mot de passe</label>
+                  <div class="col-4">
+                     <input type="password" class="form-control" name="MdpVendeur" id="inputEmail3" placeholder="Mot de passe" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Pseudo</label>
+                  <div class="col-4">
+                     <input type="text" class="form-control" name="Pseudo" id="inputEmail3" placeholder="Pseudo" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Image de fond</label>
+                  <div class="col-4">
+                  <input type="text" class="form-control" name="Image_Fond" id="inputEmail3" placeholder="Image de fond" required>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Photo profil</label>
+                  <div class="col-4">
+                     <input type="text" class="form-control" name="PhotoVendeur" id="inputEmail3" placeholder="Photo de profil" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <div class="col-sm-10" style="padding-left: 20%">
+                     <button type="submit" name="Ajouter" class="btn btn-primary">Ajouter</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <br>
+         <br>
+         <br>
+         <div class="col-sm-6 pt-2" style="padding-left: 270x;">
+            <h3 style="padding-left:7%"><strong>Suppression d'un vendeur</strong></h3>
+            <br>
+            <form method="post">                
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">e-mail</label>
+                  <div class="col-4">
+                     <input type="email" class="form-control" name="MailVendeur" id="inputEmail3" placeholder="e-mail" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Mot de passe</label>
+                  <div class="col-4">
+                     <input type="password" class="form-control" name="MdpVendeur" id="inputEmail3" placeholder="Mot de passe" required>
+                  </div>
+               </div>
+               <br>
+
+               <div class="form-group row" style="padding-left: 10px">
+                  <label for="inputEmail3" class="col-3 col-form-label">Nom</label>
+                  <div class="col-4">
+                     <input type="text" class="form-control" name="NomVendeur" id="inputEmail3" placeholder="nom" required>
+                  </div>
+               </div>
+               <br>
+               <div class="form-group row" style="padding-left: 10px">
+                  <div class="col-sm-10" style="padding-left: 20%">
+                     <button type="submit" name="Supprimer" class="btn btn-primary">Supprimer</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <br>
+      <br>
       <?php
       }
       ?>
