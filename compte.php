@@ -12,18 +12,23 @@
          $affAd = true;
          $affVe = false;
          $affCl = false;
+         $idAd = $_SESSION['idAd'];
+         $idVe = 0;
       }
       elseif($_SESSION['connexion']==2){
          $affForm = false;
          $affAd = false;
          $affVe = true;
          $affCl = false;
+         $idAd = 0;
+         $idVe = $_SESSION['idVe'];
       }
       elseif($_SESSION['connexion']==3){
          $affForm = false;
          $affAd = false;
          $affVe = false;
          $affCl = true;
+         $idCl = $_SESSION['idCl'];
       }
 
       $database = "projet_piscine";
@@ -44,6 +49,8 @@
       $erreurPseudo2 = "";
       $successSuppO = "";
       $successAjoutO = "";
+
+      $Image="luffy.png";
 
       $affB4 = true;
       $affB5 = true;
@@ -100,6 +107,10 @@
                      $affVe = false;
                      $affCl = false;
                      $_SESSION['connexion']=1;
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $_SESSION['idAd'] = $user['ID_admin'];
+                     $idAd = $_SESSION['idAd'];
                   }
                }
             }
@@ -123,7 +134,11 @@
                      $affAd = false;
                      $affVe = true;
                      $affCl = false;
-                     $_SESSION['connexion']=2; 
+                     $_SESSION['connexion']=2;
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $_SESSION['idVe'] = $user['ID_vendeur'];
+                     $idVe = $_SESSION['idVe'];
                   }
                }
             }
@@ -143,11 +158,16 @@
                      $erreurMdp = "Mot de passe incorrect";
                   }
                   else{
+
                      $affForm = false;
                      $affAd = false;
                      $affVe = false;
                      $affCl = true;
                      $_SESSION['connexion']=3;
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $_SESSION['idCl'] = $user['ID_client'];
+                     $idCl = $_SESSION['idCl'];
                   }
                }
             }
@@ -173,10 +193,14 @@
 
       if(isset($_POST["b3"])){
          $_SESSION['connexion']=0;
+         $_SESSION['idAd'] = 0;
+         $_SESSION['idVe'] = 0;
+         $_SESSION['idCl'] = 0;
          $affForm = true;
          $affAd = false;
          $affVe = false;
          $affCl = false;
+
       }
       if(isset($_POST["b4"])){
          $affB4 = false;
@@ -199,7 +223,7 @@
          $affB4 = false;
          $affAddSuppO = true;
          if ($db_found) {
-            $sql="INSERT INTO objet (ID_vendeur, ID_admin, Nom, Description, Prix, Rarete, Mode_achat, Video, Photo_objet1, Photo_objet2, Photo_objet3, Fin_enchere) VALUES ('1', '1', '$NomObjet', '$Description', '$Prix', '$Categorie', '$ModeDeVente', '$LienVideo', '$LienP1', '$LienP2', '$LienP3', '$DateFin')";
+            $sql="INSERT INTO objet (ID_vendeur, ID_admin, Nom, Description, Prix, Rarete, Mode_achat, Video, Photo_objet1, Photo_objet2, Photo_objet3, Fin_enchere) VALUES ('$idVe', '$idAd', '$NomObjet', '$Description', '$Prix', '$Categorie', '$ModeDeVente', '$LienVideo', '$LienP1', '$LienP2', '$LienP3', '$DateFin')";
             $result = mysqli_query($db_handle, $sql);
             $successAjoutO="Objet ajouté avec succès!";
          }
@@ -248,7 +272,7 @@
             $sql = "SELECT * FROM vendeur WHERE Pseudo='$Pseudo'";
             $result = mysqli_query($db_handle, $sql);
          if(($user = mysqli_fetch_assoc($result))==0){//pseudo non existant
-            $sql="INSERT INTO vendeur (ID_admin, Nom, Prenom, Mail, Mdp, Pseudo, Image_fond, Image_vendeur) VALUES ('1', '$NomVendeur', '$Prenom', '$MailVendeur', '$MdpVendeur','$Pseudo','$Image_Fond', '$PhotoVendeur')";
+            $sql="INSERT INTO vendeur (ID_admin, Nom, Prenom, Mail, Mdp, Pseudo, Image_fond, Image_vendeur) VALUES ('$idAd', '$NomVendeur', '$Prenom', '$MailVendeur', '$MdpVendeur','$Pseudo','$Image_Fond', '$PhotoVendeur')";
             $result = mysqli_query($db_handle, $sql);
             $successAjoutV="Vendeur ajouté avec succès!";
          }else{$erreurPseudo2="Pseudo déja existant";}
@@ -665,7 +689,7 @@
                  <div class="form-group row" style="padding-left: 10px">
                    <label for="inputEmail3" class="col-3 col-form-label">Pseudo</label>
                    <div class="col-4">
-                     <input type="password" class="form-control" name="Pseudo" id="inputEmail3" placeholder="Pseudo" required>
+                     <input type="text" class="form-control" name="Pseudo" id="inputEmail3" placeholder="Pseudo" required>
                      <span style="color: red;"><?= $erreurPseudoV ?></span>
                    </div>
                  </div>
@@ -701,8 +725,17 @@
             </div>
             <?php
             }
-            if($affVe){
-               if($affB4){
+            if($affVe){?>
+               <?php 
+               $sql = "SELECT Image_fond FROM vendeur WHERE ID_vendeur='1'";
+               $result = mysqli_query($db_handle, $sql);
+               $user=mysqli_fetch_assoc($result);
+               $image_fond=$user['Image_fond'];
+               ?>
+
+               <div style="background-image: url('<?=$image_fond?>')";>
+               
+               <?php if($affB4){
                ?>
                <div style="text-align: center; padding-top: 20px;">
                   <form method="POST">
@@ -866,9 +899,47 @@
                   <p><button type="submit" class="btn btn-primary" name="b3">Déconnexion</button></p>
                </form>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </div>
             <?php
             }
             ?>
+
    </main>
          <footer class="bg-light text-center text-lg-start">
          	<?php include ('footer.php') ?>	
