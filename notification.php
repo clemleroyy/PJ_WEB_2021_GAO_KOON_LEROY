@@ -1,4 +1,82 @@
-<!DOCTYPE html>
+<?php
+
+   $database = "projet_piscine";
+   $db_handle = mysqli_connect('localhost', 'root', '');
+   $db_found = mysqli_select_db($db_handle, $database);
+   $sql="";
+
+$NomPaire = isset($_POST["NomPaire"])? $_POST["NomPaire"] : "";
+$PrixMax = isset($_POST["PrixMax"])? $_POST["PrixMax"] : "";
+
+$erreur = "";
+
+if (isset($_POST["submit"])){
+   
+   if ($db_found) {
+      
+      //commencer le query
+      $sql = "SELECT * FROM objet";
+
+         if ($NomPaire != "") {
+            //on recherche le'objet par son Nom
+            $sql .= " WHERE Prix = '$PrixMax'";
+            //on cherche la paire par son prix aussi
+                              }
+$result = mysqli_query($db_handle, $sql);
+//regarder s'il y a des resultats
+if (mysqli_num_rows($result) == 0) {
+echo "<p>Shoes not found.</p>";
+//check le nb de lignes
+} else {
+//on trouve le 
+   //RAVoir avec la bdd
+   //genere le tableau
+echo "<table border='1'>";
+echo "<tr>";
+echo "<th>" . "Nom" . "</th>";
+echo "<th>" . "Description" . "</th>";
+echo "<th>" . "Prix" . "</th>";
+echo "<th>" . "Rarete" . "</th>";
+echo "<th>" . "Mode_Achat" . "</th>";
+echo "<th>" . "Video" . "</th>";
+echo "<th>" . "Photo_objet1" . "</th>";
+echo "<th>" . "Photo_objet2" . "</th>";
+echo "<th>" . "Photo_objet3" . "</th>";
+echo "<th>" . "Debut_enchere" . "</th>";
+echo "<th>" . "Fin_enchere" . "</th>";
+
+//afficher le resultat
+while ($data = mysqli_fetch_assoc($result)) {
+   //recup une ligne de mon result
+echo "<tr>";
+echo "<td>" . $data['Nom'] . "</td>";
+echo "<td>" . $data['Description'] . "</td>";
+echo "<td>" . $data['Prix'] . "</td>";
+echo "<td>" . $data['Rarete'] . "</td>";
+echo "<td>" . $data['Mode_achat'] . "</td>";
+$image1 = $data['Photo_objet1'];
+$image2 = $data['Photo_objet2'];
+
+
+echo "<td>" . "<img src='$image1' height='120' width='100'>" . "</td>";
+echo "<td>" . "<img src='$image2' height='120' width='100'>" . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+}
+} else {
+echo "<p>Database not found.</p>";
+}
+} //end Rechercher
+
+mysqli_close($db_handle);
+
+?>
+
+
+
+
+
 <html>
 <head>
    <meta charset="utf-8">
@@ -54,20 +132,21 @@
         <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;"><br>
           <h1 style="padding-left:7%"><strong>Recherche</strong></h1>
           <br>
-          <form>             
+          <form method="POST">             
      
             <div class="form-group row" style="padding-left: 10px">
-              <label for="NomPaire" class="col-3 col-form-label">Nom de la paire</label>
-              <div class="col-4">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Nom de la paire" required>
+              <label for="NomPaire" class="col-4 col-form-label">Nom de la paire</label>
+              <div class="col-6">
+                <input name="NomPaire" type="text" class="form-control" id="inputEmail3" placeholder="Nom de la paire" required>
+
               </div>
             </div>
             <br>
 
             <div class="form-group row" style="padding-left: 10px">
-              <label for="PrixMax" class="col-3 col-form-label">Prix maximun</label>
-              <div class="col-4">
-                <input type="number" class="form-control" id="inputEmail3" placeholder="Prix maximun" required>
+              <label for="PrixMax" class="col-4 col-form-label">Prix maximun</label>
+              <div class="col-6">
+                <input name="PrixMax" type="number" class="form-control" id="inputEmail3" placeholder="Prix maximun" required>
               </div>
             </div>
             <br>
@@ -75,30 +154,21 @@
 
 <fieldset class="form-group">
               <div class="row" style="padding-left: 10px">
-                <legend class="col-form-label col-sm-2 pt-0">Mode d'achat</legend>
+               
                 <div class="col-sm-10" style="padding-left: 75px;">
 
-           <select class="custom-select">
-  <option selected>Mode d'achat</option>
-  <option value="1">Immédiat</option>
-  <option value="2">Par meilleure offre</option>
-  <option value="3">Par négociation</option>
-</select>
-          
+
 
                  
                 </div>
               </div>
             </fieldset><br>
 
-   
-           
-          </form>
-          <div class="form-group row" style="padding-left: 10px"></div>
+   <div class="form-group row" style="padding-left: 10px"></div>
 
           <div class="form-group row" style="padding-left: 7px">
             <div class="col-sm-10" style="padding-left: 20%">
-              <button type="submit" class="btn btn-primary">Rechercher</button>
+              <button name="submit" type="submit" class="btn btn-primary">Rechercher</button>
             </div>
           </div>
         </form>
@@ -113,7 +183,7 @@
          
           <div class="form-group row" style="padding-left: 7px">
             <div class="col-sm-10" style="padding-left: 20%">
-              <button type="submit" class="btn btn-primary">Supprimer</button>
+            
             </div>
           </div>
         </form>
@@ -123,6 +193,9 @@
     </div>
   </main>
 
+           
+          </form>
+          
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
