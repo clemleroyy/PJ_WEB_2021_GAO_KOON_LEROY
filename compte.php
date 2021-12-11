@@ -89,6 +89,12 @@
             $Image_Fond = isset($_POST["Image_Fond"])? $_POST["Image_Fond"] : "";
             $PhotoVendeur = isset($_POST["PhotoVendeur"])? $_POST["PhotoVendeur"] : "";
 
+            $TypeCarte = isset($_POST["TypeCarte"])? $_POST["TypeCarte"] : "";
+            $NumCarte = isset($_POST["NumCarte"])? $_POST["NumCarte"] : "";
+            $NomCarte = isset($_POST["NomCarte"])? $_POST["NomCarte"] : "";
+            $DateExp = isset($_POST["DateExp"])? $_POST["DateExp"] : "";
+            $CodeCVC = isset($_POST["CodeCVC"])? $_POST["CodeCVC"] : "";
+
             if(isset($_POST["b1"])){
                if($statut == 1){
                   $statut = "administrateur";
@@ -293,7 +299,15 @@
                $affB7 = false;
                $affAddPaiement = true;
             }
-            
+            if(isset($_POST["AjoutPaiement"])){
+               $affB7 = false;
+               $affAddPaiement = true;
+               if($db_found){
+                  $sql = "INSERT INTO adresse (ID_client, Type, NumCarte, NomCarte, DateExp, Code) VALUES ('$idCl', '$TypeCarte', '$NumCarte', '$NomCarte', '$NomCarte', '$DateExp', '$CodeCVC')";
+                  $result = mysqli_query($db_handle, $sql);
+                  $successAjoutP = "Vous avez ajouté une adresse";
+               }
+            }
          ?>
 
 
