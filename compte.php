@@ -960,7 +960,7 @@
                                     </div>
                                     <div class="col-md-4">
                                        <div class="media">
-                                          <label><strong>E-mail</strong></label>
+                                          <label><strong>Prénom</strong></label>
                                           <p><?=$PrenomC?></p>
                                        </div>
                                     </div> 
@@ -979,7 +979,7 @@
                         <div class="container" style="text-align: center;">
                            <div class="row align-items-center flex-row-reverse">
                               <div class="about-text go-to">
-                                 <h6 class="theme-color lead">Vos adresse</h6>
+                                 <h6 class="theme-color lead">Vos adresses</h6>
                                  <?php
                                  $sql = "SELECT * FROM adresse WHERE ID_client='$idCl'";
                                  $result = mysqli_query($db_handle, $sql);
@@ -1163,7 +1163,71 @@
                      <br>
                   </div>
                   <?php 
-                  } 
+                  }
+                  if($affAddPaiement){
+                  ?>
+                  <h3 style="text-align: center; padding-top: 10px">Ajout d'un moyen de paiement</h3>
+                  <div style="align-content: center; padding-top: 10px; padding-left: 300px;">
+                        <br>
+                        <form method="post">
+                           <fieldset class="form-group">
+                              <div class="row" style="padding-left: 100px">
+                              <legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
+                                 <div class="col-sm-4" style="padding-left: 75px;">
+                                    <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios1" value="Visa">
+                                       <label class="form-check-label" for="gridRadios1">
+                                          Visa
+                                       </label>
+                                    </div>
+                                    <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios2" value="Mastercard">
+                                       <label class="form-check-label" for="gridRadios2">
+                                          Mastercard
+                                       </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios3" value="AmericanExpress">
+                                       <label class="form-check-label" for="gridRadios3">
+                                          American Express
+                                       </label>
+                                   </div>
+                                 </div>
+                              </div>
+                           </fieldset>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputEmail3" class="col-3 col-form-label">Numéro de la carte</label>
+                              <div class="col-4">
+                                 <input type="tel" class="form-control" name="NumCarte" id="inputEmail3" placeholder="Numéro de la carte" maxlength="16" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputEmail3" class="col-3 col-form-label">Nom de la carte</label>
+                              <div class="col-4">
+                                 <input type="text" class="form-control" name="NomCarte" id="inputEmail3" placeholder="Nom de la carte" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputPassword3" class="col-3 col-form-label">Date d'expiration</label>
+                              <div class="col-4">
+                                 <input type="date" class="form-control" name="DateExp" id="inputPassword3" placeholder="Date d'expiration" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputPassword3" class="col-3 col-form-label">Code CVC</label>
+                              <div class="col-4">
+                                 <input type="tel" class="form-control" name="CodeCVC" id="inputPassword3" placeholder="Code CVC" maxlength="3" required>
+                              </div>
+                           </div>
+                           <br>
+                        </form>
+                     </div>
+                  <?php
+                  }
                   ?>
                     <div style="text-align: center; padding-top: 20px;">
                         <form method="POST">
