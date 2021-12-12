@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 11 déc. 2021 à 21:55
+-- Généré le : Dim 12 déc. 2021 à 00:52
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -63,14 +63,15 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `Tel` int(10) NOT NULL,
   PRIMARY KEY (`ID_adresse`),
   KEY `ID_client` (`ID_client`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`ID_adresse`, `ID_client`, `Adresse1`, `Adresse2`, `Ville`, `CP`, `Pays`, `Tel`) VALUES
-(1, 1, '37 quai de Grenelle', '', 'Paris', 75015, 'France', 1234567890);
+(1, 1, '37 quai de Grenelle', '', 'Paris', 75015, 'France', 1234567890),
+(2, 2, '90 rue Anatole France', '2 rue', 'Levallois', 92300, 'France', 665904830);
 
 -- --------------------------------------------------------
 
@@ -88,14 +89,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Mdp` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_client`),
   KEY `ID_panier` (`ID_panier`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
 --
 
 INSERT INTO `client` (`ID_client`, `ID_panier`, `Nom`, `Prenom`, `Mail`, `Mdp`) VALUES
-(1, NULL, 'KOON', 'Jimmy', 'jimmy@test', 'test');
+(1, NULL, 'KOON', 'Jimmy', 'jimmy@test', 'test'),
+(2, NULL, 'Gao', 'Camille', 'gc@gmail.com', 'gc');
 
 -- --------------------------------------------------------
 
@@ -143,9 +145,9 @@ INSERT INTO `objet` (`ID_objet`, `ID_vendeur`, `ID_admin`, `ID_panier`, `Nom`, `
 (8, 3, 1, NULL, 'Nike Dunk Low UNC', 'Le blanc et le bleu de l\'Universite de Caroline du Nord sont mis a l\'honneur et habille la Nike Dunk Low UNC, le blanc prenant le role de base a laquelle se superpose le bleu.', 300, 'Rare', 'Transaction', 'CV.jpg', 'CV.jpg', 'CV_2.jpg', 'CV.jpg', '2021-12-11 16:22:25', '2021-12-31'),
 (9, 3, 3, NULL, 'Nike Dunk Low Laser Orange', 'La Nike Dunk Low Laser Orange se pare d\'une base en cuir blanc, simplement rehaussee de superpositions d\'un jaune vif, du swoosh central au mudguard en passant par le talon et les oeillets.', 250, 'Haut de gamme', 'Transaction', 'CV2.jpg', 'CV2.jpg', 'CV2_2.jpg', 'CV2.jpg', '2021-12-11 16:23:16', '2021-12-31'),
 (10, 3, 2, NULL, 'Nike Dunk Low Green Glow', 'Cette Dunk Low Green Glow women melange un coloris vert pastel brillant et blanc dans un style efficace parfait pour la saison estivale. Faites parties des premiers a posseder cette paire', 60, 'Regulier', 'Transaction', 'CV3.jpg', 'CV3.jpg', 'CV3_2.jpg', 'CV3.jpg', '2021-12-11 16:24:30', '2021-12-31'),
-(11, 3, 2, NULL, 'Nike SB Dunk Low Grateful Dead Bears Green', 'La Nike SB Dunk Low Grateful Dead Bears Green opte pour une base verte alternant cuir suede et revetement en fausse fourrure. On retrouve des accents de bleu vif au niveau des Swoosh latéraux termines par un contour dentele noir.', 400, 'Rare', 'Meilleure offre', 'MO.jpg', 'MO.jpg', 'MO_2.jpg', 'MO.jpg', '2021-12-11 16:25:26', '2021-12-31'),
-(12, 3, 1, NULL, 'Nike SB Dunk Low Grateful Dead Opti Yellow', 'La Nike SB Dunk Low Grateful Dead ‘Opti Yellow’ sent bon le debut des années 2000. La chaussure a base de peluche jaune remet au gout du jour le concept de la « sneaker nounours » impulsee par le pack Teddy Bears.', 340, 'Haut de gamme', 'Meilleure offre', 'MO2.jpg', 'MO2.jpg', 'MO2_2.jpg', 'MO2.jpg', '2021-12-11 16:26:25', '2021-12-31'),
-(13, 3, 2, NULL, 'Nike SB Dunk Low Grateful Dead Bears Orange ', 'Cette fois-ci la division skateboarding de Nike s\'associe avec le groupe Grateful Dead. Le coloris est inspire de l\'ourson orange present sur la pochette d\'un de leurs albums. Ce coloris est le plus limite du pack.', 220, 'Regulier', 'Meilleure offre', 'MO3.jpg', 'MO3.jpg', 'MO3_2.jpg', 'MO3.jpg', '2021-12-11 16:27:45', '2021-12-31'),
+(11, 3, 2, NULL, 'Nike SB Dunk Low Grateful Dead Bears Green', 'La Nike SB Dunk Low Grateful Dead Bears Green opte pour une base verte alternant cuir suede et revetement en fausse fourrure. On retrouve des accents de bleu vif au niveau des Swoosh lateraux termines par un contour dentele noir.', 400, 'Rare', 'Meilleure offre', 'MO.jpg', 'MO.jpg', 'MO_2.jpg', 'MO.jpg', '2021-12-11 16:25:26', '2021-12-31'),
+(12, 3, 1, NULL, 'Nike SB Dunk Low Grateful Dead Opti Yellow', 'La Nike SB Dunk Low Grateful Dead Opti Yellow sent bon le debut des annees 2000. La chaussure a base de peluche jaune remet au gout du jour le concept de la  sneaker nounours impulsee par le pack Teddy Bears.', 340, 'Haut de gamme', 'Meilleure offre', 'MO2.jpg', 'MO2.jpg', 'MO2_2.jpg', 'MO2.jpg', '2021-12-11 16:26:25', '2021-12-31'),
+(13, 3, 2, NULL, 'Nike SB Dunk Low Grateful Dead Bears Orange ', 'Cette fois-ci la division skateboarding de Nike s associe avec le groupe Grateful Dead. Le coloris est inspire de l ourson orange present sur la pochette d un de leurs albums. Ce coloris est le plus limite du pack.', 220, 'Regulier', 'Meilleure offre', 'MO3.jpg', 'MO3.jpg', 'MO3_2.jpg', 'MO3.jpg', '2021-12-11 16:27:45', '2021-12-31'),
 (36, 3, 1, NULL, 'Nike Dunk Low Community Garden', 'La Nike Dunk Low Community Garden se pare d un design patchwork compose d une multitude d imprimes.', 220, 'Haut de gamme', 'Indisponible', 'indispo3.jpg', 'indispo3.jpg', 'indispo3_2.jpg', 'indispo3.jpg', '2021-12-11 16:30:53', '2021-12-31');
 
 -- --------------------------------------------------------
@@ -159,13 +161,20 @@ CREATE TABLE IF NOT EXISTS `paiement` (
   `ID_paiement` int(11) NOT NULL AUTO_INCREMENT,
   `ID_client` int(11) NOT NULL,
   `Type` varchar(255) NOT NULL,
-  `NumCarte` int(20) NOT NULL,
+  `NumCarte` varchar(255) NOT NULL,
   `NomCarte` varchar(255) NOT NULL,
   `DateExp` date NOT NULL,
   `Code` int(7) NOT NULL,
   PRIMARY KEY (`ID_paiement`),
   KEY `ID_client` (`ID_client`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `paiement`
+--
+
+INSERT INTO `paiement` (`ID_paiement`, `ID_client`, `Type`, `NumCarte`, `NomCarte`, `DateExp`, `Code`) VALUES
+(1, 2, 'American Express', '1111222233334444', 'Gao Camille', '2021-12-31', 888);
 
 -- --------------------------------------------------------
 
