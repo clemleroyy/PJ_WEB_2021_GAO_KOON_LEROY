@@ -10,11 +10,12 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    <header>
-         <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
+         <h1 style="text-align: center;"><a href="index.php"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></a></h1>
    </header>
    <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
       <div class="container-fluid">
@@ -28,9 +29,15 @@
                   <a class="nav-link active" href="index.php">Accueil</a>
                </li>
             </ul>
-            <ul class="navbar-nav  col-sm-2">
+            <ul class="navbar-nav dropdown col-sm-2">
                <li class="nav-item px-5">
-                  <a class="nav-link" href="parcourir.php">Tout parcourir</a>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tout parcourir
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="parcourir2.php">Par rareté</a></li>
+                  <li><a class="dropdown-item" href="parcourir.php">Par mode d'achat</a></li>
+          </ul>
                </li>
            </ul>
            <ul class="navbar-nav  col-sm-2">
@@ -97,7 +104,7 @@
             </p>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                <div class="col">
-                  <div class="card mb-3">
+                  <div class="card mb-3" style="height: 410px;">
                      <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -106,7 +113,7 @@
                   </div>
                </div>
                <div class="col">
-                  <div class="card mb-3">
+                  <div class="card mb-3" style="height: 410px;">
                      <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -115,7 +122,7 @@
                   </div>
                </div>
                <div class="col">
-                  <div class="card mb-3">
+                  <div class="card mb-3" style="height: 410px;">
                      <img src="BJ.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
                         <h5 class="card-title">Card title</h5>
