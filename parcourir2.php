@@ -2,54 +2,156 @@
       session_start();
       $idCl = $_SESSION['idCl'];
 
+      $affI1 = true;
+      $affI2 = true;
+      $affI3 = true;
+      $affM1 = true;
+      $affM2 = true;
+      $affM3 = true;
+      $affT1 = true;
+      $affT2 = true;
+      $affT3 = true;
+
         $database = "projet_piscine";
         $db_handle = mysqli_connect('localhost', 'root', '');
         $db_found = mysqli_select_db($db_handle, $database);
-        $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
-        $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
-        $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
-        $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
-        $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
-        $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
-        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
-        $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
-        $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
-        $resultI1 = mysqli_query($db_handle, $sqlI1);
-        $resultI2 = mysqli_query($db_handle, $sqlI2);
-        $resultI3 = mysqli_query($db_handle, $sqlI3);
-        $resultM1 = mysqli_query($db_handle, $sqlM1);
-        $resultM2 = mysqli_query($db_handle, $sqlM2);
-        $resultM3 = mysqli_query($db_handle, $sqlM3);
-        $resultT1 = mysqli_query($db_handle, $sqlT1);
-        $resultT2 = mysqli_query($db_handle, $sqlT2);
-        $resultT3 = mysqli_query($db_handle, $sqlT3);
+        if ($db_found) {
 
-        while($immediat1 = mysqli_fetch_assoc($resultI1)){
-            $immediatI1[]=$immediat1;
-        }
-        while($immediat2 = mysqli_fetch_assoc($resultI2)){
-            $immediatI2[]=$immediat2;
-        }
-        while($immediat3 = mysqli_fetch_assoc($resultI3)){
-            $immediatI3[]=$immediat3;
-        }
-        while($meilleure1 = mysqli_fetch_assoc($resultM1)){
-            $meilleureM1[]=$meilleure1;
-        }
-        while($meilleure2 = mysqli_fetch_assoc($resultM2)){
-            $meilleureM2[]=$meilleure2;
-        }
-        while($meilleure3 = mysqli_fetch_assoc($resultM3)){
-            $meilleureM3[]=$meilleure3;
-        }
-        while($transac1 = mysqli_fetch_assoc($resultT1)){
-            $transacT1[]=$transac1;
-        }
-        while($transac2 = mysqli_fetch_assoc($resultT2)){
-            $transacT2[]=$transac2;
-        }
-        while($transac3 = mysqli_fetch_assoc($resultT3)){
-            $transacT3[]=$transac3;
+
+            $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
+            $resultI1 = mysqli_query($db_handle, $sqlI1);
+            if(($user = mysqli_fetch_assoc($resultI1)) == 0){
+                $affI1 = false;
+            }
+            else{
+                $affI1 = true;
+                $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
+                $resultI1 = mysqli_query($db_handle, $sqlI1);
+                while($immediat1 = mysqli_fetch_assoc($resultI1)){
+                    $immediatI1[]=$immediat1;
+                }
+            }
+
+
+            $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
+            $resultI2 = mysqli_query($db_handle, $sqlI2);
+            if(($user = mysqli_fetch_assoc($resultI2)) == 0){
+                $affI2 = false;
+            }
+            else{
+                $affI2 = true;
+                $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
+                $resultI2 = mysqli_query($db_handle, $sqlI2);
+                while($immediat2 = mysqli_fetch_assoc($resultI2)){
+                    $immediatI2[]=$immediat2;
+                }
+            }
+
+
+
+            $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
+            $resultI3 = mysqli_query($db_handle, $sqlI3);
+            if(($user = mysqli_fetch_assoc($resultI3)) == 0){
+                $affI3 = false;
+            }
+            else{
+                $affI3 = true;
+                $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
+                $resultI3 = mysqli_query($db_handle, $sqlI3);
+                while($immediat3 = mysqli_fetch_assoc($resultI3)){
+                    $immediatI3[]=$immediat3;
+                }
+            }
+
+
+            $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
+            $resultM1 = mysqli_query($db_handle, $sqlM1);
+            if(($user = mysqli_fetch_assoc($resultM1)) == 0){
+                $affM1 = false;
+            }
+            else{
+                $affM1 = true;
+                $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
+                $resultM1 = mysqli_query($db_handle, $sqlM1);
+                while($meilleure1 = mysqli_fetch_assoc($resultM1)){
+                    $meilleureM1[]=$meilleure1;
+                }
+            }
+
+
+            $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
+            $resultM2 = mysqli_query($db_handle, $sqlM2);
+            if(($user = mysqli_fetch_assoc($resultM2)) == 0){
+                $affM2 = false;
+            }
+            else{
+                $affM2 = true;
+                $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
+                $resultM2 = mysqli_query($db_handle, $sqlM2);
+                while($meilleure2 = mysqli_fetch_assoc($resultM2)){
+                    $meilleureM2[]=$meilleure2;
+                }
+            }
+
+
+            $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
+            $resultM3 = mysqli_query($db_handle, $sqlM3);
+            if(($user = mysqli_fetch_assoc($resultM3)) == 0){
+                $affM3 = false;
+            }
+            else{
+                $affM3 = true;
+                $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
+                $resultM3 = mysqli_query($db_handle, $sqlM3);
+                while($meilleure3 = mysqli_fetch_assoc($resultM3)){
+                    $meilleureM3[]=$meilleure3;
+                }
+            }
+
+
+            $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
+            $resultT1 = mysqli_query($db_handle, $sqlT1);
+            if(($user = mysqli_fetch_assoc($resultT1)) == 0){
+                $affT1 = false;
+            }
+            else{
+                $affT1 = true;
+                $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
+                $resultT1 = mysqli_query($db_handle, $sqlT1);
+                while($transac1 = mysqli_fetch_assoc($resultT1)){
+                    $transacT1[]=$transac1;
+                }
+            }
+
+
+            $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
+            $resultT2 = mysqli_query($db_handle, $sqlT2);
+            if(($user = mysqli_fetch_assoc($resultT2)) == 0){
+                $affT2 = false;
+            }
+            else{
+                $affT2 = true;
+                $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
+                $resultT2 = mysqli_query($db_handle, $sqlT2);
+                while($transac2 = mysqli_fetch_assoc($resultT2)){
+                    $transacT2[]=$transac2;
+                }
+            }
+
+
+            $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
+            $resultT3 = mysqli_query($db_handle, $sqlT3);
+            if(($user = mysqli_fetch_assoc($resultT3)) == 0){
+                $affT3 = false;
+            }
+            else{
+                $affT3 = true;
+                $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
+                $resultT3 = mysqli_query($db_handle, $sqlT3);
+                while($transac3 = mysqli_fetch_assoc($resultT3)){
+                    $transacT3[]=$transac3;
+                }
+            }
         }
 
         $panier = isset($_POST["panier"])? $_POST["panier"] : "";
@@ -146,7 +248,8 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Article régulier</h2>
                     </div>
-                    <?php foreach ($immediatI3 as $immediat3) {
+                    <?php if($affI3){
+                    foreach ($immediatI3 as $immediat3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -163,8 +266,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    <?php foreach ($transacT3 as $transac3) {
+                    <?php } }?>
+                    <?php if($affT3){
+                    foreach ($transacT3 as $transac3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -179,8 +283,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    <?php foreach ($meilleureM3 as $meilleure3) {
+                    <?php } }?>
+                    <?php if($affM3){
+                    foreach ($meilleureM3 as $meilleure3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -195,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
             </div>
         </section>
@@ -206,7 +311,8 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Article rare</h2>
                     </div>
-                    <?php foreach ($immediatI2 as $immediat2) {
+                    <?php if($affI2){
+                    foreach ($immediatI2 as $immediat2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -223,9 +329,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    
-                    <?php foreach ($transacT2 as $transac2) {
+                    <?php } }?>
+                    <?php if($affT2){
+                    foreach ($transacT2 as $transac2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -240,8 +346,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    <?php foreach ($meilleureM2 as $meilleure2) {
+                    <?php } }?>
+                    <?php if($affM2){
+                    foreach ($meilleureM2 as $meilleure2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -256,7 +363,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
             </div>
         </section>
@@ -267,7 +374,8 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Article haut de gamme</h2>
                     </div>
-                    <?php foreach ($immediatI1 as $immediat1) {
+                    <?php if($affI1){
+                    foreach ($immediatI1 as $immediat1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -284,8 +392,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    <?php foreach ($transacT1 as $transac1) {
+                    <?php } }?>
+                    <?php if($affT1){
+                    foreach ($transacT1 as $transac1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -300,8 +409,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-                    <?php foreach ($meilleureM1 as $meilleure1) {
+                    <?php } }?>
+                    <?php if($affM1){
+                    foreach ($meilleureM1 as $meilleure1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3" style="height: 550px">
@@ -316,7 +426,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
             </div>
         </section>
