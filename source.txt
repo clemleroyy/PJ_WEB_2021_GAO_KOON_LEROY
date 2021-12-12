@@ -6,3 +6,4 @@ https://getbootstrap.com/docs/4.1/components/card/#card-columns
 https://getbootstrap.com/docs/4.0/components/carousel/
 https://freefrontend.com/bootstrap-profiles/
 https://getbootstrap.com/docs/4.0/components/forms/
+https://getbootstrap.com/docs/5.1/forms/checks-radios/
