@@ -138,6 +138,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat1['Rarete']?></a></h3>
                                 <p class="card-text"><?=$immediat1['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$immediat1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
                         </div>
@@ -153,6 +154,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat2['Rarete']?></a></h3>
                                 <p class="card-text"><?=$immediat2['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$immediat2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
                         </div>
@@ -168,6 +170,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat3['Rarete']?></a></h3>
                                 <p class="card-text"><?=$immediat3['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$immediat3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
                         </div>
@@ -193,6 +196,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac1['Rarete']?></a></h3>
                                 <p class="card-text"><?=$transac1['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$transac1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
@@ -208,6 +212,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac2['Rarete']?></a></h3>
                                 <p class="card-text"><?=$transac2['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$transac2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
@@ -223,6 +228,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac3['Rarete']?></a></h3>
                                 <p class="card-text"><?=$transac3['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$transac3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
@@ -248,6 +254,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure1['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure1['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$meilleure1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
@@ -263,6 +270,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure2['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$meilleure2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
@@ -278,6 +286,7 @@
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure3['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <h3 class="theme-color lead"><strong>Prix : <?=$meilleure3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
