@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Maison Manolo</title>
+      <title>Mon panier</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <!--<link rel='stylesheet' type='text/css' href='panier.css'>-->
    </head>
@@ -57,158 +57,59 @@
          </div>
       </div>
       </nav>
-   <div class="container bg-light rounded">
-   <div class="row">
-   <div class="col-md-12 mt-3">
-   <div class="row mt-3">
-   <div class="col-md-4">
-   <p>Produit 01 (8.00 €)</p>
-   </div>
-   <div class="col-md-2">
-   <select class="form-control" id="01">
-   <option value="XS">XS</option>
-   <option value="S">S</option>
-   <option value="M">M</option>
-   <option value="L">L</option>
-   <option value="XL">XL</option>
-   <option value="2XL">2XL</option>
-   <option value="3XL">3XL</option>
-   <option value="4XL">4XL</option>
-   </select>
-   </div>
-   <div class="col-md-2">
-   <div class="form-check">
-   <input class="form-check-input produit_001" type="checkbox" data-nom="Option 1" data-prix="6.00" id="case_01">
-   <label class="form-check-label" for="case_01">
-   Option 1 (+6.00 €)
-   </label>
-   </div>
-   <div class="form-check">
-   <input class="form-check-input produit_001" type="checkbox" data-nom="Option 2" data-prix="5.00" id="case_02">
-   <label class="form-check-label" for="case_02">
-   Option 2 (+5.00 €)
-   </label>
-   </div>
-   </div>
-   <div class="col-md-4 text-end">
-   <a style="cursor:pointer;" data-nom="Produit 01" data-prix="8.00" data-select="01" data-checkbox="produit_001" class="btn btn-primary ajouter-panier">ajouter au panier</a>
-   </div>
-   </div>
-   <div class="row mt-3">
-   <div class="col-md-4">
-   <p>Produit 02 (15.00 €)</p>
-   </div>
-   <div class="col-md-6 text-end">
-   <a style="cursor:pointer;" data-nom="Produit 02" data-prix="15.00" data-select="02" class="btn btn-primary ajouter-panier">ajouter au panier</a>
-   </div>
-   </div>
-   <div class="row mt-4">
-   <div class="col-md-4">
-   <p>Produit 03 (12.00 €)</p>
-   </div>
-   <div class="col-md-8 text-end">
-   <a style="cursor:pointer;" data-nom="Produit 03" data-prix="12.00" class="btn btn-primary ajouter-panier">ajouter au panier</a>
-   </div>
-   </div>
-   </div>
-   </div>
-   <div class="row">
-   <div class="col-md-12 mt-3">
-   <h4>Votre commande</h4>
-   </div>
-   </div>
-   <div class="row">
-   <div class="col-md-12 mt-3">
-   Nombre de produit(s) dans le panier : <span class="total-count"></span>
-   <br /><br />
-   <table width="100%" class="show-panier" id="macommande"></table>
-   <br />
-   <br />
-   <div>*Prix total: <b><span class="total-panier" id="prix_total">0.00</span> euros</b></div>
-   <br />
-   <i id="livraison-detail">*Livraison incluse</i>
-   <div class="text-end"><button class="clear-panier btn btn-danger">Vider le panier</button></div>
-   </div>
-   </div>
-   <div class="row">
-   <div class="col-md-12 mt-3">
+  
+<main>
 
-   <div id="qte_minimum_report"></div>
-   </div>
-   </div>
-   <div class="modal" id="mymodal" tabindex="-1" role="dialog">
-     <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-   <h5 class="modal-title">Commande confirmée</h5>
-   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
-     </div>
-     <div class="modal-body">
-   <div id="commande_report">Merci de votre commande</div>
-     </div>
-     <div class="modal-footer">
-   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-     </div>
-   </div>
-     </div>
-   </div>
-   <div class="modal" id="mymodal_erreur" tabindex="-1" role="dialog">
-     <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-   <h5 class="modal-title">Erreur de commande</h5>
-   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
-     </div>
-     <div class="modal-body">
-   <div id="commande_report">Une erreur est survenue</div>
-     </div>
-     <div class="modal-footer">
-   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-     </div>
-   </div>
-     </div>
-   </div>
-   </div>
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-   <script src="panier.js"></script>
-   <script>
-   function commander(nom,prenom,cp,email,commande,prix_total,message,ville){
-   $.ajax({
-   url : 'mail.php',
-   type : 'GET', 
-   data : 'nom=' + nom + '&prenom=' + prenom + '&cp=' + cp + '&email=' + email + '&commande=' + commande + '&prix_total=' + prix_total + '&message=' + message + '&ville=' + ville, 
-   dataType : 'html',
-   success : function(reponse){
-   if (reponse == "1"){
-   MonPanier.clearpanier();
-   afficherpanier();
-   document.body.scrollTop = 0;
-   document.documentElement.scrollTop = 0;
-   $('#mymodal').modal('show');
-   }
-   if (reponse == "0"){$('#mymodal_erreur').modal('show');}
-   }
-   });
-   }
-   $('#commander').click( function(){
-   var nom = document.getElementById("nom").value;
-   var prenom = document.getElementById("prenom").value;
-   var cp = document.getElementById("cp").value;
-   var ville = document.getElementById("ville").value;
-   var email = document.getElementById("email").value;
-   var commande = JSON.stringify(panier);
-   var prix_total = document.getElementById("prix_total").innerHTML;
-   var message = encodeURIComponent(document.getElementById("message").value);
-   commander(nom,prenom,cp,email,commande,prix_total,message,ville);
-   });
-   </script>
+<div class="container bg-white rounded-top mt-5" id="zero-pad">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-13 col-12 pt-0">
+            <div class="d-flex flex-column pt-1">
+                <div class="pt-0" style="text-align:center">
+                    <h4>Mon panier</h4>
+                </div>
+            <div class="d-flex flex-column pt-4">
+            <div class="d-flex flex-row px-lg-5 mx-lg-5 mobile" id="heading">
+                <div class="p-2 w-75 bd-highlight" style="text-align:center" id="produc">PRODUIT</div>
+                <div class="p-2" style="width:500px; text-align: right" id="prc">PRIX</div>
+                <div class="p-2 bd-highlight" id="quantity" style="width:300px; text-align: center">RARETE</div>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom mobile">
+                <div class="d-flex flex-row align-items-center">
+                    <div><img src="indispo.jpg" width="150" height="150" alt="" id="image"></div>
+                    <div class="d-flex flex-column pl-md-3 pl-1">
+                        <div class="p-2">
+                            <h6>Nike Dunk Low Cider</h6>
+                        </div>
+
+                        <div class="p-2 w-75">La Nike Dunk Low PRM Cider se compose d'une empeigne mixant cuir lisse et suede et alternant empiecements d'une palette de couleurs automnales.<span class="pl-2"></span></div><br>
+
+                    </div>
+                </div>
+                <div class="pe-5" style="width:0px; text-align: center"><b>100€</b></div>
+                <div class="pl-md-0" style="width:320px; text-align: center"><b>Régulier</b></div>
+                <div> <button class="btn btn-sm bg-danger text-black px-lg-2 px-3">Supprimer</button> </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container bg-light rounded-bottom py-4" id="zero-pad">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10 col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="px-md-0 px-1" id="footer-font"> <b class="pl-md-4">TOTAL DE VOTRE COMMANDE :<span class="pl-md-4"> X€X</span></b> </div>
+                <div> <button class="btn btn-sm bg-dark text-white px-lg-5 px-3">PAYER</button> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</main>
+   
+  
+
   <footer  class="bg-light text-center text-lg-start">
       <?php include ('footer.php') ?>
     </footer>
