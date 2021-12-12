@@ -1195,7 +1195,7 @@
                            <div class="form-group row" style="padding-left: 10px">
                               <label for="inputEmail3" class="col-3 col-form-label">Téléphone</label>
                               <div class="col-6">
-                                 <input type="tel" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
+                                 <input type="text" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
                               </div>
                            </div>
                            <br>
