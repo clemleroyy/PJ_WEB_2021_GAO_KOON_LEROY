@@ -200,6 +200,18 @@
                   if(($user = mysqli_fetch_assoc($result))==0){
                      $sql = "INSERT INTO client (Nom, Prenom, Mail, Mdp) VALUES('$nom', '$prenom', '$mail2', '$mdp2')";
                      $result = mysqli_query($db_handle, $sql);
+                     $sql = "SELECT * FROM client WHERE Mail = '$mail2' AND Mdp = '$mdp2'";
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $tmp = $user['ID_client'];
+                     $sql = "INSERT INTO panier (ID_client, Prix_panier) VALUES('$tmp', '0')";
+                     $result = mysqli_query($db_handle, $sql);
+                     $sql = "SELECT * FROM panier WHERE ID_client = '$tmp'";
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $tmp2 = $user['ID_panier'];
+                     $sql = "UPDATE client SET ID_panier = '$tmp2' WHERE client . ID_client = '$tmp'";
+                     $result = mysqli_query($db_handle, $sql);
                      $success = "Merci de vous être inscrit " . $prenom;
                   }
                   else{
@@ -463,6 +475,21 @@
                   <?php
                   }
                   if($affAd){
+                     $sql = "SELECT * FROM administrateur WHERE ID_admin = '$idAd'";
+                     $result = mysqli_query($db_handle, $sql);
+                     $user=mysqli_fetch_assoc($result);
+                     $PrenomA=$user['Prenom'];
+                     ?>
+                     <section class="section about-section gray-bg pt-2" id="about">
+                        <div class="container" style="text-align: center;">
+                           <div class="row align-items-center flex-row-reverse">
+                              <div class="about-text go-to">
+                                 <h3 class="dark-color">Bonjour <?=$PrenomA?></h3>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <?php
                      if($affB4){
                      ?>
                      <div style="text-align: center; padding-top: 20px;">
@@ -507,7 +534,7 @@
                                        </label>
                                     </div>
                                     <div class="form-check disabled">
-                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="Haut De Gamme">
+                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="Haut De gamme">
                                        <label class="form-check-label" for="gridRadios3">
                                           Haut de gamme
                                        </label>
@@ -778,7 +805,7 @@
                      $PhotoV=$user['Image_vendeur'];
                      $FondV=$user['Image_fond'];
                      $MailV=$user['Mail'];
-                     $PseudoV=$user['Pseudo']
+                     $PseudoV=$user['Pseudo'];
                      ?>
                            <section class="section about-section gray-bg pt-2" id="about">
                               <div style="background-image: url('<?=$FondV?>')">
@@ -1203,7 +1230,7 @@
                            <div class="form-group row" style="padding-left: 10px">
                               <label for="inputEmail3" class="col-3 col-form-label">Téléphone</label>
                               <div class="col-6">
-                                 <input type="tel" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
+                                 <input type="text" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
                               </div>
                            </div>
                            <br>
