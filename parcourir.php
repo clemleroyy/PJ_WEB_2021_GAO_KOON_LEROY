@@ -12,8 +12,8 @@
         $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
         $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
         $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
-        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
-        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
+        $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
+        $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
         $resultI1 = mysqli_query($db_handle, $sqlI1);
         $resultI2 = mysqli_query($db_handle, $sqlI2);
         $resultI3 = mysqli_query($db_handle, $sqlI3);
@@ -33,13 +33,13 @@
         while($immediat3 = mysqli_fetch_assoc($resultI3)){
             $immediatI3[]=$immediat3;
         }
-        while($meilleure1 = mysqli_fetch_assoc($resulM1)){
+        while($meilleure1 = mysqli_fetch_assoc($resultM1)){
             $meilleureM1[]=$meilleure1;
         }
-        while($meilleure2 = mysqli_fetch_assoc($resulM2)){
+        while($meilleure2 = mysqli_fetch_assoc($resultM2)){
             $meilleureM2[]=$meilleure2;
         }
-        while($meilleure3 = mysqli_fetch_assoc($resulM3)){
+        while($meilleure3 = mysqli_fetch_assoc($resultM3)){
             $meilleureM3[]=$meilleure3;
         }
         while($transac1 = mysqli_fetch_assoc($resultT1)){
@@ -48,7 +48,7 @@
         while($transac2 = mysqli_fetch_assoc($resultT2)){
             $transacT2[]=$transac2;
         }
-        while($transac3 = mysqli_fetch_assoc($resulT3)){
+        while($transac3 = mysqli_fetch_assoc($resultT3)){
             $transacT3[]=$transac3;
         }
 
@@ -96,7 +96,7 @@
                    </ul>
                    <ul class="navbar-nav  col-sm-2">
                       <li class="nav-item px-5">
-                         <a class="nav-link" href="parcourir.php">Tout parcourir</a>
+                         <a class="nav-link active" href="parcourir.php">Tout parcourir</a>
                       </li>
                   </ul>
                   <ul class="navbar-nav  col-sm-2">
@@ -111,7 +111,7 @@
                    </ul>
                    <ul class="navbar-nav  col-sm-2">
                       <li class="nav-item px-5">
-                         <a class="nav-link active" href="compte.php">Mon compte</a>
+                         <a class="nav-link" href="compte.php">Mon compte</a>
                       </li>
                    </ul>
                 </div>
@@ -183,46 +183,46 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Transaction client-vendeur</h2>
                     </div>
-                    <?php foreach ($meilleureM1 as $meilleure1) {
+                    <?php foreach ($transacT1 as $transac1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure1['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$transac1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure1['Rarete']?></a></h3>
-                                <p class="card-text"><?=$meilleure1['Description']?></p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac1['Rarete']?></a></h3>
+                                <p class="card-text"><?=$transac1['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-                    <?php foreach ($meilleureM2 as $meilleure2) {
+                    <?php foreach ($transacT2 as $transac2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure2['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$transac2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure2['Rarete']?></a></h3>
-                                <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac2['Rarete']?></a></h3>
+                                <p class="card-text"><?=$transac2['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-                    <?php foreach ($meilleureM3 as $meilleure3) {
+                    <?php foreach ($transacT3 as $transac3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure3['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$transac3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure3['Rarete']?></a></h3>
-                                <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$transac3['Rarete']?></a></h3>
+                                <p class="card-text"><?=$transac3['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
@@ -243,12 +243,12 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure1['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure1['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure1['Description']?></p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
+                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
                     </div>
@@ -258,12 +258,12 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure2['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure2['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure2['Description']?></p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
+                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
                     </div>
@@ -273,16 +273,18 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="<?=$meilleure3['Description']?>" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure3['Rarete']?></a></h3>
                                 <p class="card-text"><?=$meilleure2['Description']?></p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
+                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
+
+
                 </div>
             </div>
         </section>
