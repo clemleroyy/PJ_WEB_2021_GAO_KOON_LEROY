@@ -66,6 +66,16 @@
                 $result = mysqli_query($db_handle, $sql);
             }
         }
+        
+        if(isset($_POST["AjoutAdresse"])){
+               $affB6 = false;
+               $affAddAdresse = true;
+               if($db_found){
+                  $sql = "INSERT INTO adresse (ID_client, Adresse1, Adresse2, Ville, CP, Pays, Tel) VALUES ('$idCl', '$Adresse1', '$Adresse2', '$Ville1', '$CP1', '$Pays1', '$Tel1')";
+                  $result = mysqli_query($db_handle, $sql);
+                  $successAjoutA = "Vous avez ajouté une adresse";
+               }
+            }
 
 
    ?>
