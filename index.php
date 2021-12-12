@@ -104,29 +104,30 @@
             </p>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                <div class="col">
-                  <div class="card mb-3" style="height: 410px;">
-                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
+                  <div class="card mb-3" style="height: 500px;">
+                     <img src="BS.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Jordan 1 High Dark Mocha</h5>
+                        <p class="card-text"> La sortie de la Dark Mocha 1 était l'une des plus attendues en 2020 avec son color-block courant faisant référence à deux des plus grandes Jordan 1 de tous les temps, la Jordan 1 Travis Scott et la Jordan 1 Black Toe.
+</p>
                      </div>
                   </div>
                </div>
                <div class="col">
-                  <div class="card mb-3" style="height: 410px;">
-                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
+                  <div class="card mb-3" style="height: 500px;">
+                     <img src="BS2.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Nike Sacai Vaporwaffle</h5>
+                        <p class="card-text">Après plusieurs mois d'attente, Nike et Sacai ont officiellement sorti la Nike Sacai Vaporwaffle. La VaporWaffle présente un design encore plus abstrait que son modèle précédent, la Nike LD Waffle Sacai.</p>
                      </div>
                   </div>
                </div>
                <div class="col">
-                  <div class="card mb-3" style="height: 410px;">
-                     <img src="BJ.jpg" class="card-img-top" alt="BJ">
+                  <div class="card mb-3" style="height: 500px;">
+                     <img src="BS3.jpg" class="card-img-top" alt="BJ">
                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">Air Jordan 1 Low Travis Scott Fragment</h5>
+                        <p class="card-text">La Air Jordan 1 Low Travis Scott Fragment se pare d'une base en cuir blanc sur laquelle on trouve des empiècements de couleur noir. Le talon et l'outsole de la paire reprennent le bleu de l'iconique AJ1 Fragment.</p>
                      </div>
                   </div>
                </div>
