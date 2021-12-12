@@ -136,13 +136,14 @@
                     <?php foreach ($immediatI1 as $immediat1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$immediat1['Rarete']?></h3>
-                                <p class="card-text"><?=$immediat1['Description']?></p>
+                                <p class="card-text"><?=$immediat1['Description']?><br>ID : <?=$immediat1['ID_objet']?></p>
+
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
@@ -152,13 +153,13 @@
                     <?php foreach ($immediatI2 as $immediat2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$immediat2['Rarete']?></h3>
-                                <p class="card-text"><?=$immediat2['Description']?></p>
+                                <p class="card-text"><?=$immediat2['Description']?><br>ID : <?=$immediat2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
@@ -168,13 +169,13 @@
                     <?php foreach ($immediatI3 as $immediat3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$immediat3['Rarete']?></h3>
-                                <p class="card-text"><?=$immediat3['Description']?></p>
+                                <p class="card-text"><?=$immediat3['Description']?><br>ID : <?=$immediat3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
@@ -194,13 +195,13 @@
                     <?php foreach ($transacT1 as $transac1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$transac1['Rarete']?></h3>
-                                <p class="card-text"><?=$transac1['Description']?></p>
+                                <p class="card-text"><?=$transac1['Description']?><br>ID : <?=$transac1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
@@ -210,13 +211,13 @@
                     <?php foreach ($transacT2 as $transac2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$transac2['Rarete']?></h3>
-                                <p class="card-text"><?=$transac2['Description']?></p>
+                                <p class="card-text"><?=$transac2['Description']?><br>ID : <?=$transac2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
@@ -226,13 +227,13 @@
                     <?php foreach ($transacT3 as $transac3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$transac3['Rarete']?></h3>
-                                <p class="card-text"><?=$transac3['Description']?></p>
+                                <p class="card-text"><?=$transac3['Description']?><br>ID : <?=$transac3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
@@ -253,13 +254,13 @@
                     <?php foreach ($meilleureM1 as $meilleure1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$meilleure1['Rarete']?></h3>
-                                <p class="card-text"><?=$meilleure1['Description']?></p>
+                                <p class="card-text"><?=$meilleure1['Description']?><br>ID : <?=$meilleure1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
@@ -269,13 +270,13 @@
                     <?php foreach ($meilleureM2 as $meilleure2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$meilleure2['Rarete']?></h3>
-                                <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <p class="card-text"><?=$meilleure2['Description']?><br>ID : <?=$meilleure2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
@@ -285,13 +286,13 @@
                     <?php foreach ($meilleureM3 as $meilleure3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3" style="height: 530px">
+                        <div class="card my-3" style="height: 550px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title">Article <?=$meilleure3['Rarete']?></h3>
-                                <p class="card-text"><?=$meilleure3['Description']?></p>
+                                <p class="card-text"><?=$meilleure3['Description']?><br>ID : <?=$meilleure3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
                             </div>
