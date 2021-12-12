@@ -1,239 +1,196 @@
-    <?php
-    
-
-    ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Tout parcourir</title>
-
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
-        <style>
-        .card-thumbnail {
-            max-height: 250px;
-            overflow: hidden;
-        }
-        </style>
-    </head>
-    <body>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-       <header>
-             <h1 style="text-align: center;"><img src="logo_maison_manolo_v4.png" width="200px" height="120px"></h1>
-       </header>
-       <nav class="navbar navbar-expand-lg sticky-top bg-light navbar-light">
-             <div class="container-fluid">
-                <a class="navbar-brand col-sm-2" style="margin-left: 25px;" href="index.php"><img src="logo_maison_manolo_v4.png" width="80px" height="50px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                   <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                   <ul class="navbar-nav  col-sm-2">
-                      <li class="nav-item px-5">
-                         <a class="nav-link" href="index.php">Accueil</a>
-                      </li>
-                   </ul>
-                   <ul class="navbar-nav  col-sm-2">
-                      <li class="nav-item px-5">
-                         <a class="nav-link" href="parcourir.php">Tout parcourir</a>
-                      </li>
-                  </ul>
-                  <ul class="navbar-nav  col-sm-2">
-                      <li class="nav-item px-5">
-                         <a class="nav-link" href="notification.php">Notification</a>
-                      </li>
-                   </ul>
-                   <ul class="navbar-nav  col-sm-2">
-                      <li class="nav-item px-5">
-                         <a class="nav-link" href="panier.php">Panier</a>
-                      </li>
-                   </ul>
-                   <ul class="navbar-nav  col-sm-2">
-                      <li class="nav-item px-5">
-                         <a class="nav-link active" href="compte.php">Mon compte</a>
-                      </li>
-                   </ul>
-                   <?php
-                      /*if($_SESSION['connexion']!=0){
-                         echo "<ul class=" . "/navbar-nav  col-sm-2" . ">";
-                      echo "<li class=" . "nav-item px-5" . ">";
-                      echo "<form method="."POST" .">";
-                         echo "<button type="."submit" ."class="."btn btn-primary" ."name="."b3".">Déconnexion</button>";
-                         echo "</form>";
-                      echo "</li>";
-                   echo "</ul>";
-                      }*/
-                   ?>
-                </div>
-             </div>
-             </nav>
-
-             <h2><br>Tout parcourir</h2>
-
-
-        <!-- Bootstrap 5 Cards in Grid -->
-        <section class="bg-light py-4 my-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="mb-3 text-danger">Achat immédiat</h2>
-                    </div>
-                  
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="AI.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">La Nike Dunk Low Black White arbore une tige en cuir blanc, rehaussée par des empiècements en cuir noir pour un contraste tout en sobriété.</p>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="AI2.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Sean Cliver est une création conçue avec soin et avec des matériaux de qualité supérieure. Elle présente un upper en cuir premium.</p>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="AI3.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Un des coloris les plus populaires de la célèbre Moore, la Archeo Pink vous permettra d’apposer une touche de glamour sur chacun de vos looks.</p>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <section class="bg-light py-4 my-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="mb-3 text-danger">Transaction client-vendeur</h2>
-                    </div>
-                  
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="CV.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">Le blanc et le bleu de l'Université de Caroline du Nord sont mis à l'honneur et habille la Nike Dunk Low UNC, le blanc prenant le rôle de base à laquelle se superpose le bleu.</p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="CV2.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike Dunk Low Laser Orange se pare d'une base en cuir blanc, simplement rehaussée de superpositions d'un jaune vif, du swoosh central au mudguard en passant par le talon et les oeillets.</p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="CV3.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Cette Dunk Low Green Glow women mélange un coloris vert pastel brillant et blanc dans un style efficace parfait pour la saison estivale. Faites parties des premiers à posséder cette paire</p>
-                                <a href="#" class="btn btn-danger">Je veux négocier</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <section class="bg-light py-4 my-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="mb-3 text-danger">Meilleure offre</h2>
-                    </div>
-                  
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="MO.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Grateful Dead Bears Green opte pour une base verte alternant cuir suédé et revêtement en fausse fourrure. On retrouve des accents de bleu vif au niveau des Swoosh latéraux terminés par un contour dentelé noir.</p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="MO2.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Grateful Dead ‘Opti Yellow’ sent bon le début des années 2000. La chaussure à base de peluche jaune remet au goût du jour le concept de la « sneaker nounours » impulsée par le pack Teddy Bears. </p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="MO3.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Cette fois-ci la division skateboarding de Nike s'associe avec le groupe Grateful Dead. Le coloris est inspiré de l'ourson orange présent sur la pochette d'un de leurs albums. Ce coloris est le plus limité du pack.</p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bootstrap JS -->
-        <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
-
-        <footer class="bg-light text-center text-lg-start">
-          <?php include ('footer.php') ?>
-       </footer>
-
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Comment créer un panier en JavaScript">
+    <meta name="author" content="1FORMATIK.com">
+    <title>Comment créer un panier en JavaScript</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+<body>
+<div class="container bg-light rounded">
+<div class="row">
+<div class="col-md-12 mt-3">
+<div class="row mt-3">
+<div class="col-md-4">
+<p>Produit 01 (8.00 €)</p>
+</div>
+<div class="col-md-2">
+<select class="form-control" id="01">
+<option value="XS">XS</option>
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+<option value="XL">XL</option>
+<option value="2XL">2XL</option>
+<option value="3XL">3XL</option>
+<option value="4XL">4XL</option>
+</select>
+</div>
+<div class="col-md-2">
+<div class="form-check">
+<input class="form-check-input produit_001" type="checkbox" data-nom="Option 1" data-prix="6.00" id="case_01">
+<label class="form-check-label" for="case_01">
+Option 1 (+6.00 €)
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input produit_001" type="checkbox" data-nom="Option 2" data-prix="5.00" id="case_02">
+<label class="form-check-label" for="case_02">
+Option 2 (+5.00 €)
+</label>
+</div>
+</div>
+<div class="col-md-4 text-end">
+<a style="cursor:pointer;" data-nom="Produit 01" data-prix="8.00" data-select="01" data-checkbox="produit_001" class="btn btn-primary ajouter-panier">ajouter au panier</a>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-4">
+<p>Produit 02 (15.00 €)</p>
+</div>
+<div class="col-md-2">
+<select class="form-control" id="02">
+ <option value="XS">XS</option>
+ <option value="S">S</option>
+ <option value="M">M</option>
+ <option value="L">L</option>
+ <option value="XL">XL</option>
+ <option value="2XL">2XL</option>
+ <option value="3XL">3XL</option>
+ <option value="4XL">4XL</option>
+</select>
+</div>
+<div class="col-md-6 text-end">
+<a style="cursor:pointer;" data-nom="Produit 02" data-prix="15.00" data-select="02" class="btn btn-primary ajouter-panier">ajouter au panier</a>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-md-4">
+<p>Produit 03 (12.00 €)</p>
+</div>
+<div class="col-md-8 text-end">
+<a style="cursor:pointer;" data-nom="Produit 03" data-prix="12.00" class="btn btn-primary ajouter-panier">ajouter au panier</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 mt-3">
+<h4>Votre commande</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 mt-3">
+Nombre de produit(s) dans le panier : <span class="total-count"></span>
+<br /><br />
+<table width="100%" class="show-panier" id="macommande"></table>
+<br />
+<br />
+<div>*Prix total: <b><span class="total-panier" id="prix_total">0.00</span> euros</b></div>
+<br />
+<i id="livraison-detail">*Livraison incluse</i>
+<div class="text-end"><button class="clear-panier btn btn-danger">Vider le panier</button></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 mt-3">
+<h4>Adresse de livraison</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 mt-3">
+<input class="form-control" type="text" name="nom" value="" id="nom" placeholder="Nom">
+<br>
+<input class="form-control" type="text" name="prenom" value="" id="prenom" placeholder="Prénom">
+<br>
+<input class="form-control" type="text" name="cp" value="" id="cp" placeholder="Code postal">
+<br>
+<input class="form-control" type="text" name="ville" value="" id="ville" placeholder="Ville">
+<br>
+<input class="form-control" type="text" name="email" value="" id="email" placeholder="e-Mail">
+<br>
+<textarea class="form-control" id="message" placeholder="Message Optionnel"></textarea>
+<br>
+<div class="text-end"><button type="button" class="btn btn-success" id="commander">Commander</button></div>
+<br>
+<div id="qte_minimum_report"></div>
+</div>
+</div>
+<div class="modal" id="mymodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+<h5 class="modal-title">Commande confirmée</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+  </div>
+  <div class="modal-body">
+<div id="commande_report">Merci de votre commande</div>
+  </div>
+  <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+  </div>
+</div>
+  </div>
+</div>
+<div class="modal" id="mymodal_erreur" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+<h5 class="modal-title">Erreur de commande</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+  </div>
+  <div class="modal-body">
+<div id="commande_report">Une erreur est survenue</div>
+  </div>
+  <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="panier.js"></script>
+<script>
+function commander(nom,prenom,cp,email,commande,prix_total,message,ville){
+$.ajax({
+url : 'mail.php',
+type : 'GET', 
+data : 'nom=' + nom + '&prenom=' + prenom + '&cp=' + cp + '&email=' + email + '&commande=' + commande + '&prix_total=' + prix_total + '&message=' + message + '&ville=' + ville, 
+dataType : 'html',
+success : function(reponse){
+if (reponse == "1"){
+MonPanier.clearpanier();
+afficherpanier();
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+$('#mymodal').modal('show');
+}
+if (reponse == "0"){$('#mymodal_erreur').modal('show');}
+}
+});
+}
+$('#commander').click( function(){
+var nom = document.getElementById("nom").value;
+var prenom = document.getElementById("prenom").value;
+var cp = document.getElementById("cp").value;
+var ville = document.getElementById("ville").value;
+var email = document.getElementById("email").value;
+var commande = JSON.stringify(panier);
+var prix_total = document.getElementById("prix_total").innerHTML;
+var message = encodeURIComponent(document.getElementById("message").value);
+commander(nom,prenom,cp,email,commande,prix_total,message,ville);
+});
+</script>
+</body>
+</html>

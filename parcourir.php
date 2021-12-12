@@ -131,7 +131,7 @@
                     <?php foreach ($immediatI1 as $immediat1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -147,7 +147,7 @@
                     <?php foreach ($immediatI2 as $immediat2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -163,7 +163,7 @@
                     <?php foreach ($immediatI3 as $immediat3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$immediat3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -189,7 +189,7 @@
                     <?php foreach ($transacT1 as $transac1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -205,7 +205,7 @@
                     <?php foreach ($transacT2 as $transac2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -221,7 +221,7 @@
                     <?php foreach ($transacT3 as $transac3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$transac3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -247,7 +247,7 @@
                     <?php foreach ($meilleureM1 as $meilleure1) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -263,7 +263,7 @@
                     <?php foreach ($meilleureM2 as $meilleure2) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
@@ -279,7 +279,7 @@
                     <?php foreach ($meilleureM3 as $meilleure3) {
                     ?>
                     <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
+                        <div class="card my-3" style="height: 530px">
                             <div class="card-thumbnail">
                                 <img src="<?=$meilleure3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
