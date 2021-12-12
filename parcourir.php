@@ -1,5 +1,58 @@
     <?php
-    
+        session_start();
+
+        $database = "projet_piscine";
+        $db_handle = mysqli_connect('localhost', 'root', '');
+        $db_found = mysqli_select_db($db_handle, $database);
+
+        $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
+        $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
+        $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
+        $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
+        $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
+        $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
+        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
+        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
+        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
+        $resultI1 = mysqli_query($db_handle, $sqlI1);
+        $resultI2 = mysqli_query($db_handle, $sqlI2);
+        $resultI3 = mysqli_query($db_handle, $sqlI3);
+        $resultM1 = mysqli_query($db_handle, $sqlM1);
+        $resultM2 = mysqli_query($db_handle, $sqlM2);
+        $resultM3 = mysqli_query($db_handle, $sqlM3);
+        $resultT1 = mysqli_query($db_handle, $sqlT1);
+        $resultT2 = mysqli_query($db_handle, $sqlT2);
+        $resultT3 = mysqli_query($db_handle, $sqlT3);
+
+        while($immediat1 = mysqli_fetch_assoc($resultI1)){
+            $immediatI1[]=$immediat1;
+        }
+        while($immediat2 = mysqli_fetch_assoc($resultI2)){
+            $immediatI2[]=$immediat2;
+        }
+        while($immediat3 = mysqli_fetch_assoc($resultI3)){
+            $immediatI3[]=$immediat3;
+        }
+        while($meilleure1 = mysqli_fetch_assoc($resulM1)){
+            $meilleureM1[]=$meilleure1;
+        }
+        while($meilleure2 = mysqli_fetch_assoc($resulM2)){
+            $meilleureM2[]=$meilleure2;
+        }
+        while($meilleure3 = mysqli_fetch_assoc($resulM3)){
+            $meilleureM3[]=$meilleure3;
+        }
+        while($transac1 = mysqli_fetch_assoc($resultT1)){
+            $transacT1[]=$transac1;
+        }
+        while($transac2 = mysqli_fetch_assoc($resultT2)){
+            $transacT2[]=$transac2;
+        }
+        while($transac3 = mysqli_fetch_assoc($resulT3)){
+            $transacT3[]=$transac3;
+        }
+
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -61,22 +114,10 @@
                          <a class="nav-link active" href="compte.php">Mon compte</a>
                       </li>
                    </ul>
-                   <?php
-                      /*if($_SESSION['connexion']!=0){
-                         echo "<ul class=" . "/navbar-nav  col-sm-2" . ">";
-                      echo "<li class=" . "nav-item px-5" . ">";
-                      echo "<form method="."POST" .">";
-                         echo "<button type="."submit" ."class="."btn btn-primary" ."name="."b3".">Déconnexion</button>";
-                         echo "</form>";
-                      echo "</li>";
-                   echo "</ul>";
-                      }*/
-                   ?>
                 </div>
              </div>
              </nav>
-
-             <h2><br>Tout parcourir</h2>
+             <h2 style="padding:50px 0 0 50px">Tout parcourir</h2>
 
 
         <!-- Bootstrap 5 Cards in Grid -->
@@ -86,45 +127,52 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Achat immédiat</h2>
                     </div>
-                  
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card my-3">
-                            <div class="card-thumbnail">
-                                <img src="AI.jpg" class="img-fluid" alt="thumbnail">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">La Nike Dunk Low Black White arbore une tige en cuir blanc, rehaussée par des empiècements en cuir noir pour un contraste tout en sobriété.</p>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
-                            </div>
-                        </div>
-                    </div>
 
+                    <?php foreach ($immediatI1 as $immediat1) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="AI2.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$immediat1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Sean Cliver est une création conçue avec soin et avec des matériaux de qualité supérieure. Elle présente un upper en cuir premium.</p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat1['Rarete']?></a></h3>
+                                <p class="card-text"><?=$immediat1['Description']?></p>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
                         </div>
                     </div>
-
+                    <?php } ?>
+                    <?php foreach ($immediatI2 as $immediat2) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="AI3.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$immediat2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Un des coloris les plus populaires de la célèbre Moore, la Archeo Pink vous permettra d’apposer une touche de glamour sur chacun de vos looks.</p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat2['Rarete']?></a></h3>
+                                <p class="card-text"><?=$immediat2['Description']?></p>
                                 <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
+                    <?php foreach ($immediatI3 as $immediat3) {
+                    ?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card my-3">
+                            <div class="card-thumbnail">
+                                <img src="<?=$immediat3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$immediat3['Rarete']?></a></h3>
+                                <p class="card-text"><?=$immediat3['Description']?></p>
+                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -135,45 +183,51 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Transaction client-vendeur</h2>
                     </div>
-                  
+                    <?php foreach ($meilleureM1 as $meilleure1) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="CV.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure1['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">Le blanc et le bleu de l'Université de Caroline du Nord sont mis à l'honneur et habille la Nike Dunk Low UNC, le blanc prenant le rôle de base à laquelle se superpose le bleu.</p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure1['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure1['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
-
+                    <?php } ?>
+                    <?php foreach ($meilleureM2 as $meilleure2) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="CV2.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure2['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike Dunk Low Laser Orange se pare d'une base en cuir blanc, simplement rehaussée de superpositions d'un jaune vif, du swoosh central au mudguard en passant par le talon et les oeillets.</p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure2['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure2['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
-
+                    <?php } ?>
+                    <?php foreach ($meilleureM3 as $meilleure3) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="CV3.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure3['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Cette Dunk Low Green Glow women mélange un coloris vert pastel brillant et blanc dans un style efficace parfait pour la saison estivale. Faites parties des premiers à posséder cette paire</p>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure3['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure2['Description']?></p>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -184,45 +238,51 @@
                     <div class="col-12">
                         <h2 class="mb-3 text-danger">Meilleure offre</h2>
                     </div>
-                  
+                    <?php foreach ($meilleureM1 as $meilleure1) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="MO.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure1['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article rare</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Grateful Dead Bears Green opte pour une base verte alternant cuir suédé et revêtement en fausse fourrure. On retrouve des accents de bleu vif au niveau des Swoosh latéraux terminés par un contour dentelé noir.</p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure1['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure1['Description']?></p>
+                                <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
-
+                    <?php } ?>
+                    <?php foreach ($meilleureM2 as $meilleure2) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="MO2.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure2['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article haut de gamme</a></h3>
-                                <p class="card-text">La Nike SB Dunk Low Grateful Dead ‘Opti Yellow’ sent bon le début des années 2000. La chaussure à base de peluche jaune remet au goût du jour le concept de la « sneaker nounours » impulsée par le pack Teddy Bears. </p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure2['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
-
+                    <?php } ?>
+                    <?php foreach ($meilleureM3 as $meilleure3) {
+                    ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card my-3">
                             <div class="card-thumbnail">
-                                <img src="MO3.jpg" class="img-fluid" alt="thumbnail">
+                                <img src="<?=$meilleure3['Description']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary">Article régulier</a></h3>
-                                <p class="card-text">Cette fois-ci la division skateboarding de Nike s'associe avec le groupe Grateful Dead. Le coloris est inspiré de l'ourson orange présent sur la pochette d'un de leurs albums. Ce coloris est le plus limité du pack.</p>
-                                <a href="#" class="btn btn-danger">Je veux enchérir</a>
+                                <h3 class="card-title"><a href="#" class="text-secondary">Article <?=$meilleure3['Rarete']?></a></h3>
+                                <p class="card-text"><?=$meilleure2['Description']?></p>
+                                <a href="#" class="btn btn-danger">Je veux négocier</a>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>

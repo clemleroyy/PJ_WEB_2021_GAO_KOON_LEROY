@@ -368,7 +368,7 @@
                      </ul>
                      <ul class="navbar-nav  col-sm-2">
                         <li class="nav-item px-5">
-                           <a class="nav-link" href="panier.php">Panier</a>
+                           <a class="nav-link" href="panier.php">Panier<img src="panier.png" style="width:15px; height:15px"></a>
                         </li>
                      </ul>
                      <ul class="navbar-nav  col-sm-2">
@@ -499,7 +499,7 @@
                                        </label>
                                     </div>
                                     <div class="form-check disabled">
-                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="HautDeGamme">
+                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="Haut De Gamme">
                                        <label class="form-check-label" for="gridRadios3">
                                           Haut de gamme
                                        </label>
@@ -538,15 +538,15 @@
                                        </label>
                                     </div>
                                     <div class="form-check">
-                                       <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios2" value="MeilleureOffre">
+                                       <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios2" value="Meilleure offre">
                                        <label class="form-check-label" for="gridRadios2">
                                           Par meilleure offre
                                        </label>
                                     </div>
                                     <div class="form-check disabled">
-                                       <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios3" value="Negociation">
+                                       <input class="form-check-input" type="radio" name="ModeDeVente" id="gridRadios3" value="Transaction">
                                        <label class="form-check-label" for="gridRadios3">
-                                          Par négociation
+                                          Par transaction
                                        </label>
                                     </div>
                                  </div>
@@ -983,7 +983,7 @@
                            <div class="row align-items-center flex-row-reverse">
                               <div class="about-text go-to">
                                  <h3 class="dark-color">Bonjour <?=$PrenomC?></h3>
-                                 <h6 class="theme-color lead">Voici vos informations</h6>
+                                 <h6 class="theme-color lead" style="padding-top: 15px;">Voici vos informations</h6>
                                  <div class="row about-list">
                                     <div class="col-md-4">
                                        <div class="media">
@@ -1026,6 +1026,7 @@
                                     $result = mysqli_query($db_handle, $sql);
                                     $user=mysqli_fetch_assoc($result);
                                     $AdresseC=$user['Adresse1'];
+                                    $Adresse2C=$user['Adresse2'];
                                     $VilleC=$user['Ville'];
                                     $CPC=$user['CP'];
                                     $PaysC=$user['Pays'];
@@ -1036,7 +1037,7 @@
                                     <div class="col-md-6">
                                        <div class="media">
                                           <label><strong>Adresse</strong></label>
-                                          <p><?=$AdresseC?></p>
+                                          <p><?=$AdresseC . " " . $Adresse2C ?></p>
                                        </div>
                                        <div class="media">
                                           <label><strong>Pays</strong></label>
@@ -1055,7 +1056,7 @@
                                     </div> 
                                     <div class="col-md-12">
                                        <div class="media">
-                                          <label><strong>Telephone</strong></label>
+                                          <label><strong>Téléphone</strong></label>
                                           <p><?=$TelC?></p>
                                        </div>
                                     </div> 
