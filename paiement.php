@@ -22,7 +22,7 @@ $idCl = $_SESSION['idCl'];
 
  if(isset($_POST["AjoutPaiement"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
                 if($db_found){
-                  $sql = "SELECT * FROM paiement WHERE ID_client='2'";
+                  $sql = "SELECT * FROM paiement WHERE ID_client='$idCl'";
                   $result = mysqli_query($db_handle, $sql);
                   if(($user = mysqli_fetch_assoc($result))==0){
                      $erreurClient = "Le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte.";
