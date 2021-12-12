@@ -25,37 +25,37 @@ $idCl = $_SESSION['idCl'];
                   $sql = "SELECT * FROM paiement WHERE ID_client='$idCl'";
                   $result = mysqli_query($db_handle, $sql);
                   if(($user = mysqli_fetch_assoc($result))==0){
-                     $erreurClient = "Le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte.";
+                     $erreurClient = "Vous n'avez pas de moyen de paiement enregistré sur votre compte. Veuillez vous diriger vers l'espace Mon Compte";
                   }
                   else{
                      $sql .= " AND Type = '$TypeCarte'";
                      $result = mysqli_query($db_handle, $sql);
                      if(($user = mysqli_fetch_assoc($result))==0){
-                        $erreurType = "Le type de carte est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                        $erreurType = "Le type de carte est incorrect";
                      }
                      else{
                         $sql .= " AND NumCarte = '$NumCarte'";
                         $result = mysqli_query($db_handle, $sql);
                         if(($user = mysqli_fetch_assoc($result))==0){
-                           $erreurNum = "Le numéro de la carte est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                           $erreurNum = "Le numéro de la carte est incorrect";
                         }
                          else{
                      $sql .= " AND NomCarte = '$NomCarte'";
                      $result = mysqli_query($db_handle, $sql);
                      if(($user = mysqli_fetch_assoc($result))==0){
-                        $erreurNom = "Le nom est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                        $erreurNom = "Le nom est incorrect";
                      }
                      else{
                         $sql .= " AND DateExp = '$DateExp'";
                         $result = mysqli_query($db_handle, $sql);
                         if(($user = mysqli_fetch_assoc($result))==0){
-                           $erreurDate = "La date d'expiration est incorrecte ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                           $erreurDate = "La date d'expiration est incorrecte";
                         }
                         else{
                         $sql .= " AND Code = '$CodeCVC'";
                         $result = mysqli_query($db_handle, $sql);
                         if(($user = mysqli_fetch_assoc($result))==0){
-                           $erreurCode = "Le code CVC est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                           $erreurCode = "Le code CVC est incorrect";
                         }
                         else {
                            /*$sql = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
@@ -158,7 +158,7 @@ $idCl = $_SESSION['idCl'];
 
 <main>
 
-      <h3 style="text-align: center; padding-top: 10px">Ajout d'un moyen de paiement</h3>
+      <h3 style="text-align: center; padding-top: 10px">Vérification de votre moyen de paiement</h3>
                   <div style="align-content: center; padding-top: 10px; padding-left: 300px;">
                         <br>
                         <form method="post">
@@ -221,6 +221,14 @@ $idCl = $_SESSION['idCl'];
                               </div>
                            </div>
                            <br>
+
+                                          <div class="form-check">
+                                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                                     <label class="form-check-label" for="flexCheckDefault">
+                                     Veuillez accepter la clause disant que si vous formulez une offre sur un article, vous êtes sous contrat légal pour l'acheter si le vendeur accepte l'offre.
+                                        </label>
+                                    </div>
+
                            <div class="form-group row">
                             <div class="col-sm-10" style="padding-left: 30%; padding-bottom: 20px;">
                               <button type="submit" name="AjoutPaiement" class="btn btn-primary">Ajouter</button><br>
