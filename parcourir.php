@@ -1,27 +1,30 @@
    <?php
       session_start();
+      $idCl = $_SESSION['idCl'];
 
         $database = "projet_piscine";
         $db_handle = mysqli_connect('localhost', 'root', '');
         $db_found = mysqli_select_db($db_handle, $database);
-        $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
-        $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
-        $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
-        $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
-        $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
-        $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
-        $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
-        $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
-        $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
-        $resultI1 = mysqli_query($db_handle, $sqlI1);
-        $resultI2 = mysqli_query($db_handle, $sqlI2);
-        $resultI3 = mysqli_query($db_handle, $sqlI3);
-        $resultM1 = mysqli_query($db_handle, $sqlM1);
-        $resultM2 = mysqli_query($db_handle, $sqlM2);
-        $resultM3 = mysqli_query($db_handle, $sqlM3);
-        $resultT1 = mysqli_query($db_handle, $sqlT1);
-        $resultT2 = mysqli_query($db_handle, $sqlT2);
-        $resultT3 = mysqli_query($db_handle, $sqlT3);
+        if ($db_found) {
+            $sqlI1 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Haut de gamme'";
+            $sqlI2 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Rare'";
+            $sqlI3 = "SELECT * FROM objet WHERE Mode_achat = 'Immediat' AND Rarete = 'Regulier'";
+            $sqlM1 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Haut de gamme'";
+            $sqlM2 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Rare'";
+            $sqlM3 = "SELECT * FROM objet WHERE Mode_achat = 'Meilleure offre' AND Rarete = 'Regulier'";
+            $sqlT1 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Haut de gamme'";
+            $sqlT2 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Rare'";
+            $sqlT3 = "SELECT * FROM objet WHERE Mode_achat = 'Transaction' AND Rarete = 'Regulier'";
+            $resultI1 = mysqli_query($db_handle, $sqlI1);
+            $resultI2 = mysqli_query($db_handle, $sqlI2);
+            $resultI3 = mysqli_query($db_handle, $sqlI3);
+            $resultM1 = mysqli_query($db_handle, $sqlM1);
+            $resultM2 = mysqli_query($db_handle, $sqlM2);
+            $resultM3 = mysqli_query($db_handle, $sqlM3);
+            $resultT1 = mysqli_query($db_handle, $sqlT1);
+            $resultT2 = mysqli_query($db_handle, $sqlT2);
+            $resultT3 = mysqli_query($db_handle, $sqlT3);
+        }
 
         while($immediat1 = mysqli_fetch_assoc($resultI1)){
             $immediatI1[]=$immediat1;
@@ -51,6 +54,18 @@
             $transacT3[]=$transac3;
         }
 
+        $panier = isset($_POST["panier"])? $_POST["panier"] : "";
+        
+        if(isset($_POST["panier"])){
+            if ($db_found) {
+                $sql = "SELECT * FROM panier WHERE ID_client = '$idCl'";
+                $result = mysqli_query($db_handle, $sql);
+                $user = mysqli_fetch_assoc($result);
+                $tmp = $user['ID_panier'];
+                $sql = "UPDATE objet SET ID_panier = '$tmp' WHERE objet . ID_objet = '$panier'";
+                $result = mysqli_query($db_handle, $sql);
+            }
+        }
 
 
    ?>
@@ -145,7 +160,9 @@
                                 <p class="card-text"><?=$immediat1['Description']?><br>ID : <?=$immediat1['ID_objet']?></p>
 
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat1['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat1['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -161,7 +178,9 @@
                                 <h3 class="card-title">Article <?=$immediat2['Rarete']?></h3>
                                 <p class="card-text"><?=$immediat2['Description']?><br>ID : <?=$immediat2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat2['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat2['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -177,7 +196,9 @@
                                 <h3 class="card-title">Article <?=$immediat3['Rarete']?></h3>
                                 <p class="card-text"><?=$immediat3['Description']?><br>ID : <?=$immediat3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat3['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat3['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>

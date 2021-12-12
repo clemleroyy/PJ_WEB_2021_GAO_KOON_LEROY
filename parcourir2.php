@@ -1,5 +1,6 @@
    <?php
       session_start();
+      $idCl = $_SESSION['idCl'];
 
         $database = "projet_piscine";
         $db_handle = mysqli_connect('localhost', 'root', '');
@@ -51,6 +52,18 @@
             $transacT3[]=$transac3;
         }
 
+        $panier = isset($_POST["panier"])? $_POST["panier"] : "";
+        
+        if(isset($_POST["panier"])){
+            if ($db_found) {
+                $sql = "SELECT * FROM panier WHERE ID_client = '$idCl'";
+                $result = mysqli_query($db_handle, $sql);
+                $user = mysqli_fetch_assoc($result);
+                $tmp = $user['ID_panier'];
+                $sql = "UPDATE objet SET ID_panier = '$tmp' WHERE objet . ID_objet = '$panier'";
+                $result = mysqli_query($db_handle, $sql);
+            }
+        }
 
 
    ?>
@@ -144,7 +157,9 @@
                                 <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat3['Mode_achat']?></a></h3>
                                 <p class="card-text"><?=$immediat3['Description']?><br>ID : <?=$immediat3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat3['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat3['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -202,7 +217,9 @@
                                 <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat2['Mode_achat']?></a></h3>
                                 <p class="card-text"><?=$immediat2['Description']?><br>ID : <?=$immediat2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat2['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat2['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -261,7 +278,9 @@
                                 <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat1['Mode_achat']?></a></h3>
                                 <p class="card-text"><?=$immediat1['Description']?><br>ID : <?=$immediat1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat1['Prix']?>&euro;</strong></h3>
-                                <a href="#" class="btn btn-danger">Ajouter dans mon panier</a>
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-danger" name="panier" value="<?=$immediat1['ID_objet']?>">Ajouter dans mon panier</button>
+                                </form>
                             </div>
                         </div>
                     </div>

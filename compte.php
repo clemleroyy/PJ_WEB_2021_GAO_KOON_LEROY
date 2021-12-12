@@ -200,6 +200,18 @@
                   if(($user = mysqli_fetch_assoc($result))==0){
                      $sql = "INSERT INTO client (Nom, Prenom, Mail, Mdp) VALUES('$nom', '$prenom', '$mail2', '$mdp2')";
                      $result = mysqli_query($db_handle, $sql);
+                     $sql = "SELECT * FROM client WHERE Mail = '$mail2' AND Mdp = '$mdp2'";
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $tmp = $user['ID_client'];
+                     $sql = "INSERT INTO panier (ID_client, Prix_panier) VALUES('$tmp', '0')";
+                     $result = mysqli_query($db_handle, $sql);
+                     $sql = "SELECT * FROM panier WHERE ID_client = '$tmp'";
+                     $result = mysqli_query($db_handle, $sql);
+                     $user = mysqli_fetch_assoc($result);
+                     $tmp2 = $user['ID_panier'];
+                     $sql = "UPDATE client SET ID_panier = '$tmp2' WHERE client . ID_client = '$tmp'";
+                     $result = mysqli_query($db_handle, $sql);
                      $success = "Merci de vous être inscrit " . $prenom;
                   }
                   else{
@@ -507,7 +519,7 @@
                                        </label>
                                     </div>
                                     <div class="form-check disabled">
-                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="Haut De Gamme">
+                                       <input class="form-check-input" type="radio" name="Categorie" id="gridRadios3" value="Haut De gamme">
                                        <label class="form-check-label" for="gridRadios3">
                                           Haut de gamme
                                        </label>
