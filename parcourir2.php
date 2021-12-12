@@ -257,7 +257,7 @@
                                 <img src="<?=$immediat3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat3['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$immediat3['Mode_achat']?></h3>
                                 <p class="card-text"><?=$immediat3['Description']?><br>ID : <?=$immediat3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat3['Prix']?>&euro;</strong></h3>
                                 <form method="POST">
@@ -276,7 +276,7 @@
                                 <img src="<?=$transac3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$transac3['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$transac3['Mode_achat']?></h3>
                                 <p class="card-text"><?=$transac3['Description']?><br>ID : <?=$transac3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
@@ -293,7 +293,7 @@
                                 <img src="<?=$meilleure3['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$meilleure3['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$meilleure3['Mode_achat']?></h3>
                                 <p class="card-text"><?=$meilleure3['Description']?><br>ID : <?=$meilleure3['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure3['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
@@ -320,7 +320,7 @@
                                 <img src="<?=$immediat2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat2['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$immediat2['Mode_achat']?></h3>
                                 <p class="card-text"><?=$immediat2['Description']?><br>ID : <?=$immediat2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat2['Prix']?>&euro;</strong></h3>
                                 <form method="POST">
@@ -339,7 +339,7 @@
                                 <img src="<?=$transac2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$transac2['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$transac2['Mode_achat']?></h3>
                                 <p class="card-text"><?=$transac2['Description']?><br>ID : <?=$transac2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
@@ -356,7 +356,7 @@
                                 <img src="<?=$meilleure2['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$meilleure2['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$meilleure2['Mode_achat']?></h3>
                                 <p class="card-text"><?=$meilleure2['Description']?><br>ID : <?=$meilleure2['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure2['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
@@ -383,7 +383,7 @@
                                 <img src="<?=$immediat1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$immediat1['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$immediat1['Mode_achat']?></h3>
                                 <p class="card-text"><?=$immediat1['Description']?><br>ID : <?=$immediat1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$immediat1['Prix']?>&euro;</strong></h3>
                                 <form method="POST">
@@ -402,7 +402,7 @@
                                 <img src="<?=$transac1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$transac1['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$transac1['Mode_achat']?></h3>
                                 <p class="card-text"><?=$transac1['Description']?><br>ID : <?=$transac1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$transac1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux négocier</a>
@@ -419,7 +419,7 @@
                                 <img src="<?=$meilleure1['Photo_objet1']?>" class="img-fluid" alt="thumbnail">
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="#" class="text-secondary"><?=$meilleure1['Mode_achat']?></a></h3>
+                                <h3 class="card-title"><?=$meilleure1['Mode_achat']?></h3>
                                 <p class="card-text"><?=$meilleure1['Description']?><br>ID : <?=$meilleure1['ID_objet']?></p>
                                 <h3 class="theme-color lead"><strong>Prix : <?=$meilleure1['Prix']?>&euro;</strong></h3>
                                 <a href="#" class="btn btn-danger">Je veux enchérir</a>
