@@ -1,3 +1,81 @@
+<?php 
+
+session_start();
+$database = "projet_piscine";
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+$TypeCarte = isset($_POST["TypeCarte"])? $_POST["TypeCarte"] : "";
+$NumCarte = isset($_POST["NumCarte"])? $_POST["NumCarte"] : "";
+$NomCarte = isset($_POST["NomCarte"])? $_POST["NomCarte"] : "";
+$DateExp = isset($_POST["DateExp"])? $_POST["DateExp"] : "";
+$CodeCVC = isset($_POST["CodeCVC"])? $_POST["CodeCVC"] : "";
+$successVerif = "";
+$erreurClient = "";
+$erreurType = "";
+$erreurNum = "";
+$erreurNom = "";
+$erreurDate = "";
+$erreurCode = "";
+$success = "";
+$idCl = $_SESSION['idCl'];
+
+ if(isset($_POST["AjoutPaiement"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
+                if($db_found){
+                  $sql = "SELECT * FROM paiement WHERE ID_client='2'";
+                  $result = mysqli_query($db_handle, $sql);
+                  if(($user = mysqli_fetch_assoc($result))==0){
+                     $erreurClient = "Le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte.";
+                  }
+                  else{
+                     $sql .= " AND Type = '$TypeCarte'";
+                     $result = mysqli_query($db_handle, $sql);
+                     if(($user = mysqli_fetch_assoc($result))==0){
+                        $erreurType = "Le type de carte est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                     }
+                     else{
+                        $sql .= " AND NumCarte = '$NumCarte'";
+                        $result = mysqli_query($db_handle, $sql);
+                        if(($user = mysqli_fetch_assoc($result))==0){
+                           $erreurNum = "Le numéro de la carte est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                        }
+                         else{
+                     $sql .= " AND NomCarte = '$NomCarte'";
+                     $result = mysqli_query($db_handle, $sql);
+                     if(($user = mysqli_fetch_assoc($result))==0){
+                        $erreurNom = "Le nom est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                     }
+                     else{
+                        $sql .= " AND DateExp = '$DateExp'";
+                        $result = mysqli_query($db_handle, $sql);
+                        if(($user = mysqli_fetch_assoc($result))==0){
+                           $erreurDate = "La date d'expiration est incorrecte ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                        }
+                        else{
+                        $sql .= " AND Code = '$CodeCVC'";
+                        $result = mysqli_query($db_handle, $sql);
+                        if(($user = mysqli_fetch_assoc($result))==0){
+                           $erreurCode = "Le code CVC est incorrect ou le paiement que vous venez de saisir n'a pas encore été enregistré sur votre compte";
+                        }
+                        else {
+                           /*$sql = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
+                           $result = mysqli_query($db_handle, $sql);*/
+                           $successVerif = "Vos informations sont valides et votre paiement est validé ! ";
+                        }
+                     }
+            }
+         }
+      }
+   }
+}
+}
+
+ ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,104 +148,83 @@
       </div>
       </nav>
 
+<main>
 
-
-
-      <div id="header">
-         <h2>Paiement</h2>
-      </div>
-      
-	
-	<form action="paiement1.php" method="post">
-		<table>
-
-
-		<tr>
-			<td>Montant à payer:</td>
-			<td><input type="number" step="0.01" name="amount"></td>
-			</tr>
-		<tr>
-				<td>
-               <h3><li>Coordonnées de livraison : </li></h3>
-				</td>
-			</tr>
-	
-		   <tr>
-            <td>Nom et prénom:</td>
-            <td><input type ="text" name="name"></td>
-         </tr>
-         <tr>
-            <td>Adresse Ligne 1:</td>
-            <td><input type ="text" name="adress1"></td>
-         </tr>
-         <tr>
-            <td>Adresse Ligne 2:</td>
-            <td><input type ="text" name="adress2"></td>
-         </tr>
-         <tr>
-            <td>Ville:</td>
-            <td><input type ="text" name="city"></td>
-         </tr>
-         <tr>
-            <td>Code postal:</td>
-            <td><input type ="number" name="zipcode"></td>
-         </tr>
-         <tr>
-            <td>Pays:</td>
-            <td><input type ="text" name="country"></td>
-         </tr>
-         <tr>
-            <td>Numero de telephone:</td><br>
-            <td><input type ="number" name="phone"></td>
-         </tr>
-
-         </div>
-		<tr>
-				<td>
-               <div id="image">
-					<h3>
-					<li>Paiement : </li>
-					</h3>
-                  </div>
-				</td>
-		</tr>
-
-		<tr>
-				<td>Payer par:</td>
-				<td>
-					<input type="radio" name="creditCard" value="MasterCard">MasterCard<br>
-					<input type="radio" name="creditCard" value="Visa">Visa<br>
-					<input type="radio" name="creditCard" value="Amex">American Express<br>
-					<input type="radio" name="creditCard" value="Paypal">Paypal<br>
-				</td>
-			</tr>
-         <tr>
-            <td>Numero de carte:</td>
-            <td><input type ="number" name="cardnumber"></td>
-         </tr>
-         <tr>
-            <td>Nom affiché sur la carte:</td>
-            <td><input type ="text" name="namecard"></td>
-         </tr>
-         
-         <tr>
-            <td>Date d'expiration:</td>
-            <td><input type ="date" name="dateE"></td>
-         </tr>
-
-         <tr>
-            <td>Code de sécurité:</td>
-            <td><input type ="number" name="security"></td>
-         </tr>
-
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" name="button1" value="Soumettre">
-				</td>
-			</tr>
+      <h3 style="text-align: center; padding-top: 10px">Ajout d'un moyen de paiement</h3>
+                  <div style="align-content: center; padding-top: 10px; padding-left: 300px;">
+                        <br>
+                        <form method="post">
+                           <fieldset class="form-group">
+                              <div class="row" style="padding-left: 100px">
+                              <legend class="col-form-label col-sm-2 pt-0">Type de carte</legend>
+                                 <div class="col-sm-4" style="padding-left: 75px;">
+                                    <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios1" value="Visa">
+                                       <label class="form-check-label" for="gridRadios1">
+                                          Visa
+                                       </label>
+                                    </div>
+                                    <div class="form-check">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios2" value="Mastercard">
+                                       <label class="form-check-label" for="gridRadios2">
+                                          Mastercard
+                                       </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                       <input class="form-check-input" type="radio" name="TypeCarte" id="gridRadios3" value="American Express">
+                                       <label class="form-check-label" for="gridRadios3">
+                                          American Express
+                                       </label>
+                                   </div>
+                                 </div>
+                              </div>
+                              <span style="color: red;"><?=$erreurType?></span>
+                           </fieldset>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputEmail3" class="col-3 col-form-label">Numéro de la carte</label>
+                              <div class="col-4">
+                                 <input type="tel" class="form-control" name="NumCarte" id="inputEmail3" placeholder="Numéro de la carte" maxlength="16" required>
+                                 <span style="color: red;"><?=$erreurNum?></span>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputEmail3" class="col-3 col-form-label">Nom de la carte</label>
+                              <div class="col-4">
+                                 <input type="text" class="form-control" name="NomCarte" id="inputEmail3" placeholder="Nom de la carte" required>
+                                 <span style="color: red;"><?=$erreurNom?></span>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputPassword3" class="col-3 col-form-label">Date d'expiration</label>
+                              <div class="col-4">
+                                 <input type="date" class="form-control" name="DateExp" id="inputPassword3" placeholder="Date d'expiration" required>
+                                 <span style="color: red;"><?=$erreurDate?></span>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                              <label for="inputPassword3" class="col-3 col-form-label">Code CVC</label>
+                              <div class="col-4">
+                                 <input type="tel" class="form-control" name="CodeCVC" id="inputPassword3" placeholder="Code CVC" maxlength="3" required>
+                                 <span style="color: red;"><?=$erreurCode?></span>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                            <div class="col-sm-10" style="padding-left: 30%">
+                              <button type="submit" name="AjoutPaiement" class="btn btn-primary">Ajouter</button><br>
+                               <span style="color: green;"><?= $successVerif ?></span>
+                               <span style="color: red;"><?=$erreurClient?></span>
+                            </div>
+                          </div>
+                        </form>
+                     </div>
 		</table>
    </div>
-		
+</main>
 	</form>
 	<footer>
 		<?php include ('footer.php') ?>

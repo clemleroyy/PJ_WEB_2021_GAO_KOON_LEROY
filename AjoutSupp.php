@@ -97,12 +97,16 @@ mysqli_close($db_handle);
          </div>
       </div>
       </nav>
+
+
+
    <main>
       <div class="row">
 <br>
 <div class="col-sm-6 pt-2 mb-4" style="padding-left: 270px;">
 <h1 style="padding-left:7%"><strong>Ajout d'un objet</strong></h1>
 <br>
+
 <form method="post">                
          
    <fieldset class="form-group">
