@@ -49,6 +49,8 @@
             $erreurPseudo2 = "";
             $successSuppO = "";
             $successAjoutO = "";
+            $successAjoutA = "";
+            $successAjoutP = "";
 
             $affB4 = true;
             $affB5 = true;
@@ -88,6 +90,13 @@
             $Pseudo = isset($_POST["Pseudo"])? $_POST["Pseudo"] : "";
             $Image_Fond = isset($_POST["Image_Fond"])? $_POST["Image_Fond"] : "";
             $PhotoVendeur = isset($_POST["PhotoVendeur"])? $_POST["PhotoVendeur"] : "";
+
+            $Adresse1 = isset($_POST["Adresse1"])? $_POST["Adresse1"] : "";
+            $Adresse2 = isset($_POST["Adresse2"])? $_POST["Adresse2"] : "";
+            $Ville1 = isset($_POST["Ville1"])? $_POST["Ville1"] : "";
+            $CP1 = isset($_POST["CP1"])? $_POST["CP1"] : "";
+            $Pays1 = isset($_POST["Pays1"])? $_POST["Pays1"] : "";
+            $Tel1 = isset($_POST["Tel1"])? $_POST["Tel1"] : "";
 
             $TypeCarte = isset($_POST["TypeCarte"])? $_POST["TypeCarte"] : "";
             $NumCarte = isset($_POST["NumCarte"])? $_POST["NumCarte"] : "";
@@ -299,13 +308,22 @@
                $affB7 = false;
                $affAddPaiement = true;
             }
+            if(isset($_POST["AjoutAdresse"])){
+               $affB6 = false;
+               $affAddAdresse = true;
+               if($db_found){
+                  $sql = "INSERT INTO adresse (ID_client, Adresse1, Adresse2, Ville, CP, Pays, Tel) VALUES ('$idCl', '$Adresse1', '$Adresse2', '$Ville1', '$CP1', '$Pays1', '$Tel1')";
+                  $result = mysqli_query($db_handle, $sql);
+                  $successAjoutA = "Vous avez ajouté une adresse";
+               }
+            }
             if(isset($_POST["AjoutPaiement"])){
                $affB7 = false;
                $affAddPaiement = true;
                if($db_found){
-                  $sql = "INSERT INTO adresse (ID_client, Type, NumCarte, NomCarte, DateExp, Code) VALUES ('$idCl', '$TypeCarte', '$NumCarte', '$NomCarte', '$NomCarte', '$DateExp', '$CodeCVC')";
+                  $sql = "INSERT INTO paiement (ID_client, Type, NumCarte, NomCarte, DateExp, Code) VALUES ('$idCl', '$TypeCarte', '$NumCarte', '$NomCarte', '$DateExp', '$CodeCVC')";
                   $result = mysqli_query($db_handle, $sql);
-                  $successAjoutP = "Vous avez ajouté une adresse";
+                  $successAjoutP = "Vous avez ajouté un mode de paiement";
                }
             }
          ?>
@@ -388,7 +406,7 @@
            							<option value="1">Administrateur</option>
            							<option value="2">Vendeur</option>
            							<option value="3">Client</option>
-           						</select>
+           					</select>
            						<div class="form-group row" style="padding-left: 10px; margin: 10px">
                      			<div class="col-sm-10" style="padding-left: 20%">
                        				<button type="submit" class="btn btn-primary" name="b1">Connexion</button>
@@ -1067,32 +1085,39 @@
                                     $testpaiement = 1;
                                  }
                                  if($testpaiement == 1){
+                                    $result = mysqli_query($db_handle, $sql);
+                                    $user=mysqli_fetch_assoc($result);
+                                    $TypeC=$user['Type'];
+                                    $NumC=$user['NumCarte'];
+                                    $NomCa=$user['NomCarte'];
+                                    $DateC=$user['DateExp'];
+                                    $CodeC=$user['Code'];
                                  ?>
                                  <div class="row about-list">
                                     <div class="col-md-6">
                                        <div class="media">
                                           <label><strong>Type</strong></label>
-                                          <p><?=$NomC?></p>
+                                          <p><?=$TypeC?></p>
                                        </div>
                                        <div class="media">
                                           <label><strong>Numero de carte</strong></label>
-                                          <p><?=$NomC?></p>
+                                          <p><?=$NumC?></p>
                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                        <div class="media">
                                           <label><strong>Nom de la carte</strong></label>
-                                          <p><?=$PrenomC?></p>
+                                          <p><?=$NomCa?></p>
                                        </div>
                                        <div class="media">
                                           <label><strong>Date d'expiration</strong></label>
-                                          <p><?=$MailC?></p>
+                                          <p><?=$DateC?></p>
                                        </div>
                                     </div> 
                                     <div class="col-md-12">
                                        <div class="media">
                                           <label><strong>Code</strong></label>
-                                          <p><?=$MailC?></p>
+                                          <p><?=$CodeC?></p>
                                        </div>
                                     </div> 
                                  </div>
@@ -1155,7 +1180,7 @@
                            <div class="form-group row" style="padding-left: 10px">
                               <label for="inputEmail3" class="col-3 col-form-label">Code Postal</label>
                               <div class="col-6">
-                                 <input type="text" class="form-control" name="CP1" id="inputEmail3" placeholder="Code Postal" required>
+                                 <input type="text" class="form-control" name="CP1" id="inputEmail3" placeholder="Code Postal" minlength="5" maxlength="5" required>
                               </div>
                            </div>
                            <br>
@@ -1169,14 +1194,14 @@
                            <div class="form-group row" style="padding-left: 10px">
                               <label for="inputEmail3" class="col-3 col-form-label">Téléphone</label>
                               <div class="col-6">
-                                 <input type="tel" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" maxlength="10" required>
+                                 <input type="tel" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
                               </div>
                            </div>
                            <br>
                            <div class="form-group row">
                             <div class="col-sm-10" style="padding-left: 20%">
                               <button type="submit" name="AjoutAdresse" class="btn btn-primary">Ajouter</button><br>
-                              <span style="color: green;"><?= $successSuppV ?></span>
+                              <span style="color: green;"><?= $successAjoutA ?></span>
                             </div>
                           </div>
 
@@ -1221,7 +1246,7 @@
                            <div class="form-group row">
                               <label for="inputEmail3" class="col-3 col-form-label">Numéro de la carte</label>
                               <div class="col-4">
-                                 <input type="tel" class="form-control" name="NumCarte" id="inputEmail3" placeholder="Numéro de la carte" maxlength="16" required>
+                                 <input type="tel" class="form-control" name="NumCarte" id="inputEmail3" placeholder="Numéro de la carte" minlength="16" maxlength="16" required>
                               </div>
                            </div>
                            <br>
@@ -1242,14 +1267,14 @@
                            <div class="form-group row">
                               <label for="inputPassword3" class="col-3 col-form-label">Code CVC</label>
                               <div class="col-4">
-                                 <input type="tel" class="form-control" name="CodeCVC" id="inputPassword3" placeholder="Code CVC" maxlength="3" required>
+                                 <input type="tel" class="form-control" name="CodeCVC" id="inputPassword3" placeholder="Code CVC" minlength="3" maxlength="3" required>
                               </div>
                            </div>
                            <br>
                            <div class="form-group row">
                             <div class="col-sm-10" style="padding-left: 30%">
                               <button type="submit" name="AjoutPaiement" class="btn btn-primary">Ajouter</button><br>
-                              <span style="color: green;"><?= $successSuppV ?></span>
+                              <span style="color: green;"><?= $successAjoutP ?></span>
                             </div>
                           </div>
                         </form>
