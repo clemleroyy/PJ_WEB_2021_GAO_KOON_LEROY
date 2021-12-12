@@ -18,7 +18,23 @@ $erreurNom = "";
 $erreurDate = "";
 $erreurCode = "";
 $success = "";
+$successAjoutA = "";
 $idCl = $_SESSION['idCl'];
+
+$Adresse1 = isset($_POST["Adresse1"])? $_POST["Adresse1"] : "";
+            $Adresse2 = isset($_POST["Adresse2"])? $_POST["Adresse2"] : "";
+            $Ville1 = isset($_POST["Ville1"])? $_POST["Ville1"] : "";
+            $CP1 = isset($_POST["CP1"])? $_POST["CP1"] : "";
+            $Pays1 = isset($_POST["Pays1"])? $_POST["Pays1"] : "";
+            $Tel1 = isset($_POST["Tel1"])? $_POST["Tel1"] : "";
+
+if(isset($_POST["AjoutAdresse"])){
+               if($db_found){
+                  $sql = "INSERT INTO adresse (ID_client, Adresse1, Adresse2, Ville, CP, Pays, Tel) VALUES ('$idCl', '$Adresse1', '$Adresse2', '$Ville1', '$CP1', '$Pays1', '$Tel1')";
+                  $result = mysqli_query($db_handle, $sql);
+                  $successAjoutA = "Vous avez ajouté une adresse";
+               }
+            }
 
  if(isset($_POST["AjoutPaiement"])){ //Si click sur Ajouter (faudra differencier session admin et vendeur)
                 if($db_found){
@@ -157,7 +173,129 @@ $idCl = $_SESSION['idCl'];
       </nav>
 
 <main>
+   <section class="section about-section gray-bg pt-3" id="about">
+                        <div class="container" style="text-align: center;">
+                           <div class="row align-items-center flex-row-reverse">
+                              <div class="about-text go-to">
+                                 <h3 style="text-align: center">Votre adresse</h3>
+                                 <?php
+                                 $sql = "SELECT * FROM adresse WHERE ID_client='$idCl'";
+                                 $result = mysqli_query($db_handle, $sql);
+                                 if(($user=mysqli_fetch_assoc($result))==0){
+                                 $testadresse = 0;
+                                 }
+                                 else{
+                                    $testadresse = 1;
+                                 }
+                                 if($testadresse == 1){
+                                    $result = mysqli_query($db_handle, $sql);
+                                    $user=mysqli_fetch_assoc($result);
+                                    $AdresseC=$user['Adresse1'];
+                                    $Adresse2C=$user['Adresse2'];
+                                    $VilleC=$user['Ville'];
+                                    $CPC=$user['CP'];
+                                    $PaysC=$user['Pays'];
+                                    $TelC=$user['Tel'];
 
+                                 ?>
+                                 <div class="row about-list">
+                                    <div class="col-md-6">
+                                       <div class="media">
+                                          <label><strong>Adresse</strong></label>
+                                          <p><?=$AdresseC . " " . $Adresse2C ?></p>
+                                       </div>
+                                       <div class="media">
+                                          <label><strong>Pays</strong></label>
+                                          <p><?=$PaysC?></p>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="media">
+                                          <label><strong>Ville</strong></label>
+                                          <p><?=$VilleC?></p>
+                                       </div>
+                                       <div class="media">
+                                          <label><strong>Code Postal</strong></label>
+                                          <p><?=$CPC?></p>
+                                       </div>
+                                    </div> 
+                                    <div class="col-md-12">
+                                       <div class="media">
+                                          <label><strong>Téléphone</strong></label>
+                                          <p><?=$TelC?></p>
+                                       </div>
+                                    </div> 
+                                 </div>
+                                 <?php
+                                 }
+                                 else{
+                                    echo "<p>Vous n'avez pas d'adresse enregistré</p>";
+                                    ?>
+                                    <div style="text-align: center; padding-top: 10px" >
+                        <h5 class="theme-color lead"><strong>Ajout d'une adresse</strong></h5>
+                        <br>
+                        <form method="post">
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Adresse 1</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="Adresse1" id="inputEmail3" placeholder="Adresse" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Adresse 2</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="Adresse2" id="inputEmail3" placeholder="Adresse 2 (facultatif)">
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Ville</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="Ville1" id="inputEmail3" placeholder="Ville" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Code Postal</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="CP1" id="inputEmail3" placeholder="Code Postal" minlength="5" maxlength="5" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Pays</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="Pays1" id="inputEmail3" placeholder="Pays" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row" style="padding-left: 10px">
+                              <label for="inputEmail3" class="col-3 col-form-label">Téléphone</label>
+                              <div class="col-6">
+                                 <input type="text" class="form-control" name="Tel1" id="inputEmail3" placeholder="06 00 00 00 00" minlength="10" maxlength="10" required>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="form-group row">
+                            <div class="col-sm-10" style="padding-left: 20%">
+                              <button type="submit" name="AjoutAdresse" class="btn btn-primary">Ajouter</button><br>
+                              <span style="color: green;"><?= $successAjoutA ?></span>
+                            </div>
+                          </div>
+
+                        </form>
+                     <br>
+                     <br>
+                  </div>
+                                    <?php
+                                 }
+                                 ?>
+                              </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="pt-3">
       <h3 style="text-align: center; padding-top: 10px">Vérification de votre moyen de paiement</h3>
                   <div style="align-content: center; padding-top: 10px; padding-left: 300px;">
                         <br>
@@ -240,6 +378,7 @@ $idCl = $_SESSION['idCl'];
                      </div>
 		</table>
    </div>
+</section>
 </main>
 	</form>
 	<footer>
