@@ -1,6 +1,7 @@
    <?php 
 
    session_start();
+
    $database = "projet_piscine";
    $db_handle = mysqli_connect('localhost', 'root', '');
    $db_found = mysqli_select_db($db_handle, $database);
@@ -20,6 +21,13 @@
    $success = "";
    $successAjoutA = "";
    $idCl = $_SESSION['idCl'];
+
+   if ($db_found) {
+            $sql = "SELECT * FROM panier WHERE ID_client = '$idCl'";
+            $result = mysqli_query($db_handle, $sql);
+            $user = mysqli_fetch_assoc($result);
+            $idP = $user['ID_panier'];
+         }
 
    $Adresse1 = isset($_POST["Adresse1"])? $_POST["Adresse1"] : "";
                $Adresse2 = isset($_POST["Adresse2"])? $_POST["Adresse2"] : "";
@@ -74,8 +82,8 @@
                               $erreurCode = "Le code CVC est incorrect";
                            }
                            else {
-                              /*$sql = "DELETE FROM objet WHERE ID_objet = '$ID_Objet'";
-                              $result = mysqli_query($db_handle, $sql);*/
+                              $sql = "DELETE FROM objet WHERE ID_Panier = '$idP'";
+                              $result = mysqli_query($db_handle, $sql);
                               $successVerif = "Vos informations sont valides et votre paiement est validé ! ";
                            }
                         }
@@ -369,7 +377,7 @@
 
                               <div class="form-group row">
                                <div class="col-sm-10" style="padding-left: 30%; padding-bottom: 20px;">
-                                 <button type="submit" name="AjoutPaiement" class="btn btn-primary">Ajouter</button><br>
+                                 <button type="submit" name="AjoutPaiement" class="btn btn-primary">Payer</button><br>
                                   <span style="color: green;"><?= $successVerif ?></span>
                                   <span style="color: red;"><?=$erreurClient?></span>
                                </div>

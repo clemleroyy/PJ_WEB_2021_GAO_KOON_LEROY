@@ -808,7 +808,7 @@
                      $PseudoV=$user['Pseudo'];
                      ?>
                            <section class="section about-section gray-bg pt-2" id="about">
-                              <div style="background-image: url('<?=$FondV?>')">
+                              <div style="background-image: url('<?=$FondV?>');">
                         <div class="container">
                             <div class="row align-items-center flex-row-reverse">
                                 <div class="col-lg-6">
@@ -833,7 +833,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="about-avatar">
-                                        <img src="<?=$PhotoV?>" title="" alt="" style="border-radius: 10%;">
+                                        <img src="<?=$PhotoV?>" title="" alt="" style="border-radius: 10%; height: 200px; width: 200px;">
                                     </div>
                                 </div>
                             </div>

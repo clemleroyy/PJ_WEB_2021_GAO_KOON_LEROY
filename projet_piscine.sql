@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 12 déc. 2021 à 12:30
+-- Généré le : Dim 12 déc. 2021 à 17:21
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -60,18 +60,19 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `Ville` varchar(255) NOT NULL,
   `CP` int(7) NOT NULL,
   `Pays` varchar(255) NOT NULL,
-  `Tel` int(10) NOT NULL,
+  `Tel` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_adresse`),
   KEY `ID_client` (`ID_client`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`ID_adresse`, `ID_client`, `Adresse1`, `Adresse2`, `Ville`, `CP`, `Pays`, `Tel`) VALUES
-(1, 1, '37 quai de Grenelle', '', 'Paris', 75015, 'France', 1234567890),
-(2, 2, '90 rue Anatole France', '2 rue', 'Levallois', 92300, 'France', 665904830);
+(1, 1, '37 quai de Grenelle', '', 'Paris', 75015, 'France', '1234567890'),
+(2, 2, '90 rue Anatole France', '2 rue', 'Levallois', 92300, 'France', '0665904830'),
+(3, 8, '1 rue', '', 'Paris', 75000, 'France', '0000000000');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Mdp` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_client`),
   KEY `ID_panier` (`ID_panier`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
@@ -97,7 +98,10 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 INSERT INTO `client` (`ID_client`, `ID_panier`, `Nom`, `Prenom`, `Mail`, `Mdp`) VALUES
 (1, 1, 'KOON', 'Jimmy', 'jimmy@test', 'test'),
-(2, 2, 'Gao', 'Camille', 'gc@gmail.com', 'gc');
+(2, 2, 'Gao', 'Camille', 'gc@gmail.com', 'gc'),
+(6, 8, 'test', 'test', 'test@test', 'test'),
+(7, 8, 't', 't', 't@t', 't'),
+(8, 9, 'Leroy', 'Clement', 'clement@test', 'test');
 
 -- --------------------------------------------------------
 
@@ -139,8 +143,8 @@ INSERT INTO `objet` (`ID_objet`, `ID_vendeur`, `ID_admin`, `ID_panier`, `Nom`, `
 (2, 1, 1, NULL, 'Ben & Jerry\'s Chunky Dunky', 'Les Nike x Ben&Jerry sont a la fois une des collabs les plus loufoques mais surtout l\'une des plus reussies du marche, vous ferez a coup sur des jaloux (glaces non fournies)', 200, 'Rare', 'Meilleure offre', 'BJ.jpg', 'BJ.jpg', 'BJ_2.jpg', 'BJ.jpg', '2021-12-11 16:15:08', '2021-12-31'),
 (3, 2, 2, NULL, 'Sail off-white', 'Les Air Jordan 4 beige sont surement le modele le plus elegant que nous pouvons proposer a l\'heure actuelle, parfaite pour un mariage, une sortie entre pote ou meme au coin d\'un feu', 150, 'Haut de gamme', 'Meilleure offre', 'sail.jpg', 'sail.jpg', 'sail_2.jpg', 'sail.jpg', '2021-12-11 16:16:05', '2021-12-31'),
 (4, 3, 2, NULL, 'Yeezy black', 'Les Yeezys sont passees d\'une paire de chaussure critiquee a un classique qui nous colle aux basques depuis maintenant quelques annees par la finesse, le confort et la confiance qu elle nous offre', 200, 'Haut de gamme', 'Transaction', 'yeezyblack.jpg', 'yeezyblack.jpg', 'yeezyblack_2.jpg', 'yeezyblack.jpg', '2021-12-11 16:16:57', '2021-12-31'),
-(5, 3, 3, NULL, 'Nike Dunk Low Black White', 'La Nike Dunk Low Black White arbore une tige en cuir blanc, rehaussee par des empiecements en cuir noir pour un contraste tout en sobriete.', 100, 'Rare', 'Immediat', 'AI.jpg', 'AI.jpg', 'AI_2.jpg', 'AI.jpg', '2021-12-11 16:18:12', '2021-12-31'),
-(6, 1, 2, NULL, 'Nike SB Dunk Low Sean Cliver', 'La Nike SB Dunk Low Sean Cliver est une creation concue avec soin et avec des materiaux de qualite superieure. Elle presente un upper en cuir premium.', 200, 'Haut de gamme', 'Immediat', 'AI2.jpg', 'AI2.jpg', 'AI2_2.jpg', 'AI2.jpg', '2021-12-11 16:19:19', '2021-12-31'),
+(5, 3, 3, 2, 'Nike Dunk Low Black White', 'La Nike Dunk Low Black White arbore une tige en cuir blanc, rehaussee par des empiecements en cuir noir pour un contraste tout en sobriete.', 100, 'Rare', 'Immediat', 'AI.jpg', 'AI.jpg', 'AI_2.jpg', 'AI.jpg', '2021-12-11 16:18:12', '2021-12-31'),
+(6, 1, 2, 2, 'Nike SB Dunk Low Sean Cliver', 'La Nike SB Dunk Low Sean Cliver est une creation concue avec soin et avec des materiaux de qualite superieure. Elle presente un upper en cuir premium.', 200, 'Haut de gamme', 'Immediat', 'AI2.jpg', 'AI2.jpg', 'AI2_2.jpg', 'AI2.jpg', '2021-12-11 16:19:19', '2021-12-31'),
 (7, 1, 2, NULL, 'Archeo Pink', 'Un des coloris les plus populaires de la celebre Moore, la Archeo Pink vous permettra d apposer une touche de glamour sur chacun de vos looks.', 50, 'Regulier', 'Immediat', 'AI3.jpg', 'AI3.jpg', 'AI3_2.jpg', 'AI3.jpg', '2021-12-11 16:20:27', '2021-12-31'),
 (8, 3, 1, NULL, 'Nike Dunk Low UNC', 'Le blanc et le bleu de l\'Universite de Caroline du Nord sont mis a l\'honneur et habille la Nike Dunk Low UNC, le blanc prenant le role de base a laquelle se superpose le bleu.', 300, 'Rare', 'Transaction', 'CV.jpg', 'CV.jpg', 'CV_2.jpg', 'CV.jpg', '2021-12-11 16:22:25', '2021-12-31'),
 (9, 3, 3, NULL, 'Nike Dunk Low Laser Orange', 'La Nike Dunk Low Laser Orange se pare d\'une base en cuir blanc, simplement rehaussee de superpositions d\'un jaune vif, du swoosh central au mudguard en passant par le talon et les oeillets.', 250, 'Haut de gamme', 'Transaction', 'CV2.jpg', 'CV2.jpg', 'CV2_2.jpg', 'CV2.jpg', '2021-12-11 16:23:16', '2021-12-31'),
@@ -167,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `paiement` (
   `Code` int(7) NOT NULL,
   PRIMARY KEY (`ID_paiement`),
   KEY `ID_client` (`ID_client`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `paiement`
@@ -184,7 +188,8 @@ INSERT INTO `paiement` (`ID_paiement`, `ID_client`, `Type`, `NumCarte`, `NomCart
 (8, 2, 'Visa', '1111111111111111', 'A', '2021-12-31', 111),
 (9, 2, 'Visa', '1111111111111111', 'A', '2021-12-31', 111),
 (10, 2, 'Visa', '1111111111111111', 'A', '2021-12-31', 111),
-(11, 2, 'Visa', '1111111111111111', 'A', '2021-12-31', 111);
+(11, 2, 'Visa', '1111111111111111', 'A', '2021-12-31', 111),
+(12, 8, 'Visa', '1111111111111111', 'Leroy', '2021-12-31', 111);
 
 -- --------------------------------------------------------
 
@@ -200,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `Prix_panier` int(10) NOT NULL,
   PRIMARY KEY (`ID_panier`),
   KEY `ID_client` (`ID_client`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `panier`
@@ -208,7 +213,11 @@ CREATE TABLE IF NOT EXISTS `panier` (
 
 INSERT INTO `panier` (`ID_panier`, `ID_client`, `Photo_panier`, `Prix_panier`) VALUES
 (1, 1, 'text', 10),
-(2, 2, 'text', 11);
+(2, 2, 'text', 11),
+(6, 5, NULL, 0),
+(7, 6, NULL, 0),
+(8, 7, NULL, 0),
+(9, 8, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `vendeur` (
 --
 
 INSERT INTO `vendeur` (`ID_vendeur`, `ID_admin`, `Nom`, `Prenom`, `Mail`, `Mdp`, `Pseudo`, `Image_fond`, `Image_vendeur`) VALUES
-(1, 4, 'Hina', 'Manolo', 'hina@test', 'test', 'Manolo', '', 'BG.png');
+(1, 4, 'Hina', 'Manolo', 'hina@test', 'test', 'Manolo', 'creme.jpeg', 'BG.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
